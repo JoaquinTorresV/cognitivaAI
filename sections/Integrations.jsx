@@ -16,8 +16,13 @@ export default function Integrations() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {INTEGRATIONS.map((tool) => (
-            <div key={tool} className="bg-gray-50 rounded-lg p-4 flex items-center justify-center hover:bg-blue-50 transition-colors">
-              <span className="text-gray-700 font-medium">{tool}</span>
+            <div key={tool.name} className="bg-gray-50 rounded-lg p-4 flex items-center justify-center hover:bg-blue-50 transition-colors">
+              <img
+                src={`/logos%20herramientas/${tool.img}`}
+                alt={tool.name}
+                className="h-10 w-auto object-contain"
+                style={{ maxHeight: 40 }}
+              />
             </div>
           ))}
         </div>

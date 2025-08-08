@@ -34,7 +34,9 @@ export default function Services() {
                 ))}
               </CardContent>
               <CardFooter>
-                <Button variant="secondary" size="sm">{cta}</Button>
+                <Button variant="secondary" size="sm" className="px-12">
+                  {cta}
+                </Button>
               </CardFooter>
             </Card>
           ))}

@@ -10,8 +10,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="h-8 w-8 text-blue-400" />
-              <span className="text-2xl font-bold">Cognitiva</span>
+              <img
+                src="/logo-cognitiva-alargado.png"
+                alt="Logo Cognitiva"
+                className="h-8 w-auto"
+                style={{ maxWidth: 160 }}
+              />
             </div>
             <p className="text-gray-400 text-sm">
               Transformamos negocios con IA conversacional y automatización inteligente.

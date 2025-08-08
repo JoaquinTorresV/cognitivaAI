@@ -4,6 +4,7 @@ import {
     Users, Phone, Mail, MapPin, Clock, TrendingUp, PieChart, DollarSign,
     Lock, Cloud, Cpu, Code2, ShoppingCart, Rocket
   } from "lucide-react";
+
   
   export const BRAND = {
     name: "Cognitiva",
@@ -141,9 +142,31 @@ import {
   ];
   
   export const INTEGRATIONS = [
-    "HubSpot","Salesforce","WhatsApp","Shopify","WordPress","Pipedrive",
-    "Slack","Teams","Google Workspace","Zapier","Make","ActiveCampaign",
-    "Mailchimp","Stripe","PayPal","AWS","Google Cloud","Meta Business",
+    { name: "AWS", img: "AWS.png" },
+    { name: "Google", img: "Google.png" },
+    { name: "Google G", img: "Google G.png" },
+    { name: "HTML", img: "HTML.png" },
+    { name: "HubSpot", img: "HubSpot.png" },
+    { name: "Instagram", img: "Instagram.png" },
+    { name: "Mailchimp", img: "Mailchimp.png" },
+    { name: "Make", img: "Make.png" },
+    { name: "Mercado Libre", img: "mercadolibre.png" },
+    { name: "Meta", img: "Meta.png" },
+    { name: "Microsoft", img: "Microsoft.png" },
+    { name: "n8n", img: "n8n.png" },
+    { name: "Node Js", img: "Node Js.png" },
+    { name: "Paypal", img: "Paypal.png" },
+    { name: "Pipedrive", img: "Pipedrive.png" },
+    { name: "Salesforce", img: "Salesforce.png" },
+    { name: "Shopify", img: "Shopify.png" },
+    { name: "Shopify 2", img: "Shopify 2.png" },
+    { name: "Siteground", img: "Siteground.png" },
+    { name: "Slack", img: "Slack.png" },
+    { name: "Stripe", img: "stripe.png" },
+    { name: "TikTok", img: "TikTok.png" },
+    { name: "WhatsApp", img: "WhatsApp.png" },
+    { name: "WordPress", img: "WordPress.png" },
+    { name: "Zapier", img: "Zapier.png" },
   ];
   
   export const ROI_METRICS = [
@@ -197,4 +220,3 @@ import {
     { q: "¿ROI esperado?", a: "La mayoría ve ROI positivo el primer mes. Promedio 3.5x en 6 meses." },
     { q: "¿Puedo cancelar?", a: "Sí, mes a mes sin penalizaciones." },
   ];
-  

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { PlayCircle } from "lucide-react";
 import { Button } from "../ui/Button";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 
@@ -16,10 +15,13 @@ export default function Demo() {
         </div>
 
         <div className="bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl p-8 shadow-xl">
-          <div className="aspect-video bg-gray-900 rounded-xl flex items-center justify-center">
-            <button className="bg-white/90 backdrop-blur-sm rounded-full p-6 hover:bg-white transition-all hover:scale-110">
-              <PlayCircle className="h-12 w-12 text-blue-600" />
-            </button>
+          <div className="aspect-video bg-gray-900 rounded-xl flex items-center justify-center overflow-hidden">
+            <video
+              src="/Video_Infográfico_de_Servicios_Digitales.mp4"
+              controls
+              className="w-full h-full object-cover rounded-xl"
+              poster="/connitiva.png"
+            />
           </div>
           <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="primary">Ver Demo Completa</Button>

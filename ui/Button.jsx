@@ -11,9 +11,9 @@ export function Button({
   const base =
     "inline-flex items-center justify-center rounded-full font-semibold btn-focus transition-all";
   const sizes = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-6 py-3",
-    lg: "px-8 py-4 text-lg",
+    lg: "py-3 text-lg",
+    md: "py-2 text-base",
+    sm: "py-2 text-sm",
   };
   const variants = {
     primary:
@@ -34,5 +34,5 @@ export function Button({
 
 // Utilidad local: concatenar clases evitando falsy
 export function cn(...args) {
-  return args.filter(Boolean).join(" ");
+  return args.filter(Boolean).join(" ");
 }

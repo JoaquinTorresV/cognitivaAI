@@ -39,7 +39,7 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Button as="a" href={BRAND.calendarLink} variant="primary" size="sm">Agenda una Reunión</Button>
+          <Button as="a" href={BRAND.calendarLink} variant="primary" size="sm" className="px-8">Agenda una Reunión</Button>
         </div>
 
         {/* Mobile */}

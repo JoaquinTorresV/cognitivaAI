@@ -11,7 +11,6 @@ import Pricing from '@/sections/Pricing';
 import Security from '@/sections/Security';
 import Demo from '@/sections/Demo';
 import FAQ from '@/sections/FAQ';
-import LeadMagnet from '@/sections/LeadMagnet';
 import FinalCTA from '@/sections/FinalCTA';
 import FloatingButtons from '@/common/FloatingButtons';
 
@@ -32,7 +31,6 @@ export default function IndexPage() {
         <Security />
         <Demo />
         <FAQ />
-        <LeadMagnet />
         <FinalCTA />
       </main>
       <Footer />

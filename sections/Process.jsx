@@ -30,7 +30,9 @@ export default function Process() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button variant="primary" size="lg">Quiero mi Diagnóstico Gratis</Button>
+          <Button variant="primary" size="lg" className="px-12">
+            Quiero mi Diagnóstico Gratis
+          </Button>
         </div>
       </div>
     </section>
