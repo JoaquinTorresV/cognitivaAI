@@ -1,4 +1,3 @@
-// Datos centralizados para mantener el JSX limpio y escalable
 import {
     Bot, Zap, Database, Target, Globe, BarChart3, Award, Shield, Star,
     Users, Phone, Mail, MapPin, Clock, TrendingUp, PieChart, DollarSign,
@@ -28,7 +27,7 @@ import {
     { icon: Award, label: "Partner Oficial" },
     { icon: Shield, label: "ISO 27001" },
     { icon: Star, label: "4.9/5 Reviews" },
-    { icon: Users, label: "+500 Clientes" },
+    { icon: TrendingUp, label: "+6 Años de Experiencia" }, // <-- Cambiado a Clock
   ];
   
   export const SERVICES = [

@@ -17,7 +17,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "bg-white/95 shadow-lg backdrop-blur" : "bg-white/70 backdrop-blur-sm"}`}>
+    <nav className={`fixed inset-x-0 top-0 z-50 transition-all
+      ${scrolled
+        ? "bg-blue-950 shadow-lg border-b border-blue-950"
+        : "bg-blue-950/90 shadow border-b border-blue-950"
+      }`}>
       <div className="container-padded h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center">
@@ -35,24 +39,24 @@ export default function Navbar() {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
           {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="text-gray-700 hover:text-blue-600">
+            <Link key={l.href} href={l.href} className="text-white hover:text-blue-300 transition-colors">
               {l.label}
             </Link>
           ))}
-          <Button as="a" href={BRAND.calendarLink} variant="primary" size="sm" className="px-8">Agenda una Reunión</Button>
+          <Button as="a" href={BRAND.calendarLink} variant="primary" size="sm" className="px-4">Agenda Aquí</Button>
         </div>
 
         {/* Mobile */}
         <button className="md:hidden p-2 rounded-md btn-focus" onClick={() => setOpen((v) => !v)}>
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t bg-white">
+        <div className="md:hidden border-t bg-blue-900/95">
           <div className="container-padded py-2 flex flex-col">
             {NAV_LINKS.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2 text-left text-gray-700 hover:text-blue-600">
+              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2 text-left text-white hover:text-blue-300 transition-colors">
                 {l.label}
               </Link>
             ))}

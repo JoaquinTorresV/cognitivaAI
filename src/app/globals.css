@@ -31,7 +31,7 @@ body {
 
 /* Estilos globales */
 html, body {
-  @apply bg-white text-gray-900 antialiased scroll-smooth;
+  @apply bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950 text-white antialiased scroll-smooth;
 }
 
 ::selection {
@@ -44,7 +44,7 @@ html, body {
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
 }
 
 .glass {
@@ -72,4 +72,42 @@ html, body {
 }
 .card-hover {
   @apply transition-all hover:shadow-xl hover:-translate-y-0.5;
+}
+
+/* Animación para scroll horizontal infinito de logos */
+@keyframes scroll-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-logos {
+  animation: scroll-logos 30s linear infinite;
+  width: max-content;
+  min-width: 200%;
+  display: flex;
+}
+
+/* Textos */
+.text-gray-900, .text-gray-700, .text-gray-600 {
+  color: #ededed !important;
+}
+.text-blue-600, .text-blue-800 {
+  color: #60a5fa !important;
+}
+
+/* Botones */
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+.btn-secondary {
+  @apply bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-600 hover:text-white;
+}
+
+/* Cards y chat */
+.card, .bg-white {
+  background: #181f2a !important;
+  color: #ededed !important;
+  border-color: #23304a !important;
+}
+.shadow-lg, .shadow-xl, .shadow-2xl {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.45);
 }
