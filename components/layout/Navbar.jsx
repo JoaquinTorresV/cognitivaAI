@@ -17,20 +17,25 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed inset-x-0 top-0 z-50 transition-all
-      ${scrolled
-        ? "bg-blue-950 shadow-lg border-b border-blue-950"
-        : "bg-blue-950/90 shadow border-b border-blue-950"
-      }`}>
-      <div className="container-padded h-16 flex items-center justify-between">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300
+        ${
+          scrolled
+            ? // sólido en scroll (muy oscuro pero legible)
+              "bg-[#0b1222]/95 border-b border-white/10 shadow-lg"
+            : // glass + gradiente en tope (combina con el hero)
+              "backdrop-blur-md border-b border-white/10 shadow-sm bg-[linear-gradient(90deg,#0a0f1fcc,#0d1a33cc_60%,#0a0f1fcc)]"
+        }`}
+    >
+      <div className="container-padded px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo-cognitiva-alargado.png"
               alt="Logo Cognitiva"
-              height={40}
-              width={160}
-              className="h-10 w-auto"
+              height={32}
+              width={120}
+              className="h-8 w-auto md:h-10 md:w-auto"
               priority
             />
           </Link>
@@ -39,28 +44,44 @@ export default function Navbar() {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
           {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="text-white hover:text-blue-300 transition-colors">
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-white/90 hover:text-blue-300 transition-colors"
+            >
               {l.label}
             </Link>
           ))}
-          <Button as="a" href={BRAND.calendarLink} variant="primary" size="sm" className="px-4">Agenda Aquí</Button>
+          <Button as="a" href={BRAND.calendarLink} variant="primary" size="sm" className="px-4">
+            Agenda Aquí
+          </Button>
         </div>
 
-        {/* Mobile */}
-        <button className="md:hidden p-2 rounded-md btn-focus" onClick={() => setOpen((v) => !v)}>
+        {/* Mobile btn */}
+        <button
+          className="md:hidden p-2 w-10 h-10 flex items-center justify-center rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+          onClick={() => setOpen((v) => !v)}
+        >
           {open ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t bg-blue-900/95">
-          <div className="container-padded py-2 flex flex-col">
+        <div className="md:hidden border-t border-white/10 bg-[#0b1222]/95 backdrop-blur-md">
+          <div className="container-padded px-4 py-2 flex flex-col">
             {NAV_LINKS.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2 text-left text-white hover:text-blue-300 transition-colors">
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="py-2 text-left text-white/90 hover:text-blue-300 transition-colors"
+              >
                 {l.label}
               </Link>
             ))}
-            <Button as="a" href={BRAND.calendarLink} className="my-2">Agenda una Reunión</Button>
+            <Button as="a" href={BRAND.calendarLink} className="my-2">
+              Agenda una Reunión
+            </Button>
           </div>
         </div>
       )}
