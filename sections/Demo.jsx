@@ -14,8 +14,8 @@ export default function Demo() {
           <p className="text-xl text-gray-600">Demo de 90 segundos que cambia la perspectiva</p>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl p-8 shadow-xl">
-          <div className="aspect-video bg-gray-900 rounded-xl flex items-center justify-center overflow-hidden">
+        <div className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 rounded-2xl p-8 shadow-xl">
+          <div className="aspect-video bg-blue-950 rounded-xl flex items-center justify-center overflow-hidden">
             <video
               src="/Video_Infográfico_de_Servicios_Digitales.mp4"
               controls

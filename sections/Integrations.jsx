@@ -27,22 +27,22 @@ export default function Integrations() {
           ))}
         </div>
 
-        <div className="mt-12 bg-blue-50 rounded-2xl p-8">
+        <div className="mt-12 rounded-2xl p-8 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950">
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div>
-              <Code2 className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <h4 className="font-semibold">API/Webhooks</h4>
-              <p className="text-sm text-gray-600">Integración en tiempo real</p>
+              <Code2 className="h-8 w-8 text-blue-200 mx-auto mb-2" />
+              <h4 className="font-semibold text-white">API/Webhooks</h4>
+              <p className="text-sm text-blue-100">Integración en tiempo real</p>
             </div>
             <div>
-              <Clock className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <h4 className="font-semibold">Setup en 48hrs</h4>
-              <p className="text-sm text-gray-600">Implementación express</p>
+              <Clock className="h-8 w-8 text-blue-200 mx-auto mb-2" />
+              <h4 className="font-semibold text-white">Setup en 48hrs</h4>
+              <p className="text-sm text-blue-100">Implementación express</p>
             </div>
             <div>
-              <Shield className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <h4 className="font-semibold">SLA 99.9%</h4>
-              <p className="text-sm text-gray-600">Soporte enterprise 24/7</p>
+              <Shield className="h-8 w-8 text-blue-200 mx-auto mb-2" />
+              <h4 className="font-semibold text-white">SLA 99.9%</h4>
+              <p className="text-sm text-blue-100">Soporte enterprise 24/7</p>
             </div>
           </div>
         </div>
