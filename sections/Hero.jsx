@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-24 pb-8 sm:pb-20 lg:pb-56 bg-[#000412] text-white overflow-hidden"
+      className="relative min-h-screen pt-24 pb-32 sm:pb-20 lg:pb-56 bg-[#000412] text-white overflow-hidden"
       aria-label="Multiplica tus ventas con Agentes de IA que trabajan 24/7">
       
       {/* Efectos de fondo mejorados */}
@@ -228,7 +228,8 @@ export default function Hero() {
       </div>
 
       {/* Logos de empresas - Full width con scroll infinito mejorado */}
-      <div className="absolute bottom-0 left-0 right-0 py-8 border-t border-white/5 bg-gradient-to-t from-black/50 to-transparent backdrop-blur-sm">
+      <div className="mt-6 lg:mt-0 lg:absolute lg:bottom-0 lg:left-0 lg:right-0 py-8 logo-carousel-container border-t border-white/5 bg-gradient-to-t from-black/50 to-transparent backdrop-blur-sm">
+
         <p className="text-center text-sm font-light text-blue-200/60 mb-6">
           Empresas líderes confían en nuestra tecnología
         </p>
@@ -250,91 +251,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Estilos personalizados */}
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.05); }
-        }
-        
-        @keyframes rotate-slow {
-          from { transform: translate(-50%, -50%) rotate(0deg); }
-          to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-100vh); }
-        }
-        
-        @keyframes slide-left {
-          from { opacity: 0; transform: translateX(20px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slide-right {
-          from { opacity: 0; transform: translateX(-20px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes scroll-infinite {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.33%); }
-        }
-
-        /* Fuerza fondo blanco y evita blends indeseados en las tarjetas de logos */
-        .logo-card {
-          background: #ffffff;
-          isolation: isolate;
-        }
-        
-        .animate-gradient-x {
-          animation: gradient-x 6s ease infinite;
-          background-size: 200% 200%;
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse-slow 8s ease-in-out infinite;
-        }
-        
-        .animate-rotate-slow {
-          animation: rotate-slow 30s linear infinite;
-        }
-        
-        .animate-float {
-          animation: float linear infinite;
-        }
-        
-        .animate-slide-left {
-          animation: slide-left 0.6s ease-out forwards;
-        }
-        
-        .animate-slide-right {
-          animation: slide-right 0.6s ease-out forwards;
-        }
-        
-        .animate-scroll-infinite {
-          animation: scroll-infinite 30s linear infinite;
-        }
-        
-        .animation-delay-500 {
-          animation-delay: 500ms;
-        }
-        
-        .animation-delay-1000 {
-          animation-delay: 1000ms;
-        }
-        
-        .animation-delay-2000 {
-          animation-delay: 2000ms;
-        }
-      `}</style>
     </section>
   );
 }
