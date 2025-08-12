@@ -254,7 +254,7 @@ export default function FAQ() {
           })}
         </div>
 
-        {/* CTA final */}
+        {/* CTA final - CONVERTIDO A ENLACE */}
         <div className="mt-16 text-center">
           <p className="text-sm font-light text-blue-200/60 mb-6">
             ¿Tienes alguna pregunta específica?
@@ -262,7 +262,12 @@ export default function FAQ() {
           <div className="inline-block">
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-              <button className="relative px-10 py-5 rounded-full bg-gradient-to-r from-indigo-600/90 to-purple-600/90 backdrop-blur-xl border border-white/20 transition-all duration-500 group-hover:shadow-[0_0_50px_rgba(99,102,241,0.5)] group-hover:scale-105">
+              <a
+                href="https://wa.me/56932417147?text=Hola%20Cognitiva,%20quiero%20saber%20m%C3%A1s"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-10 py-5 rounded-full bg-gradient-to-r from-indigo-600/90 to-purple-600/90 backdrop-blur-xl border border-white/20 transition-all duration-500 group-hover:shadow-[0_0_50px_rgba(99,102,241,0.5)] group-hover:scale-105 inline-block"
+              >
                 <span className="flex items-center gap-3">
                   <MessageCircle className="h-5 w-5 text-white" />
                   <span className="text-lg font-light text-white">
@@ -270,7 +275,7 @@ export default function FAQ() {
                   </span>
                   <ChevronDown className="h-5 w-5 text-white rotate-[-90deg]" />
                 </span>
-              </button>
+              </a>
             </div>
           </div>
           <p className="mt-4 text-xs font-light text-blue-200/40">

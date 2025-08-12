@@ -11,15 +11,13 @@ export const BRAND = Object.freeze({
   email: "hola@cognitiva.ai",
   city: "Santiago, Chile",
   whatsappLink: "https://wa.me/56932417147?text=Hola%20Cognitiva,%20quiero%20saber%20m%C3%A1s",
-  calendarLink: "#agenda",
+  calendarLink: "https://cal.com/www.cognitiva-ai.agency",
 });
 
 export const NAV_LINKS = Object.freeze([
   { label: "Servicios", href: "#servicios" },
   { label: "Proceso", href: "#proceso" },
   { label: "Casos", href: "#casos" },
-  { label: "Planes", href: "#precios" },
-  { label: "Demo", href: "#demo" },
   { label: "FAQ", href: "#faq" },
 ]);
 

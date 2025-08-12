@@ -194,8 +194,13 @@ export default function CaseStudies() {
                       </blockquote>
                     </div>
 
-                    {/* CTA */}
-                    <button className="group/btn relative w-full mt-6">
+                    {/* CTA - CONVERTIDO A ENLACE */}
+                    <a 
+                      href="https://cal.com/www.cognitiva-ai.agency"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn relative w-full mt-6 block"
+                    >
                       <div className={`absolute inset-0 bg-gradient-to-r ${gradient} rounded-2xl blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300`} />
                       <div className="relative flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover/btn:shadow-[0_0_30px_rgba(147,51,234,0.5)]">
                         <Sparkles className="h-4 w-4 text-white" />
@@ -204,7 +209,7 @@ export default function CaseStudies() {
                         </span>
                         <ArrowRight className="h-4 w-4 text-white group-hover/btn:translate-x-1 transition-transform duration-300" />
                       </div>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </article>

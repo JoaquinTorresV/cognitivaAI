@@ -176,28 +176,32 @@ export default function FinalCTA() {
                 
                 {/* CTAs principales */}
                 <div className="flex flex-col items-center gap-6">
-                  {/* CTA primario con mega efecto */}
+                  {/* CTA primario con mega efecto - CONVERTIDO A ENLACE */}
                   <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse-slow" />
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="relative px-12 py-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-light tracking-wide text-lg shadow-2xl hover:shadow-[0_0_80px_rgba(6,182,212,0.6)] transition-all duration-500 group-hover:scale-105"
+                    <a
+                      href="https://cal.com/www.cognitiva-ai.agency"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative inline-flex items-center gap-3 px-12 py-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-light tracking-wide text-lg shadow-2xl hover:shadow-[0_0_80px_rgba(6,182,212,0.6)] transition-all duration-500 group-hover:scale-105"
                     >
-                      <span className="flex items-center gap-3">
-                        <Sparkles className="h-6 w-6 animate-pulse" />
-                        Comenzar mi transformación ahora
-                        <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
-                      </span>
-                    </Button>
+                      <Sparkles className="h-6 w-6 animate-pulse" />
+                      Comenzar mi transformación ahora
+                      <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
+                    </a>
                   </div>
                   
-                  {/* CTA secundario */}
-                  <button className="group flex items-center gap-2 text-cyan-300 hover:text-white transition-colors duration-300">
+                  {/* CTA secundario - CONVERTIDO A ENLACE */}
+                  <a 
+                    href="https://cal.com/www.cognitiva-ai.agency"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2 text-cyan-300 hover:text-white transition-colors duration-300"
+                  >
                     <MessageCircle className="h-5 w-5" />
                     <span className="font-light">Hablar con un experto en IA</span>
                     <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
+                  </a>
                   
                   {/* Garantías */}
                   <div className="flex items-center gap-6 mt-4 text-xs font-light text-blue-200/50">

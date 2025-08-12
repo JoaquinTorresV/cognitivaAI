@@ -102,8 +102,13 @@ export default function Services() {
                     ))}
                   </ul>
 
-                  {/* CTA Button iluminado */}
-                  <button className="group/btn relative w-full">
+                  {/* CTA Button iluminado - CONVERTIDO A ENLACE */}
+                  <a 
+                    href="https://cal.com/www.cognitiva-ai.agency"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn relative w-full block"
+                  >
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     <div className="relative flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600/90 to-cyan-500/90 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover/btn:shadow-[0_0_30px_rgba(59,130,246,0.5)]">
                       <span className="text-sm font-light text-white tracking-wide">
@@ -111,24 +116,29 @@ export default function Services() {
                       </span>
                       <ArrowRight className="h-4 w-4 text-white/90 group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </div>
-                  </button>
+                  </a>
                 </div>
               </article>
             );
           })}
         </div>
 
-        {/* Footer de sección con efecto de luz */}
+        {/* Footer de sección con efecto de luz - CONVERTIDO A ENLACE */}
         <div className="mt-20 text-center">
           <div className="inline-block">
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full blur-2xl opacity-40 group-hover:opacity-80 transition-opacity duration-500" />
-              <button className="relative px-8 py-4 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(99,102,241,0.4)]">
+              <a 
+                href="https://cal.com/www.cognitiva-ai.agency"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-8 py-4 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] inline-block"
+              >
                 <span className="flex items-center gap-3">
                   <span className="text-base font-light text-white">Descubre todas las posibilidades</span>
                   <ArrowRight className="h-5 w-5 text-cyan-300 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

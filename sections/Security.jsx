@@ -215,9 +215,14 @@ export default function Security() {
               ))}
             </div>
             
-            {/* CTA */}
+            {/* CTA - CONVERTIDO A ENLACE */}
             <div className="mt-10 text-center">
-              <button className="group relative">
+              <a 
+                href="https://cal.com/www.cognitiva-ai.agency"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-block"
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative px-8 py-4 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]">
                   <span className="flex items-center gap-3">
@@ -227,7 +232,7 @@ export default function Security() {
                     </span>
                   </span>
                 </div>
-              </button>
+              </a>
             </div>
           </div>
         </div>

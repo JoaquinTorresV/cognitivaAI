@@ -173,8 +173,13 @@ export default function Industries() {
                     </div>
                   </div>
 
-                  {/* CTA Button */}
-                  <button className="group/btn relative w-full">
+                  {/* CTA Button - CONVERTIDO A ENLACE */}
+                  <a 
+                    href="https://cal.com/www.cognitiva-ai.agency"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn relative w-full block"
+                  >
                     <div className={`absolute inset-0 bg-gradient-to-r ${gradient} rounded-2xl blur-md opacity-50 group-hover/btn:opacity-100 transition-opacity duration-300`} />
                     <div className="relative flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover/btn:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
                       <span className="text-sm font-light text-white">
@@ -182,24 +187,29 @@ export default function Industries() {
                       </span>
                       <ArrowRight className="h-4 w-4 text-white/90 group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </div>
-                  </button>
+                  </a>
                 </div>
               </article>
             );
           })}
         </div>
 
-        {/* Footer de sección */}
+        {/* Footer de sección - CONVERTIDO A ENLACE */}
         <div className="mt-16 text-center">
           <p className="text-sm font-light text-blue-200/60 mb-6">
             ¿No ves tu industria? Creamos soluciones personalizadas para cualquier sector
           </p>
-          <button className="relative group">
+          <a 
+            href="https://cal.com/www.cognitiva-ai.agency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative group inline-block"
+          >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative px-8 py-4 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]">
               <span className="text-base font-light text-white">Consultar solución personalizada</span>
             </div>
-          </button>
+          </a>
         </div>
       </div>
 

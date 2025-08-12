@@ -52,7 +52,15 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Button as="a" href={BRAND.calendarLink} variant="primary" size="sm" className="px-4">
+          <Button 
+            as="a" 
+            href="https://cal.com/www.cognitiva-ai.agency" 
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary" 
+            size="sm" 
+            className="px-4"
+          >
             Agenda Aquí
           </Button>
         </div>
@@ -79,7 +87,13 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <Button as="a" href={BRAND.calendarLink} className="my-2">
+            <Button 
+              as="a" 
+              href="https://cal.com/www.cognitiva-ai.agency" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="my-2"
+            >
               Agenda una Reunión
             </Button>
           </div>

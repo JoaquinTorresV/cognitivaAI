@@ -140,25 +140,26 @@ export default function Process() {
           </ol>
         </div>
 
-        {/* CTA Section mejorada */}
+        {/* CTA Section mejorada - CONVERTIDO A ENLACE */}
         <div className="mt-20 text-center">
           <div className="inline-block">
             <div className="relative group">
               {/* Glow animado */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-full blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-slow" />
               
-              {/* Botón principal */}
-              <Button
-                variant="primary"
-                size="lg"
-                className="relative px-12 py-6 rounded-full bg-gradient-to-r from-blue-600/90 to-cyan-500/90 backdrop-blur-xl border border-white/20 text-white font-light tracking-wide shadow-2xl hover:shadow-[0_0_60px_rgba(59,130,246,0.6)] transition-all duration-500 group-hover:scale-105"
+              {/* Botón principal convertido a enlace */}
+              <a
+                href="https://cal.com/www.cognitiva-ai.agency"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-block px-12 py-6 rounded-full bg-gradient-to-r from-blue-600/90 to-cyan-500/90 backdrop-blur-xl border border-white/20 text-white font-light tracking-wide shadow-2xl hover:shadow-[0_0_60px_rgba(59,130,246,0.6)] transition-all duration-500 group-hover:scale-105"
               >
                 <span className="flex items-center gap-3">
                   <Sparkles className="h-5 w-5 animate-pulse" />
                   <span className="text-lg">Iniciar mi transformación digital</span>
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
-              </Button>
+              </a>
             </div>
           </div>
           
