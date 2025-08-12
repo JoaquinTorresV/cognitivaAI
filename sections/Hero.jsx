@@ -7,9 +7,11 @@ import { BRAND } from '../utils/constants';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const logos = [
+  {src: '/WalmartChile.png', alt: 'Walmart Chile'},
   { src: '/Capitalizarme.png', alt: 'Capitalizarme' },
   { src: '/DrGadget.png', alt: 'Dr Gadget' },
   { src: '/ProCasa.png', alt: 'Pro Casa' },
+  {src: '/agrak.png', alt: 'Agrak'},
   { src: '/logo empresas/Letralogoazul.png', alt: 'Letralogoazul' },
   { src: '/logo empresas/Logoynombre .png', alt: 'Logoynombre' },
   { src: '/logo empresas/TriTechAlargado.png', alt: 'TriTechAlargado' },
