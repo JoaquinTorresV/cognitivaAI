@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-24 pb-20 bg-[#000412] text-white overflow-hidden"
+      className="relative min-h-screen pt-24 pb-8 sm:pb-20 lg:pb-56 bg-[#000412] text-white overflow-hidden"
       aria-label="Multiplica tus ventas con Agentes de IA que trabajan 24/7">
       
       {/* Efectos de fondo mejorados */}

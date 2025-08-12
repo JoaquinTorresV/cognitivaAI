@@ -86,6 +86,38 @@ html, body {
   display: flex;
 }
 
+/* Animación y estilos base */
+.logo-card {
+  background: #ffffff;
+  isolation: isolate;
+}
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+}
+@keyframes scroll-infinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+/* SOLO en móvil */
+@media (max-width: 640px) {
+  .logo-card {
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    border-radius: 0.5rem !important;
+  }
+  .logo-card img {
+    height: 22px !important;
+  }
+  .animate-scroll-infinite {
+    animation-duration: 5s !important;
+  }
+}
+
 /* Textos */
 .text-gray-900, .text-gray-700, .text-gray-600 {
   color: #ededed !important;

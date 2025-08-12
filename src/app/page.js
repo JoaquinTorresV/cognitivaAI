@@ -7,9 +7,7 @@ import CaseStudies from '@/sections/CaseStudies';
 import Industries from '@/sections/Industries';
 import Integrations from '@/sections/Integrations';
 import ROI from '@/sections/ROI';
-import Pricing from '@/sections/Pricing';
 import Security from '@/sections/Security';
-import Demo from '@/sections/Demo';
 import FAQ from '@/sections/FAQ';
 import FinalCTA from '@/sections/FinalCTA';
 import FloatingButtons from '@/common/FloatingButtons';
@@ -27,9 +25,7 @@ export default function IndexPage() {
         <Industries />
         <Integrations />
         <ROI />
-        <Pricing />
         <Security />
-        <Demo />
         <FAQ />
         <FinalCTA />
       </main>
