@@ -6,6 +6,7 @@ import TouchNavigation from '@/components/ui/TouchNavigation';
 import DemoButton from '@/components/ui/DemoButton';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { useScrollBasedAnimation } from '@/hooks/hookExports';
+import { useClientSideOnly } from '@/hooks/useClientSideOnly';
 import { 
   ArrowRight, CheckCircle, Search, Compass, FileCheck, 
   Rocket, TrendingUp, Timer, MessageCircle, Shield, ShieldCheck,
@@ -164,11 +165,12 @@ const METHODOLOGY_DATA = [
   }
 ];
 
-// Métricas generales del proceso
+// Métricas específicas del proceso
 const PROCESS_METRICS = [
-  { icon: MessageCircle, value: "+85%", label: "resolución al primer contacto" },
-  { icon: Timer, value: "<1s", label: "tiempo de respuesta promedio" },
-  { icon: ShieldCheck, value: "99.9%", label: "disponibilidad" }
+  { value: "7-14", label: "días implementación" },
+  { value: "100%", label: "metodología probada" },
+  { value: "+35%", label: "eficiencia ganada" },
+  { value: "5", label: "etapas optimizadas" }
 ];
 
 // Mapeo de métricas a iconos (reutilizado de servicios)
@@ -198,12 +200,11 @@ export default function WorkMethodology() {
   const { ref } = useScrollBasedAnimation();
   const [activeStep, setActiveStep] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const hasMounted = useClientSideOnly();
   const [openFaqs, setOpenFaqs] = useState({});
 
   // Detectar dispositivo móvil
   useEffect(() => {
-    setIsClient(true);
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -294,7 +295,7 @@ export default function WorkMethodology() {
         </div>
 
         {/* CTAs específicos del paso - Solo visible en desktop */}
-        {isClient && !isMobile && (
+        {hasMounted && !isMobile && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <DemoButton 
               variant="default"
@@ -458,7 +459,7 @@ export default function WorkMethodology() {
           activeIndex={activeStep}
           onItemSelect={setActiveStep}
           variant="pills"
-          size={isClient && isMobile ? "medium" : "large"}
+          size={hasMounted && isMobile ? "medium" : "large"}
           showIcons={true}
           centerActiveItem={true}
           className="mb-6"
@@ -472,7 +473,7 @@ export default function WorkMethodology() {
           activeIndex={activeStep}
           onIndexChange={setActiveStep}
           renderCard={renderMethodologyCard}
-          enableSwipe={isClient && isMobile}
+          enableSwipe={hasMounted && isMobile}
           showIndicators={false}
           showArrows={false}
           className="mb-8"
@@ -482,89 +483,37 @@ export default function WorkMethodology() {
         />
       </div>
 
-      {/* CTAs móviles - Solo visibles en móvil */}
-      {isClient && isMobile && (
-        <div className="grid grid-cols-1 gap-4 max-w-sm mx-auto">
-          <DemoButton 
-            variant="minimal"
-            size="large"
-            text="Empezar diagnóstico"
-            showSubtitle={false}
-          />
-          <WhatsAppButton 
-            variant="minimal"
-            size="large"
-            text="Hablar por WhatsApp"
-            showSubtitle={false}
-          />
-        </div>
-      )}
 
       {/* Métricas generales del proceso */}
       <div className="mt-12 lg:mt-16">
-        <div className="text-center mb-8">
-          <h3 className={`${typographyPresets.sectionTitle} mb-4`}>
+        <div className="text-center mb-4">
+          <h3 className={`${typographyPresets.sectionTitle} mb-3`}>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
               Resultados comprobados
             </span>
+            <br />
+            <span className="text-white/90 font-light">en nuestro proceso</span>
           </h3>
           <p className={typographyPresets.description}>
             Métricas reales de nuestro proceso optimizado
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-          {PROCESS_METRICS.map((metric, index) => {
-            const Icon = metric.icon;
-            return (
-              <div key={index} className="group relative">
-                <div className={`relative ${gradients.cardGlass} border border-white/20 rounded-2xl p-6 text-center hover:border-cyan-400/40 transition-all duration-300`}>
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-cyan-400 group-hover:text-white transition-colors" />
-                  </div>
-                  
-                  <div className="mb-2">
-                    <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
-                      {metric.value}
-                    </div>
-                    <div className={`${typographyPresets.description} text-sm`}>{metric.label}</div>
-                  </div>
+        <div className="mt-6 p-8 rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-4xl mx-auto mb-16">
+          <div className="grid grid-cols-2 gap-8 text-center">
+            {PROCESS_METRICS.map((stat, i) => (
+              <div key={i}>
+                <div className="text-3xl md:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+                  {stat.value}
                 </div>
+                <p className="mt-2 text-sm font-light text-blue-200/60">{stat.label}</p>
               </div>
-            );
-          })}
-        </div>
-
-        {/* Testimonial integrado */}
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-blue-600/10 to-cyan-500/10 border border-blue-400/30 rounded-2xl p-6">
-            <div className="flex items-center justify-center gap-1 mb-3">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-              ))}
-            </div>
-            <blockquote className={`${typographyPresets.testimonial} mb-2`}>
-              "En 2 semanas teníamos un sistema que nos ahorra 15 horas semanales. El ROI se vio desde el primer mes."
-            </blockquote>
-            <div className="text-cyan-400 text-sm font-medium">— CEO, TechStart Solutions</div>
+            ))}
           </div>
         </div>
+
       </div>
 
-      {/* CTA final coherente */}
-      <div className="text-center mt-12">
-        <div className={`inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 px-6 py-4 rounded-2xl ${gradients.cardGlass} border border-white/10`}>
-          <span className={typographyPresets.description}>¿Listo para comenzar por el Paso 1?</span>
-          <div className="flex items-center gap-4">
-            <a href="#contacto" className={`${typographyPresets.link} hover:text-white transition-colors`}>
-              Iniciar diagnóstico gratis <ArrowRight className="inline h-4 w-4 ml-1" />
-            </a>
-            <a href="#casos" className={`${typographyPresets.link} hover:text-white transition-colors`}>
-              Ver casos similares <ArrowRight className="inline h-4 w-4 ml-1" />
-            </a>
-          </div>
-        </div>
-      </div>
     </Section>
   );
 }

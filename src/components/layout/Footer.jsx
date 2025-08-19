@@ -40,11 +40,12 @@ import {
 import Link from "next/link";
 import { BRAND } from "@/lib/utils/businessConstants";
 import { useConsistentRandomValues } from "@/hooks/useConsistentRandomValues";
+import { useClientSideOnly } from "@/hooks/useClientSideOnly";
 
 export default function Footer() {
-  const [currentYear, setCurrentYear] = useState(2024);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [hoveredSocial, setHoveredSocial] = useState(null);
-  const [isClient, setIsClient] = useState(false);
+  const hasMounted = useClientSideOnly();
   const particleElements = useConsistentRandomValues(30, 10);
   const lineElements = useConsistentRandomValues(5, 11);
 
@@ -96,7 +97,6 @@ export default function Footer() {
   ];
 
   useEffect(() => {
-    setIsClient(true);
     setCurrentYear(new Date().getFullYear());
   }, []);
 
@@ -155,7 +155,7 @@ export default function Footer() {
         <div className="absolute bottom-0 left-0 w-[1200px] h-[600px] bg-gradient-to-tr from-blue-600/10 via-cyan-500/10 to-transparent blur-[150px] rounded-full aurora-footer" />
         <div className="absolute bottom-0 right-0 w-[1000px] h-[500px] bg-gradient-to-tl from-purple-600/10 via-pink-500/10 to-transparent blur-[120px] rounded-full aurora-footer" style={{ animationDelay: '3s' }} />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
-        {isClient && particleElements.map((element, i) => (
+        {hasMounted && particleElements.map((element, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-gradient-to-r from-cyan-400/50 to-blue-400/50 rounded-full rise-up"
@@ -175,7 +175,7 @@ export default function Footer() {
               <stop offset="100%" stopColor="rgb(59,130,246)" stopOpacity="0" />
             </linearGradient>
           </defs>
-          {isClient && lineElements.map((element, i) => (
+          {hasMounted && lineElements.map((element, i) => (
             <line
               key={i}
               x1={`${element.x1}%`}

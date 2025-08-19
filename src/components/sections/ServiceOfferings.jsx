@@ -12,6 +12,7 @@ import TouchNavigation from '@/components/ui/TouchNavigation';
 import DemoButton from '@/components/ui/DemoButton';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { useScrollBasedAnimation } from '@/hooks/hookExports';
+import { useClientSideOnly } from '@/hooks/useClientSideOnly';
 import { INTEGRATIONS } from '@/lib/utils/businessConstants';
 import { typographyPresets, textColors } from '@/lib/design-system/typographySystem';
 import { gradients, componentColors } from '@/lib/design-system/colorSystem';
@@ -37,7 +38,7 @@ const SERVICES_DATA = [
       "Escalabilidad para miles de conversaciones simultáneas",
       "Panel con métricas en tiempo real (CSAT, tasa de resolución, conversión)"
     ],
-    integrations: ["WhatsApp", "Instagram", "HubSpot", "Salesforce", "Shopify"],
+    integrations: ["WhatsApp", "Instagram", "HubSpot", "Salesforce", "Shopify Plus"],
     testimonial: "Pasamos de tardar horas a responder a hacerlo en segundos. El equipo ahora se enfoca en cerrar ventas.",
     faqs: [
       { q: "¿Puede hablar varios idiomas?", a: "Sí, soporte multiidioma con detección automática." },
@@ -91,7 +92,7 @@ const SERVICES_DATA = [
       "Monitoreo y alertas de integridad de datos",
       "Documentación y handover técnico"
     ],
-    integrations: ["HubSpot", "Salesforce", "Shopify", "Stripe", "Zapier"],
+    integrations: ["HubSpot", "Salesforce", "Shopify Plus", "Stripe", "Zapier"],
     testimonial: "La información por fin está en un solo lugar; fin de los Excel paralelos.",
     faqs: [
       { q: "¿Qué pasa si no hay conector?", a: "Creamos uno a medida vía API." },
@@ -145,7 +146,7 @@ const SERVICES_DATA = [
       "CMS/Headless opcional para escalar contenidos",
       "Integración analítica y pixeles publicitarios"
     ],
-    integrations: ["WordPress", "Shopify", "Google", "HubSpot", "Stripe"],
+    integrations: ["WordPress", "Shopify Plus", "Google", "HubSpot", "Stripe"],
     testimonial: "El nuevo sitio carga rápido y genera leads desde el primer día.",
     faqs: [
       { q: "¿Migran mi contenido?", a: "Sí, con redirecciones y preservando SEO." },
@@ -172,7 +173,7 @@ const SERVICES_DATA = [
       "Alertas y reportes automáticos por canal",
       "Capacitación para equipos"
     ],
-    integrations: ["Google", "HubSpot", "Salesforce", "Shopify", "Slack"],
+    integrations: ["Google", "HubSpot", "Salesforce", "Shopify Plus", "Slack"],
     testimonial: "Pasamos de reportes manuales a decisiones en tiempo real.",
     faqs: [
       { q: "¿Pueden crear métricas personalizadas?", a: "Sí, definimos KPIs por área." },
@@ -186,12 +187,11 @@ export default function ServiceOfferings() {
   const { ref } = useScrollBasedAnimation();
   const [activeService, setActiveService] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const hasMounted = useClientSideOnly();
   const [openFaqs, setOpenFaqs] = useState({}); // Estado para FAQ abiertos
 
   // Detectar dispositivo móvil
   useEffect(() => {
-    setIsClient(true);
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -201,7 +201,7 @@ export default function ServiceOfferings() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Detectar hash de servicio en URL
+  // Detectar hash de servicio en URL y navegar automáticamente
   useEffect(() => {
     const checkHash = () => {
       const hash = window.location.hash;
@@ -216,8 +216,30 @@ export default function ServiceOfferings() {
       
       if (serviceMap.hasOwnProperty(hash)) {
         setActiveService(serviceMap[hash]);
+        
+        // Scroll automático a la sección de servicios si no está visible
+        setTimeout(() => {
+          const serviciosSection = document.getElementById('servicios');
+          if (serviciosSection) {
+            serviciosSection.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+          }
+        }, 100);
       } else if (hash === '#servicios') {
         setActiveService(0);
+        
+        // Scroll automático para hash genérico también
+        setTimeout(() => {
+          const serviciosSection = document.getElementById('servicios');
+          if (serviciosSection) {
+            serviciosSection.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+          }
+        }, 100);
       }
     };
 
@@ -239,6 +261,14 @@ export default function ServiceOfferings() {
       [faqId]: !prev[faqId]
     }));
   };
+
+  // Métricas generales de servicios
+  const SERVICES_METRICS = [
+    { value: "300%", label: "ROI promedio" },
+    { value: "15h", label: "ahorro semanal" },
+    { value: "24/7", label: "automatización" },
+    { value: "99.9%", label: "uptime garantizado" }
+  ];
 
   // Mapeo de métricas a iconos específicos
   const getMetricIcon = (metricKey) => {
@@ -333,7 +363,7 @@ export default function ServiceOfferings() {
         </div>
 
         {/* CTAs - Solo visible en desktop */}
-        {isClient && !isMobile && (
+        {hasMounted && !isMobile && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <DemoButton 
               variant="default"
@@ -520,8 +550,9 @@ export default function ServiceOfferings() {
           activeIndex={activeService}
           onItemSelect={setActiveService}
           variant="pills"
-          size={isClient && isMobile ? "medium" : "large"}
+          size={hasMounted && isMobile ? "medium" : "large"}
           showIcons={true}
+          showNumbers={false}
           centerActiveItem={true}
           className="mb-6"
         />
@@ -534,7 +565,7 @@ export default function ServiceOfferings() {
           activeIndex={activeService}
           onIndexChange={setActiveService}
           renderCard={renderServiceCard}
-          enableSwipe={isClient && isMobile}
+          enableSwipe={hasMounted && isMobile}
           showIndicators={false}
           showArrows={false}
           className="mb-8"
@@ -544,35 +575,32 @@ export default function ServiceOfferings() {
         />
       </div>
 
-      {/* CTAs móviles - Solo visibles en móvil */}
-      {isClient && isMobile && (
-        <div className="grid grid-cols-1 gap-4 max-w-sm mx-auto">
-          <DemoButton 
-            variant="minimal"
-            size="large"
-            text="Ver Demo de 30 min"
-            showSubtitle={false}
-          />
-          <WhatsAppButton 
-            variant="minimal"
-            size="large"
-            text="Hablar por WhatsApp"
-            showSubtitle={false}
-          />
-        </div>
-      )}
 
-      {/* Enlaces de ayuda */}
-      <div className="text-center mt-12">
-        <div className={`inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 px-6 py-4 rounded-2xl ${gradients.cardGlass} border border-white/10`}>
-          <span className={typographyPresets.description}>¿Necesitas más información?</span>
-          <div className="flex items-center gap-4">
-            <a href="#casos" className={`${typographyPresets.link} hover:text-white transition-colors`}>
-              Ver Casos <ArrowRight className="inline h-4 w-4 ml-1" />
-            </a>
-            <a href="#faq" className={`${typographyPresets.link} hover:text-white transition-colors`}>
-              FAQ Completa <ArrowRight className="inline h-4 w-4 ml-1" />
-            </a>
+      {/* Métricas de servicios */}
+      <div className="mt-12 lg:mt-16">
+        <div className="text-center mb-4">
+          <h3 className={`${typographyPresets.sectionTitle} mb-3`}>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
+              Resultados comprobados
+            </span>
+            <br />
+            <span className="text-white/90 font-light">en nuestros servicios</span>
+          </h3>
+          <p className={typographyPresets.description}>
+            Métricas reales de nuestras implementaciones de IA
+          </p>
+        </div>
+        
+        <div className="mt-6 p-8 rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-4xl mx-auto mb-16">
+          <div className="grid grid-cols-2 gap-8 text-center">
+            {SERVICES_METRICS.map((stat, i) => (
+              <div key={i}>
+                <div className="text-3xl md:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+                  {stat.value}
+                </div>
+                <p className="mt-2 text-sm font-light text-blue-200/60">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

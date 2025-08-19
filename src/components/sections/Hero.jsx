@@ -4,6 +4,7 @@ import { MessageCircle, Bolt, Brain, Globe, Puzzle, Rocket } from 'lucide-react'
 import { BRAND } from '@/lib/utils/businessConstants';
 import useScrollBasedAnimation from '@/hooks/useScrollBasedAnimation';
 import { useDevicePerformance } from '@/hooks/useDevicePerformance';
+import { useClientSideOnly } from '@/hooks/useClientSideOnly';
 import { colors } from '@/lib/design-system/designTokens';
 import WhatsAppChatPreview from '@/components/ui/WhatsAppChatPreview';
 import CompanyLogosCarousel from '@/components/common/CompanyLogosCarousel';
@@ -12,7 +13,7 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export default function Hero() {
   const { ref } = useScrollBasedAnimation();
-  const [isClient, setIsClient] = useState(false);
+  const hasMounted = useClientSideOnly();
   const { maxParticles } = useDevicePerformance();
   
   // Elementos flotantes estáticos para evitar problemas de hidratación
@@ -26,10 +27,6 @@ export default function Hero() {
   ];
   
   const floatingElements = allFloatingElements.slice(0, Math.min(maxParticles, 6));
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const beneficios = [
     { 
@@ -50,7 +47,7 @@ export default function Hero() {
     { 
       icon: Puzzle, 
       text: 'Integraciones en 48 h', 
-      desc: 'HubSpot, Salesforce, Shopify y más' 
+      desc: 'HubSpot, Salesforce, Shopify Plus y más' 
     }
   ];
 
@@ -105,21 +102,23 @@ export default function Hero() {
 
               {/* 4. Fila de CTAs */}
               {/* Desktop - Botones con texto */}
-              <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 sm:pt-6 max-w-2xl mx-auto sm:max-w-none sm:mx-0 relative z-20">
-                <DemoButton 
-                  variant="default"
-                  size="medium"
-                  text="Ver Demo de 30 min"
-                  subtitle="Agenda inmediata · Caso de tu industria"
-                />
-                
-                <WhatsAppButton 
-                  variant="default"
-                  size="medium"
-                  text="Hablar por WhatsApp"
-                  subtitle="Respuesta en <2 min · 24/7"
-                />
-              </div>
+              {hasMounted && (
+                <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 sm:pt-6 max-w-2xl mx-auto sm:max-w-none sm:mx-0 relative z-20">
+                  <DemoButton 
+                    variant="default"
+                    size="medium"
+                    text="Ver Demo de 30 min"
+                    subtitle="Agenda inmediata · Caso de tu industria"
+                  />
+                  
+                  <WhatsAppButton 
+                    variant="default"
+                    size="medium"
+                    text="Hablar por WhatsApp"
+                    subtitle="Respuesta en <2 min · 24/7"
+                  />
+                </div>
+              )}
 
 
               {/* 5. Beneficios con iconos */}
@@ -144,23 +143,27 @@ export default function Hero() {
 
             {/* Columna derecha (5/12) */}
             <div className="col-span-12 lg:col-span-5 relative">
-              {/* Chat compacto en móvil - posicionado al final */}
-              <div className="block lg:hidden mt-20">
-                <WhatsAppChatPreview 
-                  compactMode={true}
-                  showBadge={false}
-                  className="w-full"
-                />
-              </div>
-              
-              {/* Chat completo en desktop - alineado normalmente */}
-              <div className="hidden lg:block">
-                <WhatsAppChatPreview 
-                  compactMode={false}
-                  showBadge={true}
-                  className="w-full"
-                />
-              </div>
+              {hasMounted && (
+                <>
+                  {/* Chat compacto en móvil - posicionado al final */}
+                  <div className="block lg:hidden mt-20">
+                    <WhatsAppChatPreview 
+                      compactMode={true}
+                      showBadge={false}
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  {/* Chat completo en desktop - alineado normalmente */}
+                  <div className="hidden lg:block">
+                    <WhatsAppChatPreview 
+                      compactMode={false}
+                      showBadge={true}
+                      className="w-full"
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

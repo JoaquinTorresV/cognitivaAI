@@ -19,9 +19,7 @@ import {
   Heart,
   Cloud,
   Globe,
-  Settings,
-  TrendingUp,
-  HelpCircle
+  Settings
 } from "lucide-react";
 import { Button } from "@/components/ui/ReusableComponents";
 import Dropdown, { DropdownItem, useDropdown } from "@/components/ui/NavigationDropdown";
@@ -77,11 +75,9 @@ export default function Navbar() {
   }, []);
 
   const linkIcons = {
-    "#casos": TrendingUp,
     "#servicios": Zap,
     "#proceso": Settings,
     "#industrias": Globe,
-    "#faq": HelpCircle,
   };
 
   const serviciosItems = [
@@ -94,12 +90,12 @@ export default function Navbar() {
   ];
 
   const industriasItems = [
-    { label: "Retail/E-commerce", href: "#industrias", icon: ShoppingCart },
-    { label: "Educación", href: "#industrias", icon: GraduationCap },
-    { label: "Finanzas", href: "#industrias", icon: DollarSign },
-    { label: "Salud", href: "#industrias", icon: Heart },
-    { label: "Inmobiliaria", href: "#industrias", icon: Settings },
-    { label: "SaaS/Tech", href: "#industrias", icon: Cloud },
+    { label: "Retail/E-commerce", href: "#industrias-ecommerce", icon: ShoppingCart },
+    { label: "Educación", href: "#industrias-educacion", icon: GraduationCap },
+    { label: "Finanzas", href: "#industrias-finanzas", icon: DollarSign },
+    { label: "Salud", href: "#industrias-salud", icon: Heart },
+    { label: "Inmobiliaria", href: "#industrias-inmobiliaria", icon: Settings },
+    { label: "SaaS/Tech", href: "#industrias-saas", icon: Cloud },
     { label: "Ver todas", href: "#industrias", icon: Globe }
   ];
 

@@ -18,6 +18,7 @@ const TouchNavigation = ({
   variant = 'pills', // 'pills' | 'tabs' | 'chips'
   size = 'medium', // 'small' | 'medium' | 'large'
   showIcons = true,
+  showNumbers = true, // Nuevo parámetro para controlar numeración
   showScrollIndicators = true,
   // Configuración de comportamiento
   centerActiveItem = true,
@@ -367,7 +368,17 @@ const TouchNavigation = ({
                 {/* Solo mostrar texto en desktop */}
                 {!isMobile && (
                   <span className="font-light">
-                    {item.title || item.name || item.label}
+                    {showNumbers 
+                      ? (index + 1) + ". " + (item.title || item.name || item.label)
+                      : (item.title || item.name || item.label)
+                    }
+                  </span>
+                )}
+                
+                {/* Solo mostrar número en móvil */}
+                {isMobile && showNumbers && (
+                  <span className="text-sm font-medium">
+                    {index + 1}
                   </span>
                 )}
                 
