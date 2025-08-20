@@ -41,6 +41,8 @@ import Link from "next/link";
 import { BRAND } from "@/lib/utils/businessConstants";
 import { useConsistentRandomValues } from "@/hooks/useConsistentRandomValues";
 import { useClientSideOnly } from "@/hooks/useClientSideOnly";
+import DemoButton from "@/components/ui/DemoButton";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -225,36 +227,20 @@ export default function Footer() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
-                <a
-                  href="https://cal.com/www.cognitiva-ai.agency"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-block"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-all duration-500" />
-                  <div className="relative px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-light shadow-2xl group-hover:shadow-[0_0_50px_rgba(59,130,246,0.5)] transition-all duration-300 group-hover:scale-105 gradient-x">
-                    <span className="flex items-center gap-2 sm:gap-3">
-                      <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
-                      <span className="text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">Comenzar transformación</span>
-                      <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </span>
-                  </div>
-                </a>
-
-                <a
-                  href={BRAND.whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-block"
-                >
-                  <div className="relative px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5 rounded-full bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 hover:border-cyan-400/30 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-                    <span className="flex items-center gap-2 sm:gap-3 text-cyan-300">
-                      <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
-                      <span className="text-xs sm:text-sm md:text-base lg:text-lg font-light whitespace-nowrap">Hablar con experto</span>
-                      <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                </a>
+                <DemoButton 
+                  variant="default"
+                  size="large"
+                  text="Comenzar transformación"
+                  showSubtitle={false}
+                  className="flex-1 max-w-xs"
+                />
+                <WhatsAppButton 
+                  variant="outline"
+                  size="large"
+                  text="Hablar con experto"
+                  showSubtitle={false}
+                  className="flex-1 max-w-xs"
+                />
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 text-xs font-light text-blue-200/50">

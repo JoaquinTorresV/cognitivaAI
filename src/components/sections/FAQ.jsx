@@ -423,8 +423,10 @@ export default function FAQ() {
         subtitle="Resuelve en minutos las dudas más comunes sobre agentes de IA, chatbots en WhatsApp, automatizaciones, integraciones, seguridad y precios. Si no ves tu pregunta, nuestro equipo responde 24/7."
       >
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-          Preguntas frecuentes
+          Preguntas
         </span>
+        <br />
+        <span className="text-white/90 font-light">frecuentes</span>
       </SectionTitle>
 
       {/* Sistema de navegación con iconos de categorías */}

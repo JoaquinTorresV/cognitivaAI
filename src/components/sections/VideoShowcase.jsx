@@ -10,7 +10,12 @@ export default function Demo() {
     <section id="demo" className="py-20 bg-white">
       <div ref={ref} className="container-padded animate-in max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-3">Ve Cognitiva en acción</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-thin tracking-tight mb-3">
+            <span className="font-light text-white/90">Ve</span>{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
+              Cognitiva en acción
+            </span>
+          </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600">Demo de 90 segundos que cambia la perspectiva</p>
         </div>
 

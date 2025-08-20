@@ -52,8 +52,12 @@ export default function Pricing() {
 		<section id="precios" className="py-20 bg-white">
 			<div ref={ref} className="container-padded animate-in">
 				<div className="text-center mb-12">
-					<h2 className="text-4xl font-bold mb-3">
-						Planes flexibles, tú solo pagas por resultados
+					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-thin tracking-tight mb-3">
+						<span className="font-light text-white/90">Planes flexibles,</span>
+						<br />
+						<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
+							solo pagas por resultados
+						</span>
 					</h2>
 					<p className="text-xl text-gray-600">
 						Fee de implementación único + comisión por venta. Upsells mensuales

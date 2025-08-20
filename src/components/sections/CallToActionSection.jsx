@@ -40,7 +40,7 @@ const perks = [
 
 const trust = [
   { icon: Plug, label: "Integración total", value: "25+ plataformas" },
-  { icon: Infinity, label: "Disponibilidad", value: "99.9% uptime" },
+  { icon: Infinity, label: "Disponibilidad", value: "98% uptime" },
   { icon: ShieldCheck, label: "Seguridad", value: "ISO 27001" },
 ];
 

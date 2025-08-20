@@ -267,7 +267,7 @@ export default function ServiceOfferings() {
     { value: "300%", label: "ROI promedio" },
     { value: "15h", label: "ahorro semanal" },
     { value: "24/7", label: "automatización" },
-    { value: "99.9%", label: "uptime garantizado" }
+    { value: "98%", label: "uptime garantizado" }
   ];
 
   // Mapeo de métricas a iconos específicos
