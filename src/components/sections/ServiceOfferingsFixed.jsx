@@ -5,6 +5,7 @@
 
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from 'next/image';
 import { 
   MessageSquare, Zap, Plug, TrendingUp, Layout, BarChart3,
   CheckCircle, Bot, Target, Puzzle, ArrowRight, ChevronRight, Star
@@ -328,9 +329,11 @@ export default function ServiceOfferingsFixed() {
           <div className="grid grid-cols-3 gap-3">
             {getServiceIntegrations(service.integrations).map((integration, idx) => (
               <div key={idx} className="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                <img 
-                  src={`/logos herramientas/${integration.img}`} 
+                <Image 
+                  src={integration.src} 
                   alt={integration.name}
+                  width={integration.width}
+                  height={integration.height}
                   className="h-10 w-10 object-contain"
                   loading="lazy"
                 />

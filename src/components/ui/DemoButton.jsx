@@ -91,7 +91,7 @@ const DemoButton = ({
       >
         <img 
           src="/GoogleMeet.png" 
-          alt="Google Meet" 
+          alt="Icono de Google Meet para agendar demo" 
           className={`${sizeStyle.icon} ${!showText ? '' : 'flex-shrink-0'} ${!showText && size === 'circular' ? 'mr-0' : showText ? 'mr-2' : ''}`} 
         />
         {showText && <span>{text}</span>}

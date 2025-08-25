@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from 'next/image';
 import { 
   MessageSquare, Zap, Plug, TrendingUp, Layout, BarChart3,
   CheckCircle, Bot, Target, Puzzle, ArrowRight, Calendar, MessageCircle,
@@ -39,7 +40,7 @@ const SERVICES_DATA = [
       "Escalabilidad para miles de interacciones simultáneas",
       "Panel de control en tiempo real con métricas de atención y eficiencia"
     ],
-    integrations: ["WhatsApp", "Instagram", "HubSpot", "Salesforce", "Shopify Plus"],
+    integrations: ["WhatsApp", "Instagram", "HubSpot", "Salesforce", "Stripe"],
     testimonial: "Pasamos de tardar horas a responder a hacerlo en segundos. El equipo ahora se enfoca en cerrar ventas.",
     faqs: [
       { q: "¿En cuánto tiempo puedo tener un agente funcionando?", a: "La mayoría de las implementaciones se completan en pocos días, dependiendo del nivel de personalización e integraciones que requieras." },
@@ -69,7 +70,7 @@ const SERVICES_DATA = [
       "Tickets inteligentes clasificados por intención",
       "Biblioteca de playbooks para distintos escenarios de negocio"
     ],
-    integrations: ["HubSpot", "Salesforce", "Slack", "Gmail", "Make"],
+    integrations: ["Make", "Zapier", "Slack", "Pipedrive", "Mailchimp"],
     testimonial: "Automatizamos recordatorios y recuperamos deals que dábamos por perdidos.",
     faqs: [
       { q: "¿Cuánto tiempo toma implementar las automatizaciones?", a: "Generalmente puedes tener los primeros flujos en marcha en pocos días, dependiendo de la complejidad." },
@@ -127,7 +128,7 @@ const SERVICES_DATA = [
       "Estrategias de retargeting basadas en comportamiento e intención de compra",
       "Automatización de mensajes y embudos dinámicos por industria o segmento"
     ],
-    integrations: ["Google Ads", "Meta", "LinkedIn", "HubSpot", "Mailchimp"],
+    integrations: ["Meta", "Instagram", "LinkedIn", "TikTok", "Mailchimp"],
     testimonial: "Las campañas ahora conversan con el CRM; invertimos donde realmente convierte.",
     faqs: [
       { q: "¿Puedo aprovechar mis audiencias actuales?", a: "Sí, integramos tus bases de datos y audiencias previas para optimizarlas con nuevas campañas." },
@@ -156,7 +157,7 @@ const SERVICES_DATA = [
       "CMS flexible o Headless para autogestión y escalabilidad",
       "Integración con analítica, CRM y píxeles publicitarios"
     ],
-    integrations: ["WordPress", "Shopify Plus", "Google", "HubSpot", "Stripe"],
+    integrations: ["WordPress", "Shopify Plus", "AWS", "SiteGround", "PayPal"],
     testimonial: "El nuevo sitio carga rápido y genera leads desde el primer día.",
     faqs: [
       { q: "¿Qué pasa con mi contenido actual?", a: "Migramos tu contenido y lo dejamos optimizado para SEO y UX." },
@@ -185,7 +186,7 @@ const SERVICES_DATA = [
       "Alertas y reportes automáticos por canal",
       "Capacitación y buenas prácticas para adopción interna"
     ],
-    integrations: ["Google", "HubSpot", "Salesforce", "Shopify Plus", "Slack"],
+    integrations: ["Slack", "HubSpot", "Salesforce", "AWS", "n8n"],
     testimonial: "Pasamos de reportes manuales a decisiones en tiempo real.",
     faqs: [
       { q: "¿Qué datos puedo conectar?", a: "CRM, ecommerce, plataformas publicitarias, soporte, finanzas y más." },
@@ -425,11 +426,18 @@ export default function ServiceOfferings() {
           <div className="grid grid-cols-3 gap-3">
             {getServiceIntegrations(service.integrations).map((integration, idx) => (
               <div key={idx} className="flex items-center justify-center p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                <img 
-                  src={`/logos herramientas/${integration.img}`} 
+                <Image 
+                  src={integration.src} 
                   alt={integration.name}
+                  width={integration.width}
+                  height={integration.height}
                   className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
                   loading="lazy"
+                  onError={(e) => {
+                    if (integration.fallback) {
+                      e.target.src = integration.fallback;
+                    }
+                  }}
                 />
               </div>
             ))}
@@ -535,6 +543,7 @@ export default function ServiceOfferings() {
       className="animate-in"
       ref={ref}
       aria-label="Servicios de automatización con IA"
+      data-below-fold
     >
       {/* Header de sección */}
       <SectionTitle

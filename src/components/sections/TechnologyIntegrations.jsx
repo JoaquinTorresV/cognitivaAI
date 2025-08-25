@@ -1,11 +1,22 @@
 "use client";
-import React from "react";
+import React, { lazy, Suspense } from "react";
+import Image from 'next/image';
 import { INTEGRATIONS } from "../../lib/utils/businessConstants";
 import { Code2, Clock, Shield, Sparkles, Cpu, Zap, Globe } from "lucide-react";
-import useScrollBasedAnimation from "../../hooks/useScrollBasedAnimation";
-import { useConsistentRandomValues } from "../../hooks/useConsistentRandomValues";
+
+// Lazy load hooks for below-fold sections
+const useScrollBasedAnimation = lazy(() => import("../../hooks/useScrollBasedAnimation"));
+const useConsistentRandomValues = lazy(() => import("../../hooks/useConsistentRandomValues"));
 
 export default function TechnologyIntegrations() {
+  return (
+    <Suspense fallback={<div className="min-h-96 bg-[#0a0a0a]" />}>
+      <TechnologyIntegrationsContent />
+    </Suspense>
+  );
+}
+
+function TechnologyIntegrationsContent() {
   const { ref } = useScrollBasedAnimation();
   const connectElements = useConsistentRandomValues(15, 8);
 
@@ -102,12 +113,14 @@ export default function TechnologyIntegrations() {
                   {/* TARJETA BLANCA optimizada para móvil */}
                   <div className="integration-card relative h-20 sm:h-24 md:h-28 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 flex items-center justify-center overflow-hidden transform-gpu transition-all duration-500 group-hover:-translate-y-2 group-hover:rotate-y-5 group-hover:shadow-[0_30px_60px_rgba(6,182,212,0.18)] bg-white border border-black/5">
                     {/* Logo optimizado */}
-                    <img
-                      src={`/logos%20herramientas/${tool.img}`}
+                    <Image
+                      src={tool.src}
                       alt={tool.name}
+                      width={tool.width}
+                      height={tool.height}
                       loading="lazy"
-                      decoding="async"
                       className="relative max-h-8 sm:max-h-10 md:max-h-12 lg:max-h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 640px) 32px, (max-width: 1024px) 40px, 48px"
                     />
 
                     {/* Badge optimizado para móvil */}

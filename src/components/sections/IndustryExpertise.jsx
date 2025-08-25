@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from 'next/image';
 import { Section, SectionTitle } from '@/components/ui/ReusableComponents';
 import CleanSwipeCard from '@/components/ui/CleanSwipeCard';
 import TouchNavigation from '@/components/ui/TouchNavigation';
@@ -32,7 +33,7 @@ const INDUSTRIES_DATA = [
       "Automatizaciones de postventa y NPS."
     ],
     impact: "+tasa de checkout, –tiempos de respuesta, +ticket promedio.",
-    integrations: ["Shopify Plus", "WordPress", "Stripe", "Mercado Libre", "WhatsApp"],
+    integrations: ["Shopify Plus", "Stripe", "WhatsApp"],
     ctas: ["Ver casos de E-commerce", "Hablar con un experto"]
   },
   {
@@ -49,7 +50,7 @@ const INDUSTRIES_DATA = [
       "Dashboard de inscripciones y rendimiento."
     ],
     impact: "+inscripciones, +resolución al primer contacto, –no-show.",
-    integrations: ["Google", "Microsoft", "HubSpot", "Zapier"],
+    integrations: ["Microsoft", "HubSpot", "Zoom"],
     ctas: ["Ver casos de Educación", "Solicitar diagnóstico"]
   },
   {
@@ -66,7 +67,7 @@ const INDUSTRIES_DATA = [
       "Informes de satisfacción y cumplimiento."
     ],
     impact: "–no-show, +CSAT, confirmaciones en minutos.",
-    integrations: ["Microsoft", "WhatsApp", "Stripe", "Google"],
+    integrations: ["WhatsApp", "Calendly", "Microsoft"],
     ctas: ["Ver casos de Salud", "Hablar con un experto"]
   },
   {
@@ -83,7 +84,7 @@ const INDUSTRIES_DATA = [
       "Reportes de conversión por canal."
     ],
     impact: "+cierre, –ciclo de ventas, +leads calificados.",
-    integrations: ["Salesforce", "WordPress", "WhatsApp", "Google"],
+    integrations: ["Salesforce", "WhatsApp", "Calendly"],
     ctas: ["Ver casos de Inmobiliaria", "Solicitar propuesta"]
   },
   {
@@ -100,7 +101,7 @@ const INDUSTRIES_DATA = [
       "Alertas y comunicaciones transaccionales."
     ],
     impact: "+conversión de originación, –tiempos de gestión, +retención.",
-    integrations: ["AWS", "Microsoft", "Salesforce", "PayPal"],
+    integrations: ["AWS", "Salesforce", "Stripe"],
     ctas: ["Ver casos de Finanzas/Seguros", "Hablar con un experto"]
   },
   {
@@ -117,7 +118,7 @@ const INDUSTRIES_DATA = [
       "Playbooks de expansión (upsell/cross-sell)."
     ],
     impact: "+SQLs, –tiempo a valor, +retención/expansión.",
-    integrations: ["HubSpot", "Salesforce", "Slack", "Stripe", "Google"],
+    integrations: ["HubSpot", "Slack", "GitHub"],
     ctas: ["Ver casos de SaaS", "Probar demo guiada"]
   },
   {
@@ -134,7 +135,7 @@ const INDUSTRIES_DATA = [
       "Upsell de servicios (late checkout, traslados)."
     ],
     impact: "+ocupación, –tiempo de respuesta, +ingresos ancillaries.",
-    integrations: ["Zapier", "Stripe", "PayPal", "WhatsApp"],
+    integrations: ["Stripe", "WhatsApp", "Google Analytics"],
     ctas: ["Ver casos de Turismo", "Solicitar diagnóstico"]
   },
   {
@@ -151,7 +152,7 @@ const INDUSTRIES_DATA = [
       "Tablero de SLA y causas de fallas."
     ],
     impact: "–tickets repetitivos, +NPS, –intentos fallidos.",
-    integrations: ["AWS", "Make", "Shopify Plus", "WhatsApp"],
+    integrations: ["AWS", "WhatsApp", "Zapier"],
     ctas: ["Ver casos de Logística", "Hablar con un experto"]
   },
   {
@@ -168,7 +169,7 @@ const INDUSTRIES_DATA = [
       "Panel de estado por cliente/caso."
     ],
     impact: "+consultas cualificadas, –tiempo de onboarding, +satisfacción.",
-    integrations: ["Microsoft", "Google", "PayPal", "HubSpot"],
+    integrations: ["Microsoft", "HubSpot", "Calendly"],
     ctas: ["Ver casos de Legal/Servicios", "Solicitar propuesta"]
   }
 ];
@@ -249,7 +250,7 @@ export default function IndustryExpertise() {
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
-  // Filtrar integraciones disponibles con matching exacto para evitar duplicados
+  // Filtrar integraciones disponibles - mostrar 2-3 por industria
   const getIndustryIntegrations = (industryIntegrations) => {
     const matchedIntegrations = [];
     const seenImages = new Set();
@@ -260,30 +261,32 @@ export default function IndustryExpertise() {
         integration.name.toLowerCase() === name.toLowerCase()
       );
       
-      if (exactMatch && !seenImages.has(exactMatch.img)) {
-        seenImages.add(exactMatch.img);
+      if (exactMatch && !seenImages.has(exactMatch.src)) {
+        seenImages.add(exactMatch.src);
         matchedIntegrations.push(exactMatch);
+        // Limitar a 3 integraciones por industria para mejor visualización
+        if (matchedIntegrations.length >= 3) break;
       }
     }
     
     // Si no hay suficientes coincidencias exactas, buscar coincidencias parciales
-    if (matchedIntegrations.length < 4) {
+    if (matchedIntegrations.length < 2) {
       for (const integration of INTEGRATIONS) {
-        if (matchedIntegrations.length >= 6) break;
+        if (matchedIntegrations.length >= 3) break;
         
         const hasPartialMatch = industryIntegrations.some(name => 
           integration.name.toLowerCase().includes(name.toLowerCase()) ||
           name.toLowerCase().includes(integration.name.toLowerCase())
         );
         
-        if (hasPartialMatch && !seenImages.has(integration.img)) {
-          seenImages.add(integration.img);
+        if (hasPartialMatch && !seenImages.has(integration.src)) {
+          seenImages.add(integration.src);
           matchedIntegrations.push(integration);
         }
       }
     }
     
-    return matchedIntegrations.slice(0, 6);
+    return matchedIntegrations;
   };
 
   // Renderizar tarjeta de industria
@@ -371,9 +374,11 @@ export default function IndustryExpertise() {
           <div className="grid grid-cols-3 gap-3">
             {getIndustryIntegrations(industry.integrations).map((integration, idx) => (
               <div key={idx} className="flex items-center justify-center p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                <img 
-                  src={`/logos herramientas/${integration.img}`} 
+                <Image 
+                  src={integration.src} 
                   alt={integration.name}
+                  width={integration.width}
+                  height={integration.height}
                   className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
                   loading="lazy"
                 />

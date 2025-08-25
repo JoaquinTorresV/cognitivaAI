@@ -5,19 +5,20 @@
 
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { CheckCircle, TrendingUp, Shield } from 'lucide-react';
 import { colors, borderRadius } from '@/lib/design-system/designTokens';
 
 const logos = [
-  {src: '/WalmartChile.png', alt: 'Walmart Chile'},
-  { src: '/Capitalizarme.png', alt: 'Capitalizarme' },
-  { src: '/DrGadget.png', alt: 'Dr Gadget' },
-  { src: '/ProCasa.png', alt: 'Pro Casa' },
-  {src: '/agrak.png', alt: 'Agrak'},
-  { src: '/logo empresas/Letralogoazul.png', alt: 'Letralogoazul' },
-  { src: '/logo empresas/Logoynombre .png', alt: 'Logoynombre' },
-  { src: '/logo empresas/TriTechAlargado.png', alt: 'TriTechAlargado' },
-  { src: '/logo empresas/turbotuninglogo.png', alt: 'turbotuninglogo' },
+  {src: '/optimized/walmart-142x48.avif', fallback: '/optimized/walmart-142x48.webp', alt: 'Walmart Chile', width: 142, height: 48},
+  {src: '/optimized/capitalizarme-224x48.avif', fallback: '/optimized/capitalizarme-224x48.webp', alt: 'Capitalizarme', width: 224, height: 48},
+  {src: '/optimized/drgadget-48x48.avif', fallback: '/DrGadget.png', alt: 'Dr Gadget', width: 48, height: 48},
+  {src: '/optimized/procasa-142x48.avif', fallback: '/optimized/procasa-142x48.webp', alt: 'Pro Casa', width: 142, height: 48},
+  {src: '/optimized/agrak-128x48.avif', fallback: '/agrak.png', alt: 'Agrak', width: 128, height: 48},
+  {src: '/optimized/letralogo-173x48.avif', fallback: '/optimized/letralogo-173x48.webp', alt: 'Letralogoazul', width: 173, height: 48},
+  {src: '/optimized/logoynombre-159x48.avif', fallback: '/optimized/logoynombre-159x48.webp', alt: 'Logoynombre', width: 159, height: 48},
+  {src: '/optimized/tritech-181x48.avif', fallback: '/optimized/tritech-181x48.webp', alt: 'TriTechAlargado', width: 181, height: 48},
+  {src: '/optimized/turbotuning-85x48.avif', fallback: '/logo empresas/turbotuninglogo.png', alt: 'turbotuninglogo', width: 85, height: 48},
 ];
 
 const CompanyLogosCarousel = ({ className = '', showTitle = true, variant = 'default' }) => {
@@ -33,12 +34,15 @@ const CompanyLogosCarousel = ({ className = '', showTitle = true, variant = 'def
       <div className={`flex flex-wrap items-center gap-4 ${className}`}>
         <div className="flex items-center gap-3">
           {logos.slice(0, 3).map((logo, i) => (
-            <img 
+            <Image 
               key={i} 
               src={logo.src} 
-              alt={logo.alt} 
+              alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
               className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300" 
-              loading="lazy" 
+              loading="lazy"
+              sizes="32px"
             />
           ))}
         </div>
@@ -89,11 +93,14 @@ const CompanyLogosCarousel = ({ className = '', showTitle = true, variant = 'def
                 key={`${logo.alt}-${i}`}
                 className="logo-item"
               >
-                <img
+                <Image
                   src={logo.src}
                   alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
                   className="h-12 sm:h-12 md:h-10 lg:h-12 xl:h-16 w-auto object-contain transition-all duration-300"
                   loading="lazy"
+                  sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 120px"
                 />
               </div>
             ))}
