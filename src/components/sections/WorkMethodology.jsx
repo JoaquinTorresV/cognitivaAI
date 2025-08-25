@@ -21,156 +21,180 @@ const METHODOLOGY_DATA = [
   {
     id: "descubrimiento",
     title: "Descubrimiento",
-    subtitle: "detectamos oportunidades inmediatas",
-    oneLiner: "Reunión estratégica de 25-30 min para alinear objetivos, mapear procesos y detectar quick wins con alto impacto.",
+    subtitle: "alineamos objetivos y detectamos quick wins",
+    oneLiner: "Reunión breve para entender tu contexto, mapear el customer journey actual y priorizar oportunidades de alto impacto. Saldrás con un plan claro de próximos pasos.",
     icon: Search,
     color: "from-blue-600 to-cyan-500",
-    time: "25–30 min",
+    time: "25–30 min · diagnóstico inicial",
     results: [
-      "Objetivos claros y KPIs definidos desde el inicio",
-      "Mapa completo del customer journey actual",
-      "Quick wins identificados para impacto inmediato"
+      "Objetivos y métricas de éxito definidas desde el inicio",
+      "Mapa del customer journey con puntos de fricción identificados",
+      "Lista priorizada de quick wins y plan de siguientes pasos"
     ],
     features: [
-      "Reunión con equipos clave (marketing, ventas, operaciones)",
-      "Revisión de funnel actual y herramientas en uso",
-      "Análisis de puntos de dolor y oportunidades",
-      "Priorización inicial basada en impacto/esfuerzo",
-      "Definición de métricas de éxito específicas"
+      "Reunión con áreas clave (ventas, marketing, soporte/operaciones)",
+      "Revisión de embudos y herramientas en uso (CRM, mensajería, web, ads)",
+      "Identificación de problemas y oportunidades por impacto/esfuerzo",
+      "Definición de métricas de éxito y criterios de seguimiento"
     ],
-    deliverable: "Resumen ejecutivo de objetivos y KPIs; mapa inicial del customer journey.",
-    whatWeNeed: "1 responsable por área; acceso de lectura a materiales clave.",
+    deliverable: "Resumen ejecutivo de objetivos y métricas de éxito; mapa inicial del journey y flujos críticos; prioridades y próximos pasos sugeridos.",
+    whatWeNeed: "1 responsable por área (ventas/soporte/marketing); acceso de lectura a materiales clave (FAQs, scripts, políticas); contexto de herramientas usadas (CRM, helpdesk, analytics).",
     testimonial: "En 30 minutos identificaron 3 oportunidades que no habíamos considerado.",
     faqs: [
-      { q: "¿Qué necesitamos preparar?", a: "Solo acceso a un responsable por área y documentos básicos del proceso." },
-      { q: "¿Es realmente gratuito?", a: "Sí, es parte de nuestro proceso de diagnóstico sin compromiso." }
+      { q: "¿Quién debe participar?", a: "Un responsable por área involucrada (ventas, soporte, marketing). Con eso es suficiente para esta etapa." },
+      { q: "¿Qué debo preparar antes de la reunión?", a: "Accesos de lectura o capturas de tus flujos actuales, FAQs, y una lista breve de pains u objetivos." },
+      { q: "¿Es realmente gratuito y sin compromiso?", a: "Sí. Es un diagnóstico inicial para entender tu caso y proponer próximos pasos." },
+      { q: "¿Necesitan acceso a mis sistemas?", a: "Solo lectura o material exportado. Si se requieren credenciales, trabajamos con NDA y cuentas limitadas." },
+      { q: "¿La sesión es remota o presencial?", a: "Normalmente remota (videollamada). Presencial disponible según ubicación y agenda." },
+      { q: "¿Qué recibo después del descubrimiento?", a: "Un resumen ejecutivo con oportunidades priorizadas, mapa del journey y propuesta de siguientes pasos." }
     ],
-    metrics: { baseline_time: "Línea base", response_rate: "Tasa respuesta", abandonment: "% abandono" }
+    metrics: { baseline_time: "Línea base operativa", response_rate: "Tiempos de respuesta", abandonment: "Puntos de fricción" }
   },
   {
     id: "diagnostico",
     title: "Diagnóstico",
-    subtitle: "auditamos y diseñamos el plan maestro",
-    oneLiner: "Análisis profundo de datos, flujos y herramientas en 48h para diseñar la hoja de ruta perfecta.",
+    subtitle: "auditoría a fondo y plan de acción claro",
+    oneLiner: "En 48 horas realizamos una auditoría técnica y de procesos (datos, conversaciones, embudos y herramientas). Terminamos con un roadmap priorizado por valor/esfuerzo y las dependencias para implementarlo con baja fricción.",
     icon: Compass,
     color: "from-purple-600 to-pink-500",
-    time: "48 h",
+    time: "48 h · auditoría y roadmap",
     results: [
-      "Diagnóstico completo de brechas y oportunidades",
-      "Backlog priorizado por valor e impacto",
-      "Matriz de integraciones técnicas necesarias"
+      "Inventario y evaluación de sistemas, flujos y datos",
+      "Backlog priorizado con responsables y siguientes pasos",
+      "Roadmap 30-60-90 con dependencias y hitos",
+      "Recomendaciones de gobierno de datos y buenas prácticas"
     ],
     features: [
-      "Auditoría completa de CRM, mensajería y FAQs",
-      "Análisis de intenciones y comportamiento de usuarios",
-      "Mapeo de integraciones existentes vs requeridas",
-      "Identificación de puntos de fricción críticos",
-      "Estimación de potencial de automatización"
+      "Auditoría de CRM, mensajería, web, analytics y ads",
+      "Análisis de intenciones, volúmenes, SLA y puntos de fricción",
+      "Mapa de integraciones actuales vs. requeridas (APIs, webhooks)",
+      "Evaluación del potencial de automatización e IA por proceso",
+      "Sesión de revisión de hallazgos y validación con tus equipos"
     ],
-    deliverable: "Informe detallado de brechas y riesgos; backlog priorizado por valor/esfuerzo.",
-    whatWeNeed: "Accesos temporales; ejemplos de conversaciones; validación de prioridades.",
+    deliverable: "Informe ejecutivo de hallazgos y riesgos; backlog priorizado (valor / esfuerzo); roadmap 30-60-90 con dependencias; mapa de integraciones y recomendaciones de datos/seguridad.",
+    whatWeNeed: "Accesos de lectura o sandbox / tokens limitados; export o muestras de conversaciones/FAQs; punto de contacto técnico y de negocio para validar prioridades.",
     testimonial: "El diagnóstico reveló problemas que llevábamos arrastrando años sin detectar.",
     faqs: [
-      { q: "¿Qué accesos necesitan?", a: "Solo lectura temporal para CRM y ejemplos de conversaciones típicas." },
-      { q: "¿Cuánto dura el acceso?", a: "48 horas máximo, con posibilidad de revocar en cualquier momento." }
+      { q: "¿Qué accesos requieren exactamente?", a: "Lectura a CRM/Helpdesk/Analytics o ambientes sandbox. Si se requieren credenciales, trabajamos con NDA, permisos mínimos y logs de acceso." },
+      { q: "¿Interrumpe mi operación?", a: "No. La auditoría se hace con accesos de lectura y ventanas controladas de prueba." },
+      { q: "¿Qué herramientas auditan?", a: "CRM, mensajería, ecommerce, web/landing, analytics/ads y cualquier sistema propio vía API." },
+      { q: "¿Puedo ejecutar el plan por mi cuenta?", a: "Sí. El roadmap es accionable. Puedes implementarlo internamente o con nuestro equipo." },
+      { q: "¿Qué ocurre después del diagnóstico?", a: "Presentamos hallazgos y acordamos el orden de implementación (quick wins y proyectos)." }
     ],
-    metrics: { time_reduction: "Reducción tiempo", cost_savings: "Ahorro costos", automation_potential: "Potencial IA" }
+    metrics: { time_reduction: "Brechas y riesgos", cost_savings: "Prioridades claras", automation_potential: "Mapa de integraciones" }
   },
   {
     id: "propuesta",
     title: "Propuesta",
-    subtitle: "plan detallado con ROI garantizado",
-    oneLiner: "Presentación ejecutiva con alcance, cronograma y ROI proyectado basado en datos reales.",
+    subtitle: "plan de implementación por sprints con estimaciones claras",
+    oneLiner: "Presentación ejecutiva con alcance, cronograma y estimaciones de impacto y tiempo-a-valor (TTV), basadas en los hallazgos de Descubrimiento y Diagnóstico. Incluye criterios de aceptación, responsables y siguientes pasos.",
     icon: FileCheck,
     color: "from-green-600 to-emerald-500",
-    time: "Días 4–5",
+    time: "Días 4–5 · plan detallado y roadmap con estimaciones",
     results: [
-      "Plan detallado por sprints con cronograma realista",
-      "ROI y tiempo a valor (TTV) proyectados",
-      "Criterios de aceptación y métricas de éxito"
+      "Plan por sprints con cronograma y responsables",
+      "Estimaciones (impacto y TTV) con supuestos claramente documentados",
+      "Criterios de aceptación y métricas de éxito por entregable",
+      "Riesgos y dependencias identificados con plan de mitigación"
     ],
     features: [
-      "Diseño completo de flujos conversacionales",
-      "Arquitectura técnica de integraciones y datos",
-      "Cronograma detallado por fases y entregables",
-      "Estimación precisa de impacto y ROI",
+      "Diseño detallado de flujos (conversacionales, automatizaciones y reglas)",
+      "Arquitectura de integraciones y datos (APIs, webhooks, seguridad)",
+      "Backlog priorizado valor/esfuerzo y roadmap 30-60-90",
+      "Estimación de esfuerzo y costos por fase",
+      "Plan de medición (métricas de éxito y cadencia de seguimiento)",
       "Plan de capacitación y change management"
     ],
-    deliverable: "Plan por sprints con cronograma; criterios de aceptación; estimación de ROI y TTV.",
-    whatWeNeed: "Validación de casos de uso y tono de marca; aprobación de hitos.",
+    deliverable: "Documento de propuesta (PDF/Doc); cronograma por sprints y dependencias; criterios de aceptación y plan de pruebas; supuestos, exclusiones, riesgos y mitigaciones.",
+    whatWeNeed: "Validación de casos de uso y tono de marca; priorización de backlog y aprobación de alcance; nombrar responsables por área (PO/tech lead).",
     testimonial: "La propuesta fue tan detallada que pudimos presentarla directamente al board.",
     faqs: [
-      { q: "¿Qué incluye el ROI?", a: "Ahorro en tiempo, aumento de conversión y reducción de costos operativos." },
-      { q: "¿Y si no se cumple el ROI?", a: "Tenemos garantías de cumplimiento y ajustes sin costo adicional." }
+      { q: "¿Cómo calculan el \"impacto estimado\" y el TTV?", a: "Usamos datos de volúmenes actuales, complejidad de procesos/integraciones y supuestos acordados. Las estimaciones se presentan en rangos y se revisan al inicio de cada sprint." },
+      { q: "¿Qué pasa si cambia el alcance o la prioridad?", a: "Aplicamos control de cambios: reestimamos el sprint/roadmap y documentamos el impacto en tiempos y entregables." },
+      { q: "¿Podemos implementar por fases?", a: "Sí. Priorizamos quick wins y planificamos entregas incrementales para capturar valor temprano." },
+      { q: "¿Cómo mediremos el éxito del proyecto?", a: "Con criterios de aceptación y métricas de éxito definidas en la propuesta. Cada sprint incluye demo y validación." },
+      { q: "¿Qué requiere de mi equipo?", a: "Un responsable de negocio y uno técnico para validar decisiones, más tiempos acotados para revisión de entregables." },
+      { q: "¿Podemos ejecutar el plan internamente?", a: "Sí. Entregamos documentación completa; puedes implementarlo con tu equipo y nosotros acompañamos donde lo necesiten." }
     ],
-    metrics: { projected_roi: "ROI proyectado", ttv: "Tiempo a valor", success_criteria: "Criterios éxito" }
+    metrics: { projected_roi: "Impacto estimado", ttv: "TTV estimado", success_criteria: "Criterios de aceptación" }
   },
   {
     id: "implementacion",
     title: "Implementación",
-    subtitle: "de cero a producción en 1-2 semanas",
-    oneLiner: "Desarrollo, integración y puesta en marcha completa con pruebas end-to-end y métricas en tiempo real.",
+    subtitle: "puesta en marcha controlada y sin fricciones",
+    oneLiner: "Ejecutamos el plan: desarrollos finales, integraciones y go-live por fases con pruebas end-to-end. Dejamos el sistema en producción, monitoreado y con tu equipo capacitado para operar y escalar.",
     icon: Rocket,
     color: "from-orange-600 to-red-500",
-    time: "Semana 1–2",
+    time: "Semana 1–2 · go-live por fases (según alcance)",
     results: [
-      "Sistema funcionando 100% integrado y operativo",
-      "Métricas en tiempo real (CSAT, resolución, conversión)",
-      "Equipo capacitado y documentación completa"
+      "Sistema en producción, integrado con tus canales y herramientas",
+      "Monitoreo y alertas activos con panel de métricas",
+      "Handover completo y equipo capacitado",
+      "Plan de soporte y mejora continua acordado"
     ],
     features: [
-      "Entrenamiento de IA con datos específicos del negocio",
-      "Conexión completa a WhatsApp, web, Instagram y CRM",
-      "Integración con ERP, ecommerce y sistemas críticos",
-      "Pruebas exhaustivas end-to-end en ambiente controlado",
-      "Tablero de métricas y alertas automáticas"
+      "Entrenamiento final de IA con datos del negocio y reglas de respuesta",
+      "Conexión a WhatsApp, Web/Chat, Instagram y CRM/ERP/ecommerce",
+      "Pruebas UAT y piloto en ambiente controlado, luego despliegue por fases",
+      "Checklist de seguridad y accesos, logging y auditoría",
+      "Tablero de métricas, alertas y documentación operativa",
+      "Plan de rollback y contingencia ante incidentes"
     ],
-    deliverable: "Flujos activos; credenciales y documentación; tablero de métricas completo.",
-    whatWeNeed: "Ventanas de prueba y aprobaciones ágiles; punto de contacto técnico/negocio.",
+    deliverable: "Flujos y bots activos en producción; credenciales, accesos y documentación (operativa y técnica); dashboard con métricas y alertas configuradas; plan de soporte / canales de atención y escalamiento.",
+    whatWeNeed: "Ventanas de prueba y aprobaciones por sprint; punto de contacto técnico y de negocio; accesos de lectura/escritura acotados para despliegue.",
     testimonial: "En una semana teníamos funcionando lo que creíamos tomaría meses implementar.",
     faqs: [
-      { q: "¿Afecta nuestras operaciones?", a: "No, implementamos en paralelo con migración controlada." },
-      { q: "¿Qué pasa si hay problemas?", a: "Soporte 24/7 durante implementación y garantía de funcionamiento." }
+      { q: "¿Interrumpe mis operaciones?", a: "No. Hacemos despliegue por fases, en ventanas controladas y con plan de contingencia." },
+      { q: "¿Qué pasa si aparece un incidente en producción?", a: "Activamos el plan de rollback, resolvemos el incidente y reprogramamos la salida con los ajustes necesarios." },
+      { q: "¿Cómo se valida que todo quedó bien integrado?", a: "Con pruebas UAT y de regresión, checklist de integraciones y verificación de eventos/métricas en el dashboard." },
+      { q: "¿Qué requiere mi equipo durante la implementación?", a: "Validación rápida de pruebas, aprobación de hitos y un responsable técnico/negocio para decisiones puntuales." },
+      { q: "¿Qué soporte tengo post go-live?", a: "Definimos un SLA, canal de soporte y una cadencia de seguimiento para mejoras continuas." },
+      { q: "¿Pueden revertir o pausar un flujo específico?", a: "Sí. Los flujos se pueden pausar o revertir sin afectar el resto de la operación." }
     ],
-    metrics: { response_time: "<1 segundo", automation_rate: "% automatización", integration_success: "Integraciones" }
+    metrics: { response_time: "Go-live controlado", automation_rate: "Flujos activos", integration_success: "Monitoreo en tiempo real" }
   },
   {
     id: "optimizacion",
     title: "Optimización continua",
-    subtitle: "mejora constante basada en datos reales",
-    oneLiner: "A/B testing, nuevas automatizaciones y reporting continuo para maximizar el ROI a largo plazo.",
+    subtitle: "mejora iterativa con experimentación y datos",
+    oneLiner: "Ejecutamos un ciclo de experimentación, análisis y mejora: pruebas A/B, nuevas automatizaciones y reporting continuo. Priorizamos iniciativas por valor/esfuerzo y mantenemos un roadmap trimestral para evolucionar tu operación sin fricciones.",
     icon: TrendingUp,
     color: "from-indigo-600 to-blue-500",
-    time: "Continuo",
+    time: "Programa continuo · ciclos mensuales y QBR trimestral",
     results: [
-      "Incremento constante de conversión y CSAT",
-      "Nuevas automatizaciones basadas en patrones",
-      "Roadmap trimestral con mejoras prioritarias"
+      "Evolución sostenida de conversiones y experiencia del cliente",
+      "Automatizaciones nuevas o mejoradas según patrones de uso",
+      "Roadmap trimestral con prioridades y responsables",
+      "Alertas y tableros para tomar decisiones a tiempo"
     ],
     features: [
-      "A/B testing continuo de mensajes y flujos",
-      "Desarrollo de nuevas automatizaciones inteligentes",
-      "Reportes ejecutivos y sesiones de revisión mensual",
-      "Análisis predictivo y recomendaciones proactivas",
-      "Escalado y optimización de performance"
+      "A/B testing de mensajes, flujos y journeys clave",
+      "Diseño y despliegue de automatizaciones basadas en insights",
+      "Sesiones mensuales de revisión + QBR (Quarterly Business Review)",
+      "Recomendaciones predictivas y plan de mejora continua",
+      "Optimización de performance y resiliencia operativa"
     ],
-    deliverable: "Roadmap trimestral; informes de impacto detallados (ventas/soporte).",
-    whatWeNeed: "Feedback continuo de equipos y definición de prioridades comerciales.",
+    deliverable: "Roadmap trimestral con backlog priorizado; plan de experimentos (hipótesis, duración, métricas); informe ejecutivo mensual con hallazgos y decisiones; tableros actualizados y alertas configuradas.",
+    whatWeNeed: "Feedback de equipos y validación de prioridades; ventanas para pruebas y despliegues acotados; accesos de lectura a datos y un PO/responsable por área.",
     testimonial: "Cada mes vemos mejoras medibles. El ROI sigue creciendo trimestre a trimestre.",
     faqs: [
-      { q: "¿Cuánto tiempo dura?", a: "Es un servicio continuo, cancelable mensualmente sin penalización." },
-      { q: "¿Cómo miden el progreso?", a: "Con KPIs específicos y reportes ejecutivos mensuales." }
+      { q: "¿Cuál es la cadencia del programa?", a: "Trabajamos con revisiones mensuales y un QBR cada trimestre para ajustar roadmap y metas." },
+      { q: "¿Cómo deciden qué optimizar primero?", a: "Usamos matriz valor/esfuerzo y datos de comportamiento; priorizamos quick wins y experimentos de mayor impacto potencial." },
+      { q: "¿Cómo miden el progreso sin prometer KPIs fijos?", a: "Definimos métricas de éxito por experimento y las comparamos contra la línea base; documentamos supuestos y aprendizados." },
+      { q: "¿Qué pasa si cambian nuestras prioridades de negocio?", a: "Reordenamos el backlog en la revisión mensual y actualizamos el roadmap trimestral." },
+      { q: "¿Necesito un equipo dedicado?", a: "Solo un responsable por área para decisiones y feedback; nosotros nos encargamos de la ejecución." },
+      { q: "¿Puedo pausar o terminar el servicio?", a: "Sí. Es un programa continuo mes a mes; puedes pausar o cerrar al término del período en curso." }
     ],
-    metrics: { conversion_boost: "Incremento conversión", csat_improvement: "Mejora CSAT", first_contact_resolution: "Resolución 1er contacto" }
+    metrics: { conversion_boost: "Mejora continua", csat_improvement: "Nuevas automatizaciones", first_contact_resolution: "Reporting ejecutivo" }
   }
 ];
 
 // Métricas específicas del proceso
 const PROCESS_METRICS = [
-  { value: "7-14", label: "días implementación" },
-  { value: "100%", label: "metodología probada" },
-  { value: "+35%", label: "eficiencia ganada" },
-  { value: "5", label: "etapas optimizadas" }
+  { value: "Inicio", label: "rápido" },
+  { value: "Metodología", label: "validada" },
+  { value: "Eficiencia", label: "operativa" },
+  { value: "5 etapas", label: "claras" }
 ];
 
 // Mapeo de métricas a iconos (reutilizado de servicios)
@@ -295,22 +319,24 @@ export default function WorkMethodology() {
         </div>
 
         {/* CTAs específicos del paso - Solo visible en desktop */}
-        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {hasMounted && (
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-4">
             <DemoButton 
               variant="default"
               size="medium"
-              text={`Empezar ${step.title}`}
-              subtitle="Diagnóstico gratuito"
+              text={step.id === 'propuesta' ? `Revisar ${step.title}` : `Agendar ${step.title}`}
+              subtitle={step.id === 'propuesta' ? "Documento y cronograma" : "Reunión gratuita (25–30 min)"}
               showSubtitle={true}
             />
             <WhatsAppButton 
               variant="default"
               size="medium"
               text="Hablar por WhatsApp"
-              subtitle="Respuesta inmediata"
+              subtitle="Respuesta en menos de 2 min"
               showSubtitle={true}
             />
         </div>
+        )}
 
         {/* Resultados esperados */}
         <div>
@@ -443,13 +469,9 @@ export default function WorkMethodology() {
     >
       {/* Header de sección reutilizando el patrón de servicios */}
       <SectionTitle
-        subtitle="Metodología clara, entregables por etapa y tiempos definidos. Empezamos rápido, nos integramos con tus sistemas y medimos impacto desde el primer día."
+        subtitle={<><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Metodología clara</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">entregables por etapa</span> y <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">tiempos definidos</span>. Empezamos rápido, nos integramos con tus sistemas y medimos impacto desde el primer día.</>}
       >
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-          ¿Cómo trabajamos?
-        </span>
-        <br />
-        <span className="text-white/90 font-light">Simple y efectivo</span>
+        ¿Cómo trabajamos? <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Simple y efectivo</span>
       </SectionTitle>
 
       {/* Sistema de navegación reutilizado */}
@@ -486,29 +508,94 @@ export default function WorkMethodology() {
 
       {/* Métricas generales del proceso */}
       <div className="mt-12 lg:mt-16">
-        <div className="text-center mb-4">
-          <h3 className={`${typographyPresets.sectionTitle} mb-3`}>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-              Resultados comprobados
-            </span>
-            <br />
-            <span className="text-white/90 font-light">en nuestro proceso</span>
+        <div className="text-center mb-6 px-4">
+          <h3 className={`${typographyPresets.sectionTitle} mb-4`}>
+            Qué puedes esperar de <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">nuestro proceso</span>
           </h3>
-          <p className={typographyPresets.description}>
-            Métricas reales de nuestro proceso optimizado
+          <p className={`${typographyPresets.description} max-w-2xl mx-auto`}>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Metodología en 5 etapas</span> con entregables claros y seguimiento continuo.
           </p>
         </div>
         
-        <div className="mt-6 p-8 rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-4xl mx-auto mb-16">
-          <div className="grid grid-cols-2 gap-8 text-center">
-            {PROCESS_METRICS.map((stat, i) => (
-              <div key={i}>
-                <div className="text-3xl md:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
-                  {stat.value}
+        <div className="mt-8 p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
+            {PROCESS_METRICS.map((stat, i) => {
+              const renderMetric = () => {
+                switch(i) {
+                  case 0: // Inicio rápido
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 shadow-lg">
+                            <Rocket className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                          Inicio
+                        </div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">rápido</p>
+                      </>
+                    );
+                  case 1: // Metodología validada
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 shadow-lg">
+                            <CheckCircle className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                          Metodología
+                        </div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">validada</p>
+                      </>
+                    );
+                  case 2: // Eficiencia operativa
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg">
+                            <Gauge className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                          Eficiencia
+                        </div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">operativa</p>
+                      </>
+                    );
+                  case 3: // 5 etapas / claras
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 shadow-lg">
+                            <Target className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">5 etapas</div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">claras</p>
+                      </>
+                    );
+                  default:
+                    return (
+                      <>
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-2">
+                          {stat.value}
+                        </div>
+                        <p className="text-sm lg:text-base font-light text-blue-200/70 leading-relaxed">
+                          {stat.label}
+                        </p>
+                      </>
+                    );
+                }
+              };
+              
+              return (
+                <div key={i} className="py-4 lg:py-2">
+                  {renderMetric()}
                 </div>
-                <p className="mt-2 text-sm font-light text-blue-200/60">{stat.label}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

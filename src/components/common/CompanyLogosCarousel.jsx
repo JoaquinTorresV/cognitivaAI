@@ -55,6 +55,10 @@ const CompanyLogosCarousel = ({ className = '', showTitle = true, variant = 'def
   }
 
   // Versión completa con scroll horizontal
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className={`mt-1 sm:mt-2 md:mt-2 lg:mt-1 pt-2 sm:pt-3 md:pt-3 lg:pt-2 pb-2 sm:pb-3 md:pb-4 lg:pb-5 border-t border-white/5 bg-gradient-to-t from-black/50 to-transparent backdrop-blur-sm relative z-10 ${className}`}>
       <div className="container mx-auto px-2 sm:px-4">

@@ -12,6 +12,7 @@ import TouchNavigation from '@/components/ui/TouchNavigation';
 import DemoButton from '@/components/ui/DemoButton';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { useScrollBasedAnimation } from '@/hooks/hookExports';
+import { useClientSideOnly } from '@/hooks/useClientSideOnly';
 import { INTEGRATIONS } from '@/lib/utils/businessConstants';
 import { typographyPresets, textColors } from '@/lib/design-system/typographySystem';
 import { gradients, componentColors } from '@/lib/design-system/colorSystem';
@@ -198,6 +199,7 @@ const SERVICES_DATA = [
 
 export default function ServiceOfferings() {
   const { ref } = useScrollBasedAnimation();
+  const hasMounted = useClientSideOnly();
   const [activeService, setActiveService] = useState(0);
   const [openFaqs, setOpenFaqs] = useState({}); // Estado para FAQ abiertos
 
@@ -264,10 +266,10 @@ export default function ServiceOfferings() {
 
   // Métricas generales de servicios
   const SERVICES_METRICS = [
-    { value: "Alta", label: "rentabilidad" },
-    { value: "Significativo", label: "ahorro de tiempo" },
-    { value: "24/7", label: "automatización" },
-    { value: "Máxima", label: "disponibilidad" }
+    { value: "Mayor", label: "rentabilidad" },
+    { value: "Ahorro", label: "de tiempo" },
+    { value: "Automatización", label: "24/7" },
+    { value: "Disponibilidad", label: "continua" }
   ];
 
   // Mapeo de métricas a iconos específicos
@@ -363,7 +365,8 @@ export default function ServiceOfferings() {
         </div>
 
         {/* CTAs - Solo visible en desktop */}
-        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {hasMounted && (
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-4">
           <DemoButton 
             variant="default"
             size="medium"
@@ -379,6 +382,7 @@ export default function ServiceOfferings() {
             showSubtitle={true}
           />
         </div>
+        )}
 
         {/* Resultados */}
         <div>
@@ -534,13 +538,9 @@ export default function ServiceOfferings() {
     >
       {/* Header de sección */}
       <SectionTitle
-        subtitle="Tecnología de vanguardia adaptada a tu empresa con el poder de la Inteligencia Artificial"
+        subtitle={<>Soluciones de <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">IA</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">automatización</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">integraciones</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">marketing digital</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">desarrollo web</span> y <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">analítica</span> para crecer con eficiencia.</>}
       >
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-          Servicios que transforman
-        </span>
-        <br />
-        <span className="text-white/90 font-light">tu negocio</span>
+        Servicios que <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">transforman tu negocio</span>
       </SectionTitle>
 
       {/* Sistema de navegación mejorado */}
@@ -578,29 +578,96 @@ export default function ServiceOfferings() {
 
       {/* Métricas de servicios */}
       <div className="mt-12 lg:mt-16">
-        <div className="text-center mb-4">
-          <h3 className={`${typographyPresets.sectionTitle} mb-3`}>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-              Resultados comprobados
-            </span>
-            <br />
-            <span className="text-white/90 font-light">en nuestros servicios</span>
+        <div className="text-center mb-6 px-4">
+          <h3 className={`${typographyPresets.sectionTitle} mb-4`}>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Impactos</span> que buscamos en nuestros <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">servicios</span>
           </h3>
-          <p className={typographyPresets.description}>
-            Métricas reales de nuestras implementaciones de IA
+          <p className={`${typographyPresets.description} max-w-2xl mx-auto`}>
+            Indicadores que priorizamos y <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">monitoreamos en producción</span>
           </p>
         </div>
         
-        <div className="mt-6 p-8 rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-4xl mx-auto mb-16">
-          <div className="grid grid-cols-2 gap-8 text-center">
-            {SERVICES_METRICS.map((stat, i) => (
-              <div key={i}>
-                <div className="text-3xl md:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
-                  {stat.value}
+        <div className="mt-8 p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
+            {SERVICES_METRICS.map((stat, i) => {
+              const renderMetric = () => {
+                switch(i) {
+                  case 0: // Mayor / rentabilidad
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 shadow-lg">
+                            <DollarSign className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">Mayor</div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">
+                          rentabilidad
+                        </p>
+                      </>
+                    );
+                  case 1: // Ahorro / de tiempo  
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg">
+                            <Clock className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">Ahorro</div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">
+                          de tiempo
+                        </p>
+                      </>
+                    );
+                  case 2: // Automatización 24/7
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 shadow-lg">
+                            <Zap className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                          Automatización
+                        </div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">24/7</p>
+                      </>
+                    );
+                  case 3: // Disponibilidad continua
+                    return (
+                      <>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 shadow-lg">
+                            <Activity className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                          Disponibilidad
+                        </div>
+                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">continua</p>
+                      </>
+                    );
+                  default:
+                    return (
+                      <>
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-2">
+                          {stat.value}
+                        </div>
+                        <p className="text-sm lg:text-base font-light text-blue-200/70 leading-relaxed">
+                          {stat.label}
+                        </p>
+                      </>
+                    );
+                }
+              };
+              
+              return (
+                <div key={i} className="py-4 lg:py-2">
+                  {renderMetric()}
                 </div>
-                <p className="mt-2 text-sm font-light text-blue-200/60">{stat.label}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -438,27 +438,29 @@ export default function IndustryExpertise() {
 
       {/* Franja de métricas */}
       <div className="mt-12 lg:mt-16">
-        <div className="text-center mb-4">
-          <h3 className={`${typographyPresets.sectionTitle} mb-3`}>
+        <div className="text-center mb-6 px-4">
+          <h3 className={`${typographyPresets.sectionTitle} mb-4`}>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
               Resultados comprobados
             </span>
             <br />
             <span className="text-white/90 font-light">en cada industria</span>
           </h3>
-          <p className={typographyPresets.description}>
+          <p className={`${typographyPresets.description} max-w-2xl mx-auto`}>
             Métricas reales de nuestras implementaciones
           </p>
         </div>
         
-        <div className="mt-6 p-8 rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-4xl mx-auto mb-16">
-          <div className="grid grid-cols-2 gap-8 text-center">
+        <div className="mt-8 p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
             {INDUSTRY_METRICS.map((stat, i) => (
-              <div key={i}>
-                <div className="text-3xl md:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+              <div key={i} className="py-4 lg:py-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-2">
                   {stat.value}
                 </div>
-                <p className="mt-2 text-sm font-light text-blue-200/60">{stat.label}</p>
+                <p className="text-sm lg:text-base font-light text-blue-200/70 leading-relaxed">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>

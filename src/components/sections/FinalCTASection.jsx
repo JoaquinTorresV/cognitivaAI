@@ -131,29 +131,31 @@ export default function FinalCTASection() {
         </div>
       </div>
       
-      {/* Métricas finales - Matriz 2x2 */}
+      {/* Métricas finales - Responsive */}
       <div className="mb-12 lg:mb-16">
-        <div className="text-center mb-6">
-          <h3 className={`${typographyPresets.sectionTitle} mb-3`}>
+        <div className="text-center mb-6 px-4">
+          <h3 className={`${typographyPresets.sectionTitle} mb-4`}>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
               Resultados que transforman
             </span>
             <br />
             <span className="text-white/90 font-light">tu negocio con IA</span>
           </h3>
-          <p className={typographyPresets.description}>
+          <p className={`${typographyPresets.description} max-w-2xl mx-auto`}>
             Métricas reales de nuestras implementaciones completas
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto p-8 rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10">
-          <div className="grid grid-cols-2 gap-8 text-center">
+        <div className="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
             {FINAL_METRICS.map((metric, i) => (
-              <div key={i}>
-                <div className="text-3xl md:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+              <div key={i} className="py-4 lg:py-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-2">
                   {metric.value}
                 </div>
-                <p className="mt-2 text-sm font-light text-blue-200/60">{metric.label}</p>
+                <p className="text-sm lg:text-base font-light text-blue-200/70 leading-relaxed">
+                  {metric.label}
+                </p>
               </div>
             ))}
           </div>

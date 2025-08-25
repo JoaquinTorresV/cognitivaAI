@@ -92,8 +92,8 @@ export const createTypographyClass = (type, size, color = '') => {
 
 // Presets comunes más utilizados
 export const typographyPresets = {
-  // Títulos de sección
-  sectionTitle: `${typography.heading.h2} ${textColors.heading.gradient}`,
+  // Títulos de sección (sin gradiente por defecto)
+  sectionTitle: `${typography.heading.h2} ${textColors.heading.primary}`,
   
   // Subtítulos
   subtitle: `${typography.body.large} ${textColors.body.secondary}`,

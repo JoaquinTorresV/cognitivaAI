@@ -162,6 +162,12 @@ export const AnimatedBackground = ({
   variant = 'default',
   className = '' 
 }) => {
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const variants = {
     default: (
       <>
@@ -186,6 +192,10 @@ export const AnimatedBackground = ({
       <div className={backgroundEffects.gridPattern} />
     )
   };
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div className={`absolute inset-0 -z-10 pointer-events-none overflow-hidden ${className}`}>

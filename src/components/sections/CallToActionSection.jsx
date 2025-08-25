@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/ReusableComponents";
 import useScrollBasedAnimation from "../../hooks/useScrollBasedAnimation";
 import { useConsistentRandomValues } from "../../hooks/useConsistentRandomValues";
+import { useClientSideOnly } from '@/hooks/useClientSideOnly';
 import {
   CheckCircle,
   ShieldCheck,
@@ -46,6 +47,7 @@ const trust = [
 
 export default function CallToActionSection() {
   const { ref } = useScrollBasedAnimation();
+  const hasMounted = useClientSideOnly();
   const floatingElements = useConsistentRandomValues(40, 6);
 
   return (
@@ -112,8 +114,14 @@ export default function CallToActionSection() {
                     <div className="relative inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full bg-gradient-to-r from-white/[0.1] to-white/[0.05] backdrop-blur-xl border border-white/20">
                       <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-300 animate-pulse" />
                       <span className="text-xs sm:text-sm font-light tracking-wide text-cyan-300">
-                        <span className="hidden sm:inline">Oferta Limitada - Solo 10 cupos este mes</span>
-                        <span className="sm:hidden">Oferta Limitada - 10 cupos</span>
+                        {hasMounted ? (
+                          <>
+                            <span className="hidden sm:inline">Oferta Limitada - Solo 10 cupos este mes</span>
+                            <span className="sm:hidden">Oferta Limitada - 10 cupos</span>
+                          </>
+                        ) : (
+                          "Oferta Limitada - Solo 10 cupos este mes"
+                        )}
                       </span>
                       <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-300 animate-pulse" />
                     </div>
@@ -232,8 +240,14 @@ export default function CallToActionSection() {
           <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20">
             <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
             <span className="text-xs sm:text-sm font-light text-red-300">
-              <span className="hidden sm:inline">Solo quedan 3 cupos disponibles para implementación este mes</span>
-              <span className="sm:hidden">Solo 3 cupos disponibles</span>
+              {hasMounted ? (
+                <>
+                  <span className="hidden sm:inline">Solo quedan 3 cupos disponibles para implementación este mes</span>
+                  <span className="sm:hidden">Solo 3 cupos disponibles</span>
+                </>
+              ) : (
+                "Solo quedan 3 cupos disponibles para implementación este mes"
+              )}
             </span>
           </div>
         </div>
