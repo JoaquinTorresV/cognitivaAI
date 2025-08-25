@@ -530,10 +530,10 @@ export default function WorkMethodology() {
                             <Rocket className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">
                           Inicio
                         </div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">rápido</p>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">rápido</p>
                       </>
                     );
                   case 1: // Metodología validada
@@ -544,10 +544,10 @@ export default function WorkMethodology() {
                             <CheckCircle className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">
                           Metodología
                         </div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">validada</p>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">validada</p>
                       </>
                     );
                   case 2: // Eficiencia operativa
@@ -558,10 +558,10 @@ export default function WorkMethodology() {
                             <Gauge className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">
                           Eficiencia
                         </div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">operativa</p>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">operativa</p>
                       </>
                     );
                   case 3: // 5 etapas / claras
@@ -572,8 +572,8 @@ export default function WorkMethodology() {
                             <Target className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">5 etapas</div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">claras</p>
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">5 etapas</div>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">claras</p>
                       </>
                     );
                   default:

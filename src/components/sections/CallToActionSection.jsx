@@ -21,20 +21,20 @@ import {
 const perks = [
   { 
     icon: CheckCircle, 
-    title: "Diagnóstico sin costo", 
-    desc: "Análisis profundo con IA de oportunidades",
+    title: "Inicio rápido", 
+    desc: "MVP operativo en días (según alcance) e integraciones clave.",
     gradient: "from-emerald-600 to-teal-600" 
   },
   { 
     icon: TrendingUp, 
-    title: "ROI garantizado", 
-    desc: "Resultados medibles desde el día 1",
+    title: "Impacto medible", 
+    desc: "Definimos métricas de éxito y seguimiento continuo.",
     gradient: "from-blue-600 to-cyan-600" 
   },
   { 
     icon: Clock, 
-    title: "Implementación express", 
-    desc: "Operativo en menos de 7 días",
+    title: "Soporte continuo", 
+    desc: "Acompañamiento 24/7 y mejora iterativa.",
     gradient: "from-purple-600 to-pink-600" 
   },
 ];
@@ -130,20 +130,19 @@ export default function CallToActionSection() {
                 
                 {/* Título épico */}
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-thin tracking-tight mb-4 sm:mb-6">
-                  <span className="block font-light text-white/90">¿Listo para</span>
-                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 animate-gradient-x font-extralight">
-                    multiplicar x10
+                  <span className="block font-light text-white/90">¿Listo para dar el </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
+                    siguiente paso
                   </span>
-                  <span className="block font-light text-white/90">tus resultados?</span>
+                  <span className="block font-light text-white/90"> con </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
+                    IA
+                  </span>
+                  <span className="font-light text-white/90">?</span>
                 </h2>
                 
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-light text-blue-200/70 max-w-3xl mx-auto mb-3 sm:mb-4 px-4 sm:px-0">
-                  Únete a <span className="text-cyan-300 font-normal">+50 empresas</span> que ya están un paso adelante
-                </p>
-                
                 <p className="text-xs sm:text-sm md:text-base lg:text-lg font-light text-blue-200/60 max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12 px-4 sm:px-0">
-                  Transforma tu negocio con agentes de IA que venden, atienden y escalan 24/7.
-                  Integración completa con WhatsApp, CRM y todas tus herramientas.
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Agentes de IA</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">automatizaciones</span> e <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">integraciones</span> conectadas a tus sistemas para vender mejor, atender más rápido y escalar de forma sostenida. Definimos <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">métricas de éxito</span> desde el inicio y las medimos en producción.
                 </p>
                 
                 {/* Cards de beneficios */}
@@ -160,8 +159,28 @@ export default function CallToActionSection() {
                             <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                           </div>
                           <div>
-                            <p className="font-light text-white text-sm sm:text-base md:text-lg">{title}</p>
-                            <p className="text-xs sm:text-sm font-light text-blue-200/60 mt-1 leading-tight">{desc}</p>
+                            <p className="font-light text-sm sm:text-base md:text-lg">
+                              {title === 'Inicio rápido' && (
+                                <><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Inicio rápido</span></>
+                              )}
+                              {title === 'Impacto medible' && (
+                                <><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Impacto medible</span></>
+                              )}
+                              {title === 'Soporte continuo' && (
+                                <><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Soporte continuo</span></>
+                              )}
+                            </p>
+                            <p className="text-xs sm:text-sm font-light text-blue-200/60 mt-1 leading-tight">
+                              {desc === 'MVP operativo en días (según alcance) e integraciones clave.' && (
+                                <>MVP operativo en <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">días (según alcance)</span> e integraciones clave.</>
+                              )}
+                              {desc === 'Definimos métricas de éxito y seguimiento continuo.' && (
+                                <>Definimos <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">métricas de éxito</span> y seguimiento continuo.</>
+                              )}
+                              {desc === 'Acompañamiento 24/7 y mejora iterativa.' && (
+                                <>Acompañamiento <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">24/7</span> y mejora iterativa.</>
+                              )}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -197,22 +216,30 @@ export default function CallToActionSection() {
                       className="relative inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 lg:px-12 py-2.5 sm:py-3 md:py-4 lg:py-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-light tracking-wide text-xs sm:text-sm md:text-base lg:text-lg shadow-2xl hover:shadow-[0_0_80px_rgba(6,182,212,0.6)] transition-all duration-500 group-hover:scale-105"
                     >
                       <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 animate-pulse" />
-                      <span className="whitespace-nowrap">Comenzar transformación</span>
+                      <span className="whitespace-nowrap">Ver <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-cyan-200">Demo</span> de 30 min</span>
                       <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 group-hover:translate-x-2 transition-transform duration-300" />
                     </a>
+                    <p className="text-xs text-blue-200/60 mt-3 max-w-xs mx-auto">
+                      Agenda inmediata • Sin costo • Caso de tu industria
+                    </p>
                   </div>
                   
                   {/* CTA secundario - CONVERTIDO A ENLACE */}
-                  <a 
-                    href="https://cal.com/www.cognitiva-ai.agency"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-1.5 sm:gap-2 text-cyan-300 hover:text-white transition-colors duration-300"
-                  >
-                    <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
-                    <span className="font-light text-sm sm:text-base">Hablar con experto</span>
-                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </a>
+                  <div className="flex flex-col items-center">
+                    <a 
+                      href="https://cal.com/www.cognitiva-ai.agency"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-1.5 sm:gap-2 text-cyan-300 hover:text-white transition-colors duration-300"
+                    >
+                      <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <span className="font-light text-sm sm:text-base">Hablar por <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-white">WhatsApp</span> ahora</span>
+                      <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    </a>
+                    <p className="text-xs text-emerald-200/60 mt-3 max-w-xs text-center">
+                      Respuesta rápida • <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-cyan-300">24/7</span>
+                    </p>
+                  </div>
                   
                   {/* Garantías */}
                   <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 mt-3 sm:mt-4 text-xs font-light text-blue-200/50">

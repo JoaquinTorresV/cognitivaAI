@@ -600,8 +600,8 @@ export default function ServiceOfferings() {
                             <DollarSign className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">Mayor</div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">Mayor</div>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">
                           rentabilidad
                         </p>
                       </>
@@ -614,8 +614,8 @@ export default function ServiceOfferings() {
                             <Clock className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">Ahorro</div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">Ahorro</div>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">
                           de tiempo
                         </p>
                       </>
@@ -628,10 +628,10 @@ export default function ServiceOfferings() {
                             <Zap className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">
                           Automatización
                         </div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">24/7</p>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">24/7</p>
                       </>
                     );
                   case 3: // Disponibilidad continua
@@ -642,10 +642,10 @@ export default function ServiceOfferings() {
                             <Activity className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-thin text-white mb-1">
+                        <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">
                           Disponibilidad
                         </div>
-                        <p className="text-xl sm:text-2xl lg:text-3xl font-thin text-white leading-relaxed">continua</p>
+                        <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">continua</p>
                       </>
                     );
                   default:

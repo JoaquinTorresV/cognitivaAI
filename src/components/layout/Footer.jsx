@@ -92,10 +92,10 @@ export default function Footer() {
   ];
 
   const stats = [
-    { value: "50+", label: "Empresas Activas", icon: Users, trend: "+23%" },
-    { value: "10M+", label: "Msgs/mes", icon: MessageCircle, trend: "+45%" },
-    { value: "99%", label: "Uptime SLA", icon: Activity, trend: "Estable" },
-    { value: "24/7", label: "Soporte Premium", icon: Shield, trend: "365 días" },
+    { value: "Clientes en LATAM", label: "en operación", icon: Users, trend: "" },
+    { value: "Mensajería omnicanal", label: "escala elástica", icon: MessageCircle, trend: "" },
+    { value: "SLA y monitoreo", label: "disponibilidad continua", icon: Activity, trend: "" },
+    { value: "Soporte 24/7", label: "canal prioritario", icon: Shield, trend: "" },
   ];
 
   useEffect(() => {
@@ -211,9 +211,8 @@ export default function Footer() {
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full bg-gradient-to-r from-white/[0.1] to-white/[0.05] backdrop-blur-xl border border-white/20">
                     <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-300 animate-pulse" />
-                    <span className="text-xs sm:text-sm font-light tracking-wide text-cyan-300">
-                      <span className="hidden sm:inline">TECNOLOGÍA DE VANGUARDIA • IA GENERATIVA • MACHINE LEARNING</span>
-                      <span className="sm:hidden">IA DE VANGUARDIA</span>
+                    <span className="text-xs sm:text-sm font-light tracking-wide">
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">IA empresarial</span> • <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Automatización</span> • <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Integraciones</span>
                     </span>
                     <Bot className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-300 animate-pulse" style={{ animationDelay: '0.5s' }} />
                   </div>
@@ -221,31 +220,51 @@ export default function Footer() {
               </div>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-thin mb-4 sm:mb-6">
-                <span className="font-light text-white/90">Revoluciona tu negocio con</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Transforma tu negocio</span>
                 <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 gradient-x font-extralight">
+                <span className="font-light text-white/90">con </span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 font-extralight">
                   Inteligencia Artificial
                 </span>
               </h2>
               
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light text-blue-200/70 max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-10 px-4">
-                Únete a las empresas líderes que ya multiplicaron sus resultados.
-                <br />
-                <span className="text-cyan-300">Implementación en 7 días • ROI garantizado • Soporte 24/7</span>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light text-blue-200/70 max-w-4xl mx-auto mb-4 sm:mb-6 md:mb-8 px-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Agentes de IA</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">automatizaciones</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">integraciones</span> con tus sistemas, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">marketing digital</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">desarrollo web</span> y <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">analítica</span> para crecer con eficiencia. Empezamos rápido, nos integramos con tu stack y <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">medimos impacto desde el primer día</span>.
               </p>
+              
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 text-sm font-light text-white mb-6 sm:mb-8 md:mb-10">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500/30 to-red-500/30 flex items-center justify-center">
+                    <Rocket className="h-5 w-5 text-orange-400" />
+                  </div>
+                  <span>Inicio rápido</span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500/30 to-emerald-500/30 flex items-center justify-center">
+                    <TrendingUp className="h-5 w-5 text-green-400" />
+                  </div>
+                  <span>Impacto medible</span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/30 to-cyan-500/30 flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-blue-400" />
+                  </div>
+                  <span>Soporte 24/7</span>
+                </div>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
                 <DemoButton 
                   variant="default"
                   size="large"
-                  text="Comenzar transformación"
+                  text="Ver demo de 30 min"
                   showSubtitle={false}
                   className="flex-1 max-w-xs"
                 />
                 <WhatsAppButton 
                   variant="outline"
                   size="large"
-                  text="Hablar con experto"
+                  text="Hablar con un experto"
                   showSubtitle={false}
                   className="flex-1 max-w-xs"
                 />
@@ -258,15 +277,15 @@ export default function Footer() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Shield className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-400" />
-                  <span className="text-xs">100% seguros</span>
+                  <span className="text-xs">Seguridad de datos</span>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-400" />
-                  <span className="text-xs">24-48h setup</span>
+                  <span className="text-xs">Go-live por fases</span>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Award className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-400" />
-                  <span className="text-xs">Garantía</span>
+                  <span className="text-xs">SLA y soporte 24/7</span>
                 </span>
               </div>
             </div>
@@ -275,8 +294,7 @@ export default function Footer() {
       </div>
 
       <div className="relative container-padded py-20">
-        <div className="grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4">
+        <div className="max-w-2xl mx-auto text-center">
             <div className="mb-10">
               <div className="relative inline-block group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -289,158 +307,54 @@ export default function Footer() {
               </div>
               
               <p className="mt-6 text-lg font-light text-blue-200/70 leading-relaxed">
-                Transformamos negocios con <span className="text-cyan-300">IA conversacional</span> y 
-                <span className="text-purple-300"> automatización inteligente</span> de próxima generación.
+                Impulsamos empresas con <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">agentes de IA</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">automatizaciones</span> e <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">integraciones</span> conectadas a tu stack. Operación continua, seguridad y soporte <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">24/7</span>.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap justify-center gap-2">
                 <div className="px-3 py-1.5 rounded-full bg-gradient-to-r from-emerald-900/30 to-teal-900/30 border border-emerald-500/20 text-xs text-emerald-300">
                   ISO 27001
                 </div>
                 <div className="px-3 py-1.5 rounded-full bg-gradient-to-r from-[#0a0a0a]/60 to-[#0d0d0d]/60 border border-blue-500/20 text-xs text-blue-300">
-                  GDPR Ready
+                  Cumplimiento GDPR
                 </div>
                 <div className="px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-900/30 to-pink-900/30 border border-purple-500/20 text-xs text-purple-300">
-                  SOC 2
+                  SOC 2 (informes bajo NDA)
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto">
               {stats.map((stat) => {
                 const Icon = stat.icon;
                 return (
                   <div key={stat.label} className="group relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative p-4 rounded-xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-sm border border-white/10 group-hover:border-cyan-400/20 transition-all duration-300">
-                      <div className="flex items-start justify-between mb-2">
-                        <Icon className="h-4 w-4 text-cyan-400" />
-                        <span className="text-xs text-emerald-400 font-light">{stat.trend}</span>
+                    <div className="relative p-3 rounded-xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-sm border border-white/10 group-hover:border-cyan-400/20 transition-all duration-300 h-20 flex flex-col justify-center items-center text-center">
+                      <div className="flex items-center justify-center mb-1">
+                        <Icon className="h-3 w-3 sm:h-4 sm:w-4 text-cyan-400" />
                       </div>
-                      <div className="text-2xl font-thin text-white">{stat.value}</div>
-                      <div className="text-xs font-light text-blue-200/60 mt-1">{stat.label}</div>
+                      <div className="flex flex-col items-center">
+                        <div className="text-xs sm:text-sm font-thin text-white mb-1 leading-tight">
+                          {stat.value === 'Clientes en LATAM' && (
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Clientes en LATAM</span>
+                          )}
+                          {stat.value === 'Mensajería omnicanal' && (
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Mensajería omnicanal</span>
+                          )}
+                          {stat.value === 'SLA y monitoreo' && (
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">SLA y monitoreo</span>
+                          )}
+                          {stat.value === 'Soporte 24/7' && (
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Soporte 24/7</span>
+                          )}
+                        </div>
+                        <div className="text-xs font-light text-blue-200/60 leading-tight text-center">{stat.label}</div>
+                      </div>
                     </div>
                   </div>
                 );
               })}
             </div>
-          </div>
-
-          <div className="lg:col-span-8">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h4 className="text-sm font-medium uppercase tracking-wider text-cyan-400 mb-6 flex items-center gap-2">
-                  <Bot className="h-4 w-4" />
-                  Soluciones
-                </h4>
-                <ul className="space-y-3">
-                  {footerLinks.empresa.map((link) => {
-                    const Icon = link.icon;
-                    return (
-                      <li key={link.href}>
-                        <Link
-                          href={link.href}
-                          className="group flex items-center gap-3 text-sm font-light text-blue-200/70 hover:text-white transition-all duration-300"
-                        >
-                          <Icon className="h-3.5 w-3.5 text-blue-400/50 group-hover:text-cyan-400 transition-colors" />
-                          <span className="relative">
-                            {link.label}
-                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-cyan-400 to-blue-400 group-hover:w-full transition-all duration-300" />
-                          </span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium uppercase tracking-wider text-purple-400 mb-6 flex items-center gap-2">
-                  <Code2 className="h-4 w-4" />
-                  Recursos
-                </h4>
-                <ul className="space-y-3">
-                  {footerLinks.recursos.map((link) => {
-                    const Icon = link.icon;
-                    return (
-                      <li key={link.href}>
-                        <Link
-                          href={link.href}
-                          className="group flex items-center gap-3 text-sm font-light text-blue-200/70 hover:text-white transition-all duration-300"
-                        >
-                          <Icon className="h-3.5 w-3.5 text-purple-400/50 group-hover:text-purple-400 transition-colors" />
-                          <span className="relative">
-                            {link.label}
-                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
-                          </span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium uppercase tracking-wider text-emerald-400 mb-6 flex items-center gap-2">
-                  <Shield className="h-4 w-4" />
-                  Contacto & Legal
-                </h4>
-                
-                <div className="space-y-3 mb-8">
-                  <a
-                    href={`tel:${BRAND.phone}`}
-                    className="group flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] border border-white/10 hover:border-cyan-400/20 transition-all duration-300"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
-                      <Phone className="h-4 w-4 text-cyan-400" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-blue-200/50">Teléfono</div>
-                      <div className="text-sm font-light text-white">{BRAND.phone}</div>
-                    </div>
-                  </a>
-                  
-                  <a
-                    href={`mailto:${BRAND.email}`}
-                    className="group flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] border border-white/10 hover:border-purple-400/20 transition-all duration-300"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-                      <Mail className="h-4 w-4 text-purple-400" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-blue-200/50">Email</div>
-                      <div className="text-sm font-light text-white">{BRAND.email}</div>
-                    </div>
-                  </a>
-                  
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] border border-white/10">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
-                      <MapPin className="h-4 w-4 text-emerald-400" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-blue-200/50">Ubicación</div>
-                      <div className="text-sm font-light text-white">{BRAND.city}</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <h5 className="text-xs font-medium text-blue-200/50 mb-3">Legal & Compliance</h5>
-                  <div className="grid grid-cols-2 gap-2">
-                    {footerLinks.legal.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-xs font-light text-blue-200/50 hover:text-cyan-300 transition-colors duration-300"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -448,53 +362,14 @@ export default function Footer() {
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent scan-footer" />
         
         <div className="container-padded py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2 text-sm font-light text-blue-200/60">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-2 text-sm font-light text-blue-200/60">
               <span>© {currentYear} Cognitiva AI</span>
               <span className="text-cyan-400/50">•</span>
               <span className="flex items-center gap-1">
                 Crafted with <Heart className="h-3 w-3 text-red-400" style={{ animation: 'pulse 1s ease-in-out infinite' }} /> 
                 by humans & AI
               </span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="group relative"
-                    onMouseEnter={() => setHoveredSocial(social.label)}
-                    onMouseLeave={() => setHoveredSocial(null)}
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-r ${social.color} rounded-xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300`} />
-                    <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-white/10 flex items-center justify-center group-hover:border-cyan-400/30 transition-all duration-300 group-hover:scale-110">
-                      <Icon className="h-4 w-4 text-blue-300 group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    {hoveredSocial === social.label && (
-                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded whitespace-nowrap">
-                        {social.label}
-                      </div>
-                    )}
-                  </a>
-                );
-              })}
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-900/30 to-teal-900/30 backdrop-blur-sm border border-emerald-500/20">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full" style={{ animation: 'pulse 1s ease-in-out infinite' }} />
-                <span className="text-xs font-light text-emerald-300">Todos los sistemas operativos</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#0a0a0a]/60 to-[#0d0d0d]/60 backdrop-blur-sm border border-blue-500/20">
-                <Database className="h-3 w-3 text-blue-400" />
-                <span className="text-xs font-light text-blue-300">v2.4.1</span>
-              </div>
             </div>
           </div>
         </div>

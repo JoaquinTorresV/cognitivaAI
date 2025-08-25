@@ -176,10 +176,10 @@ const INDUSTRIES_DATA = [
 
 // Métricas específicas por industria
 const INDUSTRY_METRICS = [
-  { value: "9", label: "industrias especializadas" },
-  { value: "+45%", label: "conversión promedio" },
-  { value: "92%", label: "satisfacción cliente" },
-  { value: "50+", label: "casos implementados" }
+  { title: "Experiencia del cliente", subtitle: "mejorada por cada punto de contacto", icon: Target },
+  { title: "Operación conectada", subtitle: "sistemas y datos sincronizados", icon: Cpu },
+  { title: "Crecimiento sostenible", subtitle: "embudos y campañas optimizadas", icon: TrendingUp },
+  { title: "Gobierno de datos", subtitle: "seguridad y cumplimiento", icon: ShieldCheck }
 ];
 
 export default function IndustryExpertise() {
@@ -395,13 +395,9 @@ export default function IndustryExpertise() {
     >
       {/* Header de sección */}
       <SectionTitle
-        subtitle="Implementamos agentes de IA, automatizaciones e integraciones adaptadas a tu vertical. Más velocidad, menos costos y un funnel que convierte de punta a punta."
+        subtitle={<><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Agentes de IA</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">automatizaciones</span> e <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">integraciones</span> diseñadas para tu vertical. Operaciones más ágiles, costos controlados y <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">embudos que convierten de principio a fin</span>.</>}
       >
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-          Potencia tu industria
-        </span>
-        <br />
-        <span className="text-white/90 font-light">con IA empresarial</span>
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">IA empresarial</span> adaptada a tu <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">industria</span>
       </SectionTitle>
 
       {/* Sistema de navegación con iconos de industrias */}
@@ -440,29 +436,40 @@ export default function IndustryExpertise() {
       <div className="mt-12 lg:mt-16">
         <div className="text-center mb-6 px-4">
           <h3 className={`${typographyPresets.sectionTitle} mb-4`}>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-              Resultados comprobados
-            </span>
-            <br />
-            <span className="text-white/90 font-light">en cada industria</span>
+            Lo que <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">priorizamos</span> en <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">cada industria</span>
           </h3>
           <p className={`${typographyPresets.description} max-w-2xl mx-auto`}>
-            Métricas reales de nuestras implementaciones
+            Indicadores y prácticas que <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">medimos en producción</span> por vertical.
           </p>
         </div>
         
         <div className="mt-8 p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-5xl mx-auto mb-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
-            {INDUSTRY_METRICS.map((stat, i) => (
-              <div key={i} className="py-4 lg:py-2">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-2">
-                  {stat.value}
+            {INDUSTRY_METRICS.map((stat, i) => {
+              const IconComponent = stat.icon;
+              const colorClasses = [
+                "from-green-500 to-emerald-500",
+                "from-blue-500 to-cyan-500", 
+                "from-orange-500 to-red-500",
+                "from-purple-500 to-indigo-500"
+              ];
+              
+              return (
+                <div key={i} className="py-4 lg:py-2">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className={`p-3 rounded-xl bg-gradient-to-r ${colorClasses[i]} shadow-lg`}>
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">
+                    {stat.title}
+                  </div>
+                  <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">
+                    {stat.subtitle}
+                  </p>
                 </div>
-                <p className="text-sm lg:text-base font-light text-blue-200/70 leading-relaxed">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

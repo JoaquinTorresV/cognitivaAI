@@ -21,20 +21,20 @@ import { gradients, componentColors } from '@/lib/design-system/colorSystem';
 // Beneficios clave resumidos
 const KEY_BENEFITS = [
   {
-    title: "Implementación rápida",
-    description: "MVP operativo en 7-14 días con integraciones completas",
+    title: "Inicio rápido",
+    description: "MVP operativo en días (según alcance) e integraciones clave.",
     icon: Rocket,
     color: "from-orange-500 to-red-500"
   },
   {
-    title: "ROI garantizado",
-    description: "Resultados medibles desde el primer mes de operación",
+    title: "Impacto medible",
+    description: "Definimos métricas de éxito y seguimiento continuo.",
     icon: TrendingUp,
     color: "from-green-500 to-emerald-500"
   },
   {
-    title: "Soporte integral",
-    description: "Acompañamiento 24/7 y optimización continua",
+    title: "Soporte continuo",
+    description: "Acompañamiento 24/7 y mejora iterativa.",
     icon: ShieldCheck,
     color: "from-blue-500 to-cyan-500"
   }
@@ -42,10 +42,10 @@ const KEY_BENEFITS = [
 
 // Métricas finales de la página
 const FINAL_METRICS = [
-  { value: "300%", label: "ROI promedio comprobado" },
-  { value: "15h", label: "ahorro semanal por empresa" },
-  { value: "50+", label: "empresas transformadas" },
-  { value: "98%", label: "uptime garantizado" }
+  { title: "Mayor rentabilidad", subtitle: "optimización de la inversión", icon: TrendingUp },
+  { title: "Ahorro de tiempo", subtitle: "procesos más ágiles", icon: Timer },
+  { title: "Operación conectada", subtitle: "sistemas y datos sincronizados", icon: Plug },
+  { title: "Disponibilidad continua", subtitle: "servicio 24/7", icon: Activity }
 ];
 
 
@@ -95,13 +95,9 @@ export default function FinalCTASection() {
     >
       {/* Header principal */}
       <SectionTitle
-        subtitle="Agentes de IA, automatizaciones e integraciones empresariales para vender más, atender mejor y escalar 24/7. Enlazamos tus canales y tu CRM/ERP para resultados medibles desde el primer mes."
+        subtitle={<><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Agentes de IA</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">automatizaciones</span> e <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">integraciones</span> conectadas a tus sistemas para vender mejor, atender más rápido y escalar de forma sostenida. Definimos <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">métricas de éxito</span> desde el inicio y las medimos en producción.</>}
       >
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-          ¿Listo para dar el siguiente paso
-        </span>
-        <br />
-        <span className="text-white/90 font-light">con IA?</span>
+        ¿Listo para dar el <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">siguiente paso</span> con <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">IA</span>?
       </SectionTitle>
 
       {/* Beneficios clave */}
@@ -117,11 +113,27 @@ export default function FinalCTASection() {
                     <benefit.icon className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-light text-white mb-3">
-                      {benefit.title}
+                    <h3 className="text-lg sm:text-xl font-light mb-3">
+                      {benefit.title === 'Inicio rápido' && (
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Inicio rápido</span>
+                      )}
+                      {benefit.title === 'Impacto medible' && (
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Impacto medible</span>
+                      )}
+                      {benefit.title === 'Soporte continuo' && (
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Soporte continuo</span>
+                      )}
                     </h3>
                     <p className={`${typographyPresets.description} leading-relaxed`}>
-                      {benefit.description}
+                      {benefit.description === 'MVP operativo en días (según alcance) e integraciones clave.' && (
+                        <>MVP operativo en <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">días (según alcance)</span> e integraciones clave.</>
+                      )}
+                      {benefit.description === 'Definimos métricas de éxito y seguimiento continuo.' && (
+                        <>Definimos <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">métricas de éxito</span> y seguimiento continuo.</>
+                      )}
+                      {benefit.description === 'Acompañamiento 24/7 y mejora iterativa.' && (
+                        <>Acompañamiento <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">24/7</span> y mejora iterativa.</>
+                      )}
                     </p>
                   </div>
                 </div>
@@ -132,69 +144,63 @@ export default function FinalCTASection() {
       </div>
       
       {/* Métricas finales - Responsive */}
-      <div className="mb-12 lg:mb-16">
+      <div className="mt-16 sm:mt-20 md:mt-24 lg:mt-28 mb-12 lg:mb-16">
         <div className="text-center mb-6 px-4">
           <h3 className={`${typographyPresets.sectionTitle} mb-4`}>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-              Resultados que transforman
-            </span>
-            <br />
-            <span className="text-white/90 font-light">tu negocio con IA</span>
+            Resultados que <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">impulsan</span> tu negocio con <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">IA</span>
           </h3>
           <p className={`${typographyPresets.description} max-w-2xl mx-auto`}>
-            Métricas reales de nuestras implementaciones completas
+            Indicadores que <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">priorizamos y medimos en producción</span>.
           </p>
         </div>
         
         <div className="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
-            {FINAL_METRICS.map((metric, i) => (
-              <div key={i} className="py-4 lg:py-2">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-thin bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-2">
-                  {metric.value}
+            {FINAL_METRICS.map((metric, i) => {
+              const IconComponent = metric.icon;
+              const colorClasses = [
+                "from-green-500 to-emerald-500",
+                "from-blue-500 to-cyan-500", 
+                "from-orange-500 to-red-500",
+                "from-purple-500 to-indigo-500"
+              ];
+              
+              return (
+                <div key={i} className="py-4 lg:py-2">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className={`p-3 rounded-xl bg-gradient-to-r ${colorClasses[i]} shadow-lg`}>
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-thin text-white mb-1">
+                    {metric.title === 'Mayor rentabilidad' && (
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Mayor rentabilidad</span>
+                    )}
+                    {metric.title === 'Ahorro de tiempo' && (
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Ahorro de tiempo</span>
+                    )}
+                    {metric.title === 'Operación conectada' && (
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Operación conectada</span>
+                    )}
+                    {metric.title === 'Disponibilidad continua' && (
+                      <><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Disponibilidad continua</span></>
+                    )}
+                  </div>
+                  <p className="text-base sm:text-lg lg:text-xl font-thin text-white/80 leading-relaxed">
+                    {metric.subtitle === 'servicio 24/7' ? (
+                      <>servicio <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">24/7</span></>
+                    ) : (
+                      metric.subtitle
+                    )}
+                  </p>
                 </div>
-                <p className="text-sm lg:text-base font-light text-blue-200/70 leading-relaxed">
-                  {metric.label}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
 
 
-      {/* CTAs dobles con microcopy - Solo desktop */}
-      <div className="text-center">
-        {hasMounted && !isMobile && (
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-            {/* CTA Primario - Demo */}
-            <div className="flex flex-col items-center">
-              <DemoButton 
-                variant="default"
-                size="large"
-                text="Ver Demo de 30 min"
-                showSubtitle={false}
-              />
-              <p className="text-xs text-blue-200/60 mt-3 max-w-xs">
-                Agenda inmediata • Sin costo • Caso de tu industria
-              </p>
-            </div>
-            
-            {/* CTA Secundario - WhatsApp */}
-            <div className="flex flex-col items-center">
-              <WhatsAppButton 
-                variant="default"
-                size="large"
-                text="Hablar por WhatsApp ahora"
-                showSubtitle={false}
-              />
-              <p className="text-xs text-emerald-200/60 mt-3 max-w-xs">
-                Respuesta en &lt;2 min • 24/7
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
     </Section>
   );
 }
