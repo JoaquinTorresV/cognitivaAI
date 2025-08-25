@@ -250,7 +250,7 @@ export default function WorkMethodology() {
                 Paso {index + 1}: {step.title}
               </h3>
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
-                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${step.color}/30 border border-white/20 text-white text-sm font-medium`}>
+                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-700/80 border border-white/20 text-white text-sm font-medium w-fit`}>
                   <Clock className="w-4 h-4" />
                   <span>{step.time}</span>
                 </div>
