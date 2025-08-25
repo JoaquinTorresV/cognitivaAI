@@ -105,12 +105,13 @@ const CleanSwipeCard = ({
     goToIndex(prevIndex);
   }, [displayIndex, items.length, goToIndex]);
 
-  // Configurar gestos swipe
+  // Configurar gestos swipe con optimización para móviles
   const swipeRef = useSwipeGestures({
     onSwipeLeft: handleNext,
     onSwipeRight: handlePrevious,
-    threshold: 50,
-    preventScrollOnTouch: true
+    threshold: 75,
+    preventScrollOnTouch: false,
+    enabled: enableSwipe && isClient && isMobile
   });
 
   // Estilos base de la tarjeta
@@ -261,29 +262,37 @@ const CleanSwipeCard = ({
       <div 
         ref={enableSwipe && isClient && isMobile ? swipeRef : null}
         className="relative overflow-hidden"
+        style={{
+          touchAction: enableSwipe && isClient && isMobile ? 'pan-y' : 'auto',
+          WebkitOverflowScrolling: 'touch'
+        }}
       >
         {/* Tarjeta principal - contenido único sin superposiciones */}
         <div
           data-swipeable-card
           className={`relative ${defaultCardStyles} ${cardClassName}`}
-          style={getAnimationStyles()}
+          style={{
+            ...getAnimationStyles(),
+            willChange: animationPhase !== 'idle' ? 'transform, opacity' : 'auto',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden'
+          }}
         >
           {renderContent()}
           {renderArrows()}
           
-          {/* Indicadores de swipe para móviles */}
+          {/* Indicadores de swipe para móviles - Mejorados */}
           {isClient && isMobile && enableSwipe && items.length > 1 && (
-            <>
-              <div className="absolute bottom-4 right-4 flex items-center gap-1 opacity-40">
-                <div className="flex gap-0.5">
-                  <div className="w-1 h-4 bg-gradient-to-t from-cyan-400/60 to-cyan-400/20 rounded-full animate-pulse" />
-                  <div className="w-1 h-4 bg-gradient-to-t from-cyan-400/40 to-cyan-400/10 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
-                  <div className="w-1 h-4 bg-gradient-to-t from-cyan-400/20 to-cyan-400/5 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
-                </div>
-                <div className="text-xs text-cyan-400/60 font-light ml-1">←→</div>
+            <div 
+              className="absolute bottom-4 right-4 flex items-center gap-1 opacity-50 pointer-events-none"
+              style={{ zIndex: 5 }}
+            >
+              <div className="flex gap-0.5">
+                <div className="w-1 h-3 bg-gradient-to-t from-cyan-400/50 to-cyan-400/10 rounded-full animate-pulse" />
+                <div className="w-1 h-3 bg-gradient-to-t from-cyan-400/30 to-cyan-400/5 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
               </div>
-              
-            </>
+              <div className="text-xs text-cyan-400/50 font-light ml-1 select-none">swipe</div>
+            </div>
           )}
         </div>
       </div>
@@ -291,22 +300,20 @@ const CleanSwipeCard = ({
       {/* Indicadores inferiores */}
       {indicatorPosition === 'bottom' && renderIndicators()}
       
-      {/* Información de navegación para móviles */}
+      {/* Información de navegación para móviles - Simplificada */}
       {isClient && isMobile && enableSwipe && items.length > 1 && (
         <div className="text-center mt-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-            <div className="flex items-center gap-1 text-cyan-400/70">
-              <span className="text-sm">←</span>
-              <span className="text-xs">desliza</span>
-              <span className="text-sm">→</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/3 border border-white/5">
+            <div className="text-xs text-cyan-400/60 font-light select-none">
+              desliza para navegar
             </div>
-            <div className="w-px h-3 bg-white/20"></div>
+            <div className="w-px h-2 bg-white/10"></div>
             <div className="flex gap-1">
               {[...Array(items.length)].map((_, index) => (
                 <div 
                   key={index}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    index === displayIndex ? 'bg-cyan-400' : 'bg-white/30'
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                    index === displayIndex ? 'bg-cyan-400' : 'bg-white/20'
                   }`}
                 />
               ))}

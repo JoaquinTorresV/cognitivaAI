@@ -14,15 +14,18 @@ const useSwipeGestures = ({
   threshold = 50, // Distancia mínima para considerar un swipe
   restraint = 100, // Máxima distancia perpendicular permitida
   allowedTime = 300, // Tiempo máximo para completar el gesto
-  preventScrollOnTouch = false // Prevenir scroll durante el touch
+  preventScrollOnTouch = false, // Prevenir scroll durante el touch
+  enabled = true // Control de habilitación del hook
 }) => {
   const elementRef = useRef(null);
   const touchStartRef = useRef(null);
   const touchTimeRef = useRef(null);
 
   const handleTouchStart = useCallback((e) => {
+    if (!enabled) return;
+    
     // No procesar swipes si el usuario está tocando un botón, enlace o elemento interactivo
-    const target = e.target.closest('button, a, input, select, textarea, [role="button"]');
+    const target = e.target.closest('button, a, input, select, textarea, [role="button"], [data-no-swipe]');
     if (target) {
       return;
     }
@@ -37,13 +40,13 @@ const useSwipeGestures = ({
     if (preventScrollOnTouch) {
       e.preventDefault();
     }
-  }, [preventScrollOnTouch]);
+  }, [preventScrollOnTouch, enabled]);
 
   const handleTouchEnd = useCallback((e) => {
-    if (!touchStartRef.current || !touchTimeRef.current) return;
+    if (!enabled || !touchStartRef.current || !touchTimeRef.current) return;
 
     // No procesar swipes si el usuario está tocando un botón, enlace o elemento interactivo
-    const target = e.target.closest('button, a, input, select, textarea, [role="button"]');
+    const target = e.target.closest('button, a, input, select, textarea, [role="button"], [data-no-swipe]');
     if (target) {
       // Limpiar referencias y permitir el comportamiento normal del botón
       touchStartRef.current = null;
@@ -62,22 +65,28 @@ const useSwipeGestures = ({
       const absDistX = Math.abs(distX);
       const absDistY = Math.abs(distY);
 
-      // Swipe horizontal (izquierda/derecha)
+      // Swipe horizontal (izquierda/derecha) - prioritario para carrusel
       if (absDistX >= threshold && absDistY <= restraint) {
+        // Prevenir scroll solo en swipes válidos
         e.preventDefault();
+        e.stopPropagation();
+        
         if (distX < 0 && onSwipeLeft) {
           onSwipeLeft(e);
         } else if (distX > 0 && onSwipeRight) {
           onSwipeRight(e);
         }
       }
-      // Swipe vertical (arriba/abajo)
+      // Swipe vertical (arriba/abajo) - permitir scroll natural
       else if (absDistY >= threshold && absDistX <= restraint) {
-        e.preventDefault();
-        if (distY < 0 && onSwipeUp) {
-          onSwipeUp(e);
-        } else if (distY > 0 && onSwipeDown) {
-          onSwipeDown(e);
+        // Solo prevenir si hay handler específico
+        if ((distY < 0 && onSwipeUp) || (distY > 0 && onSwipeDown)) {
+          e.preventDefault();
+          if (distY < 0 && onSwipeUp) {
+            onSwipeUp(e);
+          } else if (distY > 0 && onSwipeDown) {
+            onSwipeDown(e);
+          }
         }
       }
     }
@@ -85,7 +94,7 @@ const useSwipeGestures = ({
     // Limpiar referencias
     touchStartRef.current = null;
     touchTimeRef.current = null;
-  }, [threshold, restraint, allowedTime, onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown]);
+  }, [threshold, restraint, allowedTime, onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown, enabled]);
 
   // Soporte para mouse (para testing en desktop)
   const handleMouseDown = useCallback((e) => {
@@ -132,23 +141,33 @@ const useSwipeGestures = ({
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element) return;
+    if (!element || !enabled) return;
 
-    // Touch events
-    element.addEventListener('touchstart', handleTouchStart, { passive: !preventScrollOnTouch });
-    element.addEventListener('touchend', handleTouchEnd, { passive: false });
+    // Touch events con configuración optimizada para móviles
+    element.addEventListener('touchstart', handleTouchStart, { 
+      passive: !preventScrollOnTouch,
+      capture: false
+    });
+    element.addEventListener('touchend', handleTouchEnd, { 
+      passive: false,
+      capture: false 
+    });
 
-    // Mouse events para testing en desktop
-    element.addEventListener('mousedown', handleMouseDown);
-    element.addEventListener('mouseup', handleMouseUp);
+    // Mouse events para testing en desktop solamente
+    if (window.innerWidth >= 768) {
+      element.addEventListener('mousedown', handleMouseDown);
+      element.addEventListener('mouseup', handleMouseUp);
+    }
 
     return () => {
       element.removeEventListener('touchstart', handleTouchStart);
       element.removeEventListener('touchend', handleTouchEnd);
-      element.removeEventListener('mousedown', handleMouseDown);
-      element.removeEventListener('mouseup', handleMouseUp);
+      if (window.innerWidth >= 768) {
+        element.removeEventListener('mousedown', handleMouseDown);
+        element.removeEventListener('mouseup', handleMouseUp);
+      }
     };
-  }, [handleTouchStart, handleTouchEnd, handleMouseDown, handleMouseUp]);
+  }, [handleTouchStart, handleTouchEnd, handleMouseDown, handleMouseUp, enabled]);
 
   return elementRef;
 };

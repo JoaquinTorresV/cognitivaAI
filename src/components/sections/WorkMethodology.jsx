@@ -399,10 +399,12 @@ export default function WorkMethodology() {
                     e.stopPropagation();
                     toggleFaq(index, faqIdx);
                   }}
+                  data-no-swipe
                   className="w-full cursor-pointer text-sm font-medium hover:text-white transition-all duration-300 flex items-center gap-2 py-3 text-left touch-manipulation text-cyan-300"
                   style={{ 
                     minHeight: '44px',
-                    WebkitTapHighlightColor: 'transparent'
+                    WebkitTapHighlightColor: 'transparent',
+                    touchAction: 'manipulation'
                   }}
                 >
                   <ArrowRight className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${

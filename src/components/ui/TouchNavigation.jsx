@@ -333,6 +333,7 @@ const TouchNavigation = ({
               key={item.id || index}
               ref={el => itemRefs.current[index] = el}
               onClick={() => handleItemSelect(index)}
+              data-no-swipe
               className={`
                 flex items-center transition-all duration-300
                 ${isMobile ? 'justify-center rounded-full' : 'justify-start gap-2 whitespace-nowrap rounded-lg'}
@@ -351,7 +352,8 @@ const TouchNavigation = ({
               `}
               style={{
                 scrollSnapAlign: snapToItems ? 'center' : 'none',
-                zIndex: isActive ? 10 : 1
+                zIndex: isActive ? 10 : 1,
+                touchAction: 'manipulation'
               }}
               aria-pressed={isActive}
             >

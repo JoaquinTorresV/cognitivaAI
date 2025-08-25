@@ -469,6 +469,7 @@ export default function ServiceOfferings() {
                     e.stopPropagation();
                     toggleFaq(index, faqIdx);
                   }}
+                  data-no-swipe
                   className="w-full cursor-pointer text-sm font-medium hover:text-white transition-all duration-300 flex items-center gap-2 py-3 text-left touch-manipulation"
                   style={{ 
                     color: '#67e8f9',
@@ -476,7 +477,8 @@ export default function ServiceOfferings() {
                     border: 'none',
                     outline: 'none',
                     minHeight: '44px', // Área táctil mínima recomendada
-                    WebkitTapHighlightColor: 'transparent'
+                    WebkitTapHighlightColor: 'transparent',
+                    touchAction: 'manipulation'
                   }}
                 >
                   {/* Icono de flecha con animación */}
