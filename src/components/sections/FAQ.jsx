@@ -19,28 +19,24 @@ const FAQ_DATA = {
     color: "from-blue-600 to-cyan-500",
     questions: [
       {
-        q: "¿Qué es un agente de IA y en qué se diferencia de un chatbot tradicional?",
-        a: "Un agente de IA entiende intención, contexto y reglas de negocio; se conecta a tus sistemas (CRM, ecommerce, pasarela de pago) y actúa: califica leads, agenda, consulta stock o inicia pagos. Un chatbot tradicional suele responder guiones fijos sin integraciones profundas."
+        q: "¿En cuánto tiempo puedo tener un agente funcionando?",
+        a: "La mayoría de las implementaciones se completan en pocos días, dependiendo del nivel de personalización e integraciones que requieras."
       },
       {
-        q: "¿En qué canales funciona el agente (WhatsApp, Web, Instagram, Facebook Messenger)?",
-        a: "Operamos en WhatsApp Business, Webchat, Instagram y Facebook Messenger. Puedes activar uno o varios canales y compartir la misma base de conocimiento."
+        q: "¿Se integra con mis sistemas actuales (CRM, ERP, pasarela de pago)?",
+        a: "Sí, conectamos con las principales plataformas como Salesforce, HubSpot, Shopify, pasarelas de pago y sistemas propios mediante API."
       },
       {
-        q: "¿Puede responder en varios idiomas automáticamente?",
-        a: "Sí. Detecta el idioma del usuario y responde en +30 idiomas de forma natural, manteniendo tono y guías de tu marca."
+        q: "¿Qué pasa si necesito que un humano intervenga en la conversación?",
+        a: "El agente detecta automáticamente cuándo derivar a un humano y transfiere toda la conversación con contexto completo. Tu equipo recibe el historial, datos del cliente y motivo de escalación para continuar sin interrupciones."
       },
       {
-        q: "¿Cuáles son los casos de uso más efectivos para vender con un chatbot de WhatsApp?",
-        a: "Recuperación de carritos y remarketing conversacional. Calificación de leads y agendamiento automático. Soporte L1 (envíos, cambios, estado de pedido). Cobros/pagos dentro del chat (según integración)."
+        q: "¿Puedo actualizar las respuestas o entrenar al agente con nueva información?",
+        a: "Sí, puedes actualizar fácilmente FAQs, catálogos o documentos para que el agente siempre responda con la información más reciente."
       },
       {
-        q: "¿Sustituye a mi equipo humano?",
-        a: "No. Complementa: resuelve lo repetitivo y deriva con contexto cuando requiere humano (handover), para que tu equipo se enfoque en cierres y casos complejos."
-      },
-      {
-        q: "¿Cómo medimos el éxito de un agente de IA?",
-        a: "Monitorizamos tiempo de respuesta, resolución al primer contacto (FCR), CSAT, tasa de conversión, tasa de agendamiento y valor de pedido (ecommerce)."
+        q: "¿Cómo garantizan la seguridad de los datos?",
+        a: "Cumplimos con estándares de seguridad como ISO 27001 y GDPR. Todos los datos son cifrados y manejados bajo estrictos protocolos de privacidad."
       }
     ]
   },
@@ -49,6 +45,10 @@ const FAQ_DATA = {
     icon: Settings,
     color: "from-purple-600 to-pink-500",
     questions: [
+      {
+        q: "¿En cuánto tiempo puedo tener un agente funcionando?",
+        a: "Entre 7 y 14 días para el MVP, dependiendo de integraciones y volumen de contenido. En casos simples (FAQ + WhatsApp), puedes tener tu agente activo en menos de una semana."
+      },
       {
         q: "¿Cuánto tarda implementar un chatbot en WhatsApp para ventas y soporte?",
         a: "El MVP suele estar operativo entre 7 y 14 días, dependiendo de integraciones y volumen de contenido."
@@ -77,7 +77,11 @@ const FAQ_DATA = {
     color: "from-green-600 to-emerald-500",
     questions: [
       {
-        q: "¿Se integra con HubSpot, Salesforce, Pipedrive u otros CRMs?",
+        q: "¿Se integra con mis sistemas actuales (CRM, ERP, pasarela de pago)?",
+        a: "Sí, nos integramos con CRMs (HubSpot, Salesforce, Pipedrive), ERPs (SAP, NetSuite), pasarelas de pago (Stripe, PayPal) y sistemas de ecommerce. Si no existe conector nativo, lo desarrollamos vía API."
+      },
+      {
+        q: "¿Se integra with HubSpot, Salesforce, Pipedrive u otros CRMs?",
         a: "Sí. Contamos con conectores para CRMs líderes. Si no existe un conector, lo implementamos vía API o webhook."
       },
       {
@@ -158,6 +162,10 @@ const FAQ_DATA = {
         a: "Aplica fallback a artículos o deriva a humano con el contexto completo de la conversación, y se retroalimenta para mejorar la cobertura."
       },
       {
+        q: "¿Puedo actualizar las respuestas o entrenar al agente con nueva información?",
+        a: "Sí, puedes actualizar fácilmente FAQs, catálogos o documentos desde nuestro panel intuitivo. También ofrecemos integraciones para sincronizar automáticamente con tu base de conocimientos existente."
+      },
+      {
         q: "¿Cómo se actualiza el contenido del agente?",
         a: "Desde el panel de administración o integrando con tu repositorio de conocimiento. Podemos programar actualizaciones automáticas."
       },
@@ -205,7 +213,6 @@ const FAQ_CATEGORIES = Object.entries(FAQ_DATA).map(([id, data]) => ({
 export default function FAQ() {
   const { ref } = useScrollBasedAnimation();
   const hasMounted = useClientSideOnly();
-  const [activeCategory, setActiveCategory] = useState(0);
   const [openFaqs, setOpenFaqs] = useState({});
   const [isMobile, setIsMobile] = useState(false);
 
@@ -220,50 +227,48 @@ export default function FAQ() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Limpiar FAQs abiertas cuando cambia la categoría
-  React.useEffect(() => {
-    setOpenFaqs({});
-  }, [activeCategory]);
-
   // Manejar FAQ toggle
-  const toggleFaq = (categoryIndex, questionIndex) => {
-    const faqId = `${categoryIndex}-${questionIndex}`;
+  const toggleFaq = (questionIndex) => {
+    const faqId = `agentes-ia-${questionIndex}`;
     setOpenFaqs(prev => ({
       ...prev,
       [faqId]: !prev[faqId]
     }));
   };
 
-  // Renderizar tarjeta de FAQ
-  const renderFAQCard = (category, index) => (
-    <div className="space-y-6">
+  // Solo mostrar la categoría de Agentes de IA
+  const agentesIACategory = FAQ_DATA["agentes-ia"];
+
+  // Renderizar FAQ simplificado para solo Agentes de IA
+  const renderFAQSection = () => (
+    <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header de categoría */}
       <div className="relative mb-8">
-        <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-10 blur-xl rounded-2xl`} />
+        <div className={`absolute inset-0 bg-gradient-to-r ${agentesIACategory.color} opacity-10 blur-xl rounded-2xl`} />
         <div className="relative">
           {/* Icono en la parte superior */}
           <div className="flex justify-start mb-4">
-            <div className={`p-4 rounded-2xl bg-gradient-to-r ${category.color} shadow-lg`}>
-              <category.icon className="h-7 w-7 text-white" />
+            <div className={`p-4 rounded-2xl bg-gradient-to-r ${agentesIACategory.color} shadow-lg`}>
+              <agentesIACategory.icon className="h-7 w-7 text-white" />
             </div>
           </div>
           
           {/* Título de la categoría */}
           <div className="mb-6">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-3">
-              {category.title}
+              {agentesIACategory.title}
             </h3>
             <p className="text-cyan-300/80 text-sm sm:text-base font-light">
-              Preguntas más frecuentes sobre {category.title.toLowerCase()}
+              Todo lo que necesitas saber sobre {agentesIACategory.title.toLowerCase()}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Lista de preguntas de la categoría */}
+      {/* Lista de preguntas */}
       <div className="space-y-4">
-        {category.questions.map((faq, questionIndex) => {
-          const faqId = `${index}-${questionIndex}`;
+        {agentesIACategory.questions.map((faq, questionIndex) => {
+          const faqId = `agentes-ia-${questionIndex}`;
           const isOpen = openFaqs[faqId];
           
           return (
@@ -273,7 +278,7 @@ export default function FAQ() {
             >
               {/* Pregunta */}
               <button
-                onClick={() => toggleFaq(index, questionIndex)}
+                onClick={() => toggleFaq(questionIndex)}
                 className="w-full text-left p-4 sm:p-6 focus:outline-none focus:ring-2 focus:ring-blue-400/50 rounded-xl"
                 aria-expanded={isOpen}
               >
@@ -307,87 +312,12 @@ export default function FAQ() {
           );
         })}
       </div>
-
-      {/* Preguntas SEO solo en la última categoría */}
-      {index === FAQ_CATEGORIES.length - 1 && (
-        <div className="mt-12">
-          <div className="mb-6">
-            <h4 className="text-lg font-medium text-white mb-3 flex items-center gap-2">
-              <HelpCircle className="h-5 w-5 text-violet-400" />
-              Preguntas adicionales (SEO/SEM)
-            </h4>
-            <p className="text-violet-300/80 text-sm font-light">
-              Consultas técnicas y de posicionamiento
-            </p>
-          </div>
-          
-          <div className="space-y-4">
-            {SEO_QUESTIONS.map((faq, seoIndex) => {
-              const seoFaqId = `seo-${seoIndex}`;
-              const isOpen = openFaqs[seoFaqId];
-              
-              return (
-                <div
-                  key={seoIndex}
-                  className={`rounded-xl bg-gradient-to-r from-violet-600/10 to-purple-600/10 border border-violet-400/20 hover:border-violet-400/30 transition-all duration-300`}
-                >
-                  <button
-                    onClick={() => {
-                      const faqId = `seo-${seoIndex}`;
-                      setOpenFaqs(prev => ({
-                        ...prev,
-                        [faqId]: !prev[faqId]
-                      }));
-                    }}
-                    className="w-full text-left p-4 sm:p-6 focus:outline-none focus:ring-2 focus:ring-violet-400/50 rounded-xl"
-                    aria-expanded={isOpen}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-1">
-                        <h4 className="text-sm sm:text-base font-medium text-white leading-relaxed pr-4">
-                          {faq.q}
-                        </h4>
-                      </div>
-                      <div className="flex-shrink-0">
-                        <ChevronDown 
-                          className={`w-5 h-5 text-violet-400 transition-transform duration-300 ${
-                            isOpen ? 'rotate-180' : ''
-                          }`} 
-                        />
-                      </div>
-                    </div>
-                  </button>
-
-                  {isOpen && (
-                    <div className="px-4 sm:px-6 pb-4 sm:pb-6">
-                      <div className="pt-4 border-t border-violet-400/20">
-                        <p className={`${typographyPresets.description} leading-relaxed`}>
-                          {faq.a}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
     </div>
   );
 
-  // Schema.org JSON-LD para FAQPage - todas las preguntas
+  // Schema.org JSON-LD para FAQPage - solo Agentes de IA
   const getAllQuestions = () => {
-    const allQuestions = [];
-    FAQ_CATEGORIES.forEach(category => {
-      category.questions.forEach(q => {
-        allQuestions.push(q);
-      });
-    });
-    SEO_QUESTIONS.forEach(q => {
-      allQuestions.push(q);
-    });
-    return allQuestions;
+    return agentesIACategory.questions;
   };
 
   const schemaData = {
@@ -420,44 +350,18 @@ export default function FAQ() {
 
       {/* Header de sección */}
       <SectionTitle
-        subtitle="Resuelve en minutos las dudas más comunes sobre agentes de IA, chatbots en WhatsApp, automatizaciones, integraciones, seguridad y precios. Si no ves tu pregunta, nuestro equipo responde 24/7."
+        subtitle="Resuelve todas tus dudas sobre agentes de IA y chatbots para WhatsApp, Web e Instagram. Funcionalidades, implementación, integración y más. Si no encuentras tu pregunta, nuestro equipo responde 24/7."
       >
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
-          Preguntas
+          Agentes de IA
         </span>
         <br />
-        <span className="text-white/90 font-light">frecuentes</span>
+        <span className="text-white/90 font-light">Preguntas frecuentes</span>
       </SectionTitle>
 
-      {/* Sistema de navegación con iconos de categorías */}
-      <div className="mb-8 lg:mb-12">
-        <TouchNavigation
-          items={FAQ_CATEGORIES}
-          activeIndex={activeCategory}
-          onItemSelect={setActiveCategory}
-          variant="pills"
-          size={hasMounted && isMobile ? "medium" : "large"}
-          showIcons={true}
-          centerActiveItem={true}
-          className="mb-6"
-        />
-      </div>
-
-      {/* Sistema de tarjetas */}
-      <div className="max-w-6xl mx-auto">
-        <CleanSwipeCard
-          items={FAQ_CATEGORIES}
-          activeIndex={activeCategory}
-          onIndexChange={setActiveCategory}
-          renderCard={renderFAQCard}
-          enableSwipe={hasMounted && isMobile}
-          showIndicators={false}
-          showArrows={false}
-          className="mb-12"
-          cardClassName="bg-gradient-to-br from-white/[0.03] to-white/[0.01]"
-          cardPadding="p-6 lg:p-8"
-          transitionDuration={600}
-        />
+      {/* FAQ Section - Solo Agentes de IA */}
+      <div className="mb-12">
+        {renderFAQSection()}
       </div>
 
       {/* CTA de cierre */}
@@ -467,22 +371,20 @@ export default function FAQ() {
             ¿Aún tienes preguntas?
           </h3>
           
-          {hasMounted && !isMobile && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-              <WhatsAppButton 
-                variant="default"
-                size="large"
-                text="Hablar por WhatsApp"
-                showSubtitle={false}
-              />
-              <DemoButton 
-                variant="minimal"
-                size="large"
-                text="Ver Demo de 30 min"
-                showSubtitle={false}
-              />
-            </div>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+            <WhatsAppButton 
+              variant="default"
+              size="large"
+              text="Hablar por WhatsApp"
+              showSubtitle={false}
+            />
+            <DemoButton 
+              variant="minimal"
+              size="large"
+              text="Ver Demo de 30 min"
+              showSubtitle={false}
+            />
+          </div>
 
           <p className="text-sm text-blue-200/60 flex flex-wrap items-center justify-center gap-2">
             <span className="flex items-center gap-1">

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Bolt, Brain, Globe, Puzzle, Rocket } from 'lucide-react';
+import { MessageCircle, Bolt, Brain, Globe, Puzzle, Rocket, TrendingUp, BarChart3 } from 'lucide-react';
 import { BRAND } from '@/lib/utils/businessConstants';
 import useScrollBasedAnimation from '@/hooks/useScrollBasedAnimation';
 import { useDevicePerformance } from '@/hooks/useDevicePerformance';
@@ -31,23 +31,23 @@ export default function Hero() {
   const beneficios = [
     { 
       icon: Bolt, 
-      text: 'Respuesta ultrarrápida', 
-      desc: 'Reduce abandono y mejora NPS' 
-    },
-    { 
-      icon: Brain, 
-      text: 'Entrenados con tus datos', 
-      desc: 'Precisión de nivel enterprise' 
-    },
-    { 
-      icon: Globe, 
-      text: 'Multiidioma nativo', 
-      desc: 'Soporte global en +5 idiomas' 
+      text: 'Automatización inteligente', 
+      desc: 'Optimiza procesos y mejora la eficiencia.' 
     },
     { 
       icon: Puzzle, 
-      text: 'Integraciones en 48 h', 
-      desc: 'HubSpot, Salesforce, Shopify Plus y más' 
+      text: 'Integración total', 
+      desc: 'Conecta CRM, ERP, pasarelas de pago y más en una sola solución.' 
+    },
+    { 
+      icon: TrendingUp, 
+      text: 'Marketing & Web', 
+      desc: 'Estrategias digitales y sitios optimizados para atraer y convertir.' 
+    },
+    { 
+      icon: BarChart3, 
+      text: 'Analítica avanzada', 
+      desc: 'Mide resultados y toma decisiones con información clara y en tiempo real.' 
     }
   ];
 
@@ -60,7 +60,7 @@ export default function Hero() {
       <section
         id="hero"
         className="relative min-h-[75vh] sm:min-h-[85vh] md:min-h-[75vh] lg:min-h-[70vh] pt-24 sm:pt-28 md:pt-32 lg:pt-28 xl:pt-24 pb-4 sm:pb-6 md:pb-2 lg:pb-1 bg-gradient-to-br from-dark-100 to-dark text-white"
-        aria-label="Agentes de IA para ventas y soporte 24/7 en WhatsApp, Web e Instagram">
+        aria-label="Automatización y tecnología inteligente para transformar tu negocio 24/7">
 
         <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6 lg:px-8 animate-in">
           {/* Espacio vacío para evitar que el navbar tape la etiqueta en móviles */}
@@ -78,7 +78,7 @@ export default function Hero() {
                   <div className="relative inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full bg-gradient-to-r from-white/[0.08] to-white/[0.04] backdrop-blur-xl border border-white/10">
                     <Rocket className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 animate-pulse" />
                     <span className="text-xs sm:text-sm font-light tracking-wide text-cyan-300">
-                      IA Conversacional + Automatización
+                      IA + Automatización
                     </span>
                   </div>
                 </div>
@@ -86,18 +86,45 @@ export default function Hero() {
 
               {/* 2. H1 */}
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-thin leading-tight tracking-tight px-0 sm:px-0">
-                <span className="font-light text-white">
-                  Agentes de IA para ventas y soporte 24/7 en 
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 animate-gradient-x font-extralight">
+                  Automatización inteligente
                 </span>
                 <br />
+                <span className="font-light text-white">
+                  para transformar{' '}
+                </span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 animate-gradient-x font-extralight">
-                  WhatsApp, Web e Instagram
+                  tu negocio 24/7
                 </span>
               </h1>
 
               {/* 3. Subtítulo */}
               <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-light text-gray-300 max-w-2xl leading-relaxed px-0 sm:px-0">
-                Integramos tu stack (CRM, ERP, pasarela de pago) y automatizamos desde el primer día: respuesta ultrarrápida, calificación de leads y agendamiento automático.
+                En Cognitiva impulsamos empresas con{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 font-medium">
+                  agentes de IA
+                </span>
+                ,{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 font-medium">
+                  automatizaciones personalizadas
+                </span>
+                ,{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 font-medium">
+                  integraciones
+                </span>
+                {' '}con tus sistemas,{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 font-medium">
+                  marketing digital
+                </span>
+                ,{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 font-medium">
+                  desarrollo web
+                </span>
+                {' '}optimizado y{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 font-medium">
+                  analítica avanzada
+                </span>
+                . Todo en una sola plataforma, para que tu negocio crezca con procesos más ágiles, eficientes y escalables desde el primer día.
               </p>
 
               {/* 4. Fila de CTAs */}

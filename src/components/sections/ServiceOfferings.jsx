@@ -12,7 +12,6 @@ import TouchNavigation from '@/components/ui/TouchNavigation';
 import DemoButton from '@/components/ui/DemoButton';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { useScrollBasedAnimation } from '@/hooks/hookExports';
-import { useClientSideOnly } from '@/hooks/useClientSideOnly';
 import { INTEGRATIONS } from '@/lib/utils/businessConstants';
 import { typographyPresets, textColors } from '@/lib/design-system/typographySystem';
 import { gradients, componentColors } from '@/lib/design-system/colorSystem';
@@ -22,184 +21,185 @@ const SERVICES_DATA = [
   {
     id: "agentes-ia",
     title: "Agentes de IA & Chatbots",
-    subtitle: "que venden y atienden 24/7",
-    oneLiner: "Conversaciones reales en WhatsApp, Web e Instagram, entrenadas con tus datos y conectadas a tu stack.",
+    subtitle: "para ventas, soporte y gestión 24/7",
+    oneLiner: "Automatiza conversaciones en WhatsApp, Web e Instagram, con agentes virtuales entrenados con la información de tu negocio. Responde al instante, gestiona solicitudes, agenda reuniones y ofrece soporte continuo en un solo canal integrado con tus sistemas.",
     icon: MessageSquare,
     color: "from-blue-600 to-cyan-500",
     results: [
-      "Más respuestas al instante y menos abandono",
-      "Calificación automática de leads y derivación al equipo correcto",
-      "Agendamientos y pagos sin fricción desde el chat"
+      "Atención inmediata y continua para tus clientes",
+      "Clasificación y derivación automática de consultas y oportunidades",
+      "Agendamiento y pagos directos desde el chat, sin fricción",
+      "Mayor disponibilidad del equipo humano para tareas estratégicas"
     ],
     features: [
-      "Flujos de venta y soporte listos para adaptar a tu negocio",
-      "Entrenamiento con FAQs, políticas, catálogo y documentos",
-      "Handover a humano con contexto completo",
-      "Escalabilidad para miles de conversaciones simultáneas",
-      "Panel con métricas en tiempo real (CSAT, tasa de resolución, conversión)"
+      "Flujos de venta, soporte y postventa listos para personalizar",
+      "Entrenamiento con tu propio contenido: FAQs, políticas, catálogos y documentos",
+      "Derivación fluida a agentes humanos con todo el contexto de la conversación",
+      "Escalabilidad para miles de interacciones simultáneas",
+      "Panel de control en tiempo real con métricas de atención y eficiencia"
     ],
     integrations: ["WhatsApp", "Instagram", "HubSpot", "Salesforce", "Shopify Plus"],
     testimonial: "Pasamos de tardar horas a responder a hacerlo en segundos. El equipo ahora se enfoca en cerrar ventas.",
     faqs: [
-      { q: "¿Puede hablar varios idiomas?", a: "Sí, soporte multiidioma con detección automática." },
-      { q: "¿Se adapta a mi tono de marca?", a: "Sí, definimos tono y reglas de respuesta." }
+      { q: "¿En cuánto tiempo puedo tener un agente funcionando?", a: "La mayoría de las implementaciones se completan en pocos días, dependiendo del nivel de personalización e integraciones que requieras." },
+      { q: "¿Se integra con mis sistemas actuales (CRM, ERP, pasarela de pago)?", a: "Sí, conectamos con las principales plataformas como Salesforce, HubSpot, Shopify, pasarelas de pago y sistemas propios mediante API." },
+      { q: "¿Qué pasa si necesito que un humano intervenga en la conversación?", a: "El agente transfiere la conversación a un asesor humano con todo el contexto previo, para que tu equipo continúe sin perder información." },
+      { q: "¿Puedo actualizar las respuestas o entrenar al agente con nueva información?", a: "Sí, puedes actualizar fácilmente FAQs, catálogos o documentos para que el agente siempre responda con la información más reciente." },
+      { q: "¿Cómo garantizan la seguridad de los datos?", a: "Cumplimos con estándares de seguridad como ISO 27001 y GDPR. Todos los datos son cifrados y almacenados de forma segura." }
     ],
-    metrics: { roi: "300%", time_saved: "15h/semana", response_time: "<30seg" }
+    metrics: { roi: "Mayor rentabilidad", time_saved: "Ahorro de tiempo", response_time: "Respuestas inmediatas" }
   },
   {
     id: "automatizaciones",
     title: "Automatizaciones Inteligentes",
-    subtitle: "que ahorran horas y aumentan conversión",
-    oneLiner: "Orquesta tareas repetitivas con reglas, IA y triggers en tiempo real.",
+    subtitle: "para escalar procesos sin esfuerzo",
+    oneLiner: "Simplifica y optimiza tus operaciones con flujos automatizados que se adaptan a tu negocio. Reduce tareas manuales, asegura consistencia en cada interacción y conecta todas tus herramientas en tiempo real.",
     icon: Zap,
     color: "from-purple-600 to-pink-500",
     results: [
-      "Tiempo de respuesta menor y SLA consistentes",
-      "Seguimientos automáticos que recuperan oportunidades",
-      "Menos errores manuales y datos siempre sincronizados"
+      "Flujos que reducen carga operativa y mejoran tiempos de respuesta",
+      "Seguimientos automáticos que mantienen a tus clientes conectados",
+      "Datos siempre actualizados y sincronizados en tus sistemas"
     ],
     features: [
-      "Lead scoring y enrutamiento por prioridad",
-      "Secuencias de nurturing multicanal",
-      "Alertas a Slack/Email/CRM con contexto",
-      "Tickets automáticos con clasificación por intención",
-      "Librería de playbooks (onboarding, win-back, cross-sell)"
+      "Lead scoring y asignación automática de prioridades",
+      "Flujos multicanal para ventas, soporte y retención",
+      "Alertas automáticas a tus canales internos (Slack, Email, CRM)",
+      "Tickets inteligentes clasificados por intención",
+      "Biblioteca de playbooks para distintos escenarios de negocio"
     ],
     integrations: ["HubSpot", "Salesforce", "Slack", "Gmail", "Make"],
     testimonial: "Automatizamos recordatorios y recuperamos deals que dábamos por perdidos.",
     faqs: [
-      { q: "¿Necesito equipo técnico?", a: "No necesariamente; partimos con plantillas y luego personalizamos." },
-      { q: "¿Puedo pausar un flujo?", a: "Sí, todo es editable y con versionado." }
+      { q: "¿Cuánto tiempo toma implementar las automatizaciones?", a: "Generalmente puedes tener los primeros flujos en marcha en pocos días, dependiendo de la complejidad." },
+      { q: "¿Se integran con mis sistemas actuales?", a: "Sí, trabajamos con las principales plataformas de CRM, marketing, e-commerce y también desarrollamos integraciones personalizadas." },
+      { q: "¿Puedo modificar los flujos por mi cuenta?", a: "Sí, cuentas con un panel intuitivo para editar, pausar o crear nuevos flujos sin necesidad de soporte técnico." },
+      { q: "¿Qué soporte recibo después de la implementación?", a: "Nuestro equipo acompaña en la optimización continua y ofrecemos soporte 24/7 para incidencias técnicas." }
     ],
-    metrics: { roi: "250%", time_saved: "20h/semana", conversion_boost: "+35%" }
+    metrics: { roi: "Procesos más ágiles", time_saved: "Menos tareas manuales", conversion_boost: "Operación escalable" }
   },
   {
     id: "integraciones",
     title: "Integraciones Empresariales",
-    subtitle: "que conectan tu negocio de punta a punta",
-    oneLiner: "Unimos CRM, ERP, ecommerce y mensajería para que todo fluya sin silos.",
+    subtitle: "para unificar sistemas y optimizar procesos",
+    oneLiner: "Conecta tus plataformas de ventas, soporte y gestión (CRM, ERP, ecommerce, pasarelas de pago y más) en un solo ecosistema. Elimina silos de información, asegura datos sincronizados y gana visibilidad total para tomar mejores decisiones.",
     icon: Plug,
     color: "from-green-600 to-emerald-500",
     results: [
-      "Datos unificados y trazabilidad end-to-end",
-      "Menos tareas manuales; más tiempo para vender",
-      "Reportes confiables para decidir con certeza"
+      "Información integrada y trazabilidad de principio a fin",
+      "Reducción de tareas manuales y procesos más rápidos",
+      "Reportes confiables y actualizados en tiempo real"
     ],
     features: [
-      "Conectores listos (CRM, ecommerce, pasarelas de pago)",
-      "APIs y webhooks a medida cuando hace falta",
-      "Reglas de sincronización y deduplicación",
-      "Monitoreo y alertas de integridad de datos",
-      "Documentación y handover técnico"
+      "Conectores listos para CRM, ecommerce y pasarelas de pago",
+      "Desarrollo de APIs y webhooks personalizados cuando se requiera",
+      "Reglas de sincronización y control de duplicados",
+      "Monitoreo con alertas de integridad de datos",
+      "Documentación clara y acompañamiento técnico en cada etapa"
     ],
     integrations: ["HubSpot", "Salesforce", "Shopify Plus", "Stripe", "Zapier"],
     testimonial: "La información por fin está en un solo lugar; fin de los Excel paralelos.",
     faqs: [
-      { q: "¿Qué pasa si no hay conector?", a: "Creamos uno a medida vía API." },
-      { q: "¿Interrumpe mis operaciones?", a: "No: migración por etapas y ventanas controladas." }
+      { q: "¿Qué sistemas se pueden integrar?", a: "Podemos conectar CRM, ERP, ecommerce, herramientas de marketing y sistemas propios mediante API." },
+      { q: "¿Qué pasa si no existe un conector predefinido?", a: "Creamos integraciones personalizadas vía API o webhooks a medida." },
+      { q: "¿Cómo evitan interrupciones en mis operaciones?", a: "Realizamos migraciones por etapas y ventanas controladas para que el negocio nunca se detenga." },
+      { q: "¿Puedo monitorear la integridad de mis datos?", a: "Sí, recibirás alertas y reportes automáticos para garantizar que la información esté siempre sincronizada y confiable." }
     ],
-    metrics: { roi: "400%", data_accuracy: "99.8%", sync_time: "<5min" }
+    metrics: { roi: "Datos centralizados", data_accuracy: "Operación conectada", sync_time: "Decisiones más claras" }
   },
   {
     id: "marketing",
     title: "Marketing Digital & Embudos",
-    subtitle: "basado en datos que convierte en cada etapa",
-    oneLiner: "SEO/SEM, retargeting y mensajes personalizados activados por IA.",
+    subtitle: "para atraer, convertir y fidelizar clientes",
+    oneLiner: "Diseñamos y ejecutamos estrategias digitales integrales con SEO, SEM, publicidad en redes sociales, embudos personalizados y automatización de campañas. Todo basado en datos reales y optimizado con IA para mejorar la captación, conversión y retención de clientes.",
     icon: Target,
     color: "from-orange-600 to-red-500",
     results: [
-      "Mejor CAC y mayor ROAS en campañas",
-      "Más leads calificados listos para ventas",
-      "Aumento de LTV por personalización"
+      "Audiencias mejor segmentadas y mayor visibilidad de marca",
+      "Leads más calificados listos para tu equipo de ventas",
+      "Embudos personalizados que aumentan conversión y fidelización"
     ],
     features: [
-      "Investigación de keywords y estructura SEO",
-      "Campañas SEM y paid social con experimentación continua",
-      "Landing pages de alta conversión (A/B testing)",
-      "Retargeting por comportamiento y señales de intención",
-      "Mensajería dinámica por segmento/industria"
+      "Investigación de palabras clave y auditoría SEO",
+      "Campañas SEM y publicidad digital optimizadas continuamente",
+      "Creación de landing pages de alto rendimiento (con pruebas A/B)",
+      "Estrategias de retargeting basadas en comportamiento e intención de compra",
+      "Automatización de mensajes y embudos dinámicos por industria o segmento"
     ],
     integrations: ["Google Ads", "Meta", "LinkedIn", "HubSpot", "Mailchimp"],
     testimonial: "Las campañas ahora conversan con el CRM; invertimos donde realmente convierte.",
     faqs: [
-      { q: "¿Pueden usar mis audiencias actuales?", a: "Sí, importamos y enriquecemos audiencias." },
-      { q: "¿Se mide de extremo a extremo?", a: "Sí, conectamos campañas, CRM y ventas." }
+      { q: "¿Puedo aprovechar mis audiencias actuales?", a: "Sí, integramos tus bases de datos y audiencias previas para optimizarlas con nuevas campañas." },
+      { q: "¿Qué canales publicitarios manejan?", a: "Trabajamos con buscadores, redes sociales, plataformas de display y remarketing." },
+      { q: "¿Cómo se mide el rendimiento de las campañas?", a: "Tendrás acceso a reportes en tiempo real con métricas de captación, conversión y retorno." },
+      { q: "¿Se pueden personalizar embudos para mi industria?", a: "Sí, diseñamos embudos específicos para retail, educación, servicios financieros, inmobiliaria, SaaS y más." }
     ],
-    metrics: { roi: "350%", cac_reduction: "-40%", roas: "4.2x" }
+    metrics: { roi: "Más alcance", cac_reduction: "Mejores leads", roas: "Mayor conversión" }
   },
   {
     id: "web-seo",
     title: "Desarrollo Web SEO-First",
-    subtitle: "rápidos, seguros y listos para escalar",
-    oneLiner: "Arquitectura enfocada en SEO, rendimiento y conversión desde el día uno.",
+    subtitle: "para cargar más rápido, posicionar mejor y convertir más",
+    oneLiner: "Creamos sitios y landing pages con arquitectura SEO-first, alto rendimiento y seguridad. Diseños modernos y escalables que cargan en segundos, facilitan la gestión de contenidos y se integran con tus herramientas de marketing y ventas para impulsar la conversión desde el primer día.",
     icon: Layout,
     color: "from-indigo-600 to-blue-500",
     results: [
-      "Velocidad y experiencia superiores (mejor posicionamiento)",
-      "Más conversión en landing pages y formularios",
-      "Base estable para crecer sin fricción"
+      "Mejor experiencia y posicionamiento en buscadores",
+      "Más envíos de formularios y oportunidades para ventas",
+      "Base tecnológica estable, segura y lista para escalar"
     ],
     features: [
-      "Arquitectura limpia y componentes reutilizables",
-      "Core vitals, sitemap y marcado estructurado",
-      "Formularios con validación y antispam",
-      "CMS/Headless opcional para escalar contenidos",
-      "Integración analítica y pixeles publicitarios"
+      "Arquitectura modular con componentes reutilizables",
+      "Optimización Core Web Vitals, sitemap y schema",
+      "Formularios con validación, protección antispam y seguridad",
+      "CMS flexible o Headless para autogestión y escalabilidad",
+      "Integración con analítica, CRM y píxeles publicitarios"
     ],
     integrations: ["WordPress", "Shopify Plus", "Google", "HubSpot", "Stripe"],
     testimonial: "El nuevo sitio carga rápido y genera leads desde el primer día.",
     faqs: [
-      { q: "¿Migran mi contenido?", a: "Sí, con redirecciones y preservando SEO." },
-      { q: "¿Puedo autogestionar?", a: "Sí, dejamos todo documentado o con CMS." }
+      { q: "¿Qué pasa con mi contenido actual?", a: "Migramos tu contenido y lo dejamos optimizado para SEO y UX." },
+      { q: "¿Puedo administrar el sitio sin equipo técnico?", a: "Sí, tendrás un CMS intuitivo para crear y editar páginas y formularios." },
+      { q: "¿Con qué herramientas se integra?", a: "Conectamos con CRM, automatización de marketing, analítica y ads." },
+      { q: "¿Cómo aseguran buen rendimiento de carga?", a: "Aplicamos prácticas de optimización (imágenes, caché, bundling) y monitoreamos Core Web Vitals." }
     ],
-    metrics: { page_speed: "95/100", seo_boost: "+65%", conversion_rate: "+28%" }
+    metrics: { page_speed: "Carga ultrarrápida", seo_boost: "SEO optimizado", conversion_rate: "Conversión mejorada" }
   },
   {
     id: "analytics",
     title: "Analytics & BI",
-    subtitle: "Decisiones con datos en tiempo real",
-    oneLiner: "Dashboards, atribución y métricas claves conectadas a tus sistemas.",
+    subtitle: "para decisiones claras en tiempo real",
+    oneLiner: "Unifica tus fuentes de datos y obtén dashboards en tiempo real, KPIs personalizados y modelos de atribución. Convierte información dispersa en insights accionables para optimizar procesos, ventas y planificación.",
     icon: BarChart3,
     color: "from-teal-600 to-cyan-500",
     results: [
-      "Visibilidad total del funnel de punta a punta",
-      "Identificación de cuellos de botella y oportunidades",
-      "Forecast de ventas y planeación más precisa"
+      "Visibilidad completa del funnel y de los puntos críticos del negocio",
+      "Detección de cuellos de botella y oportunidades de mejora",
+      "Proyecciones y planificación más precisas para crecimiento"
     ],
     features: [
-      "Conexión a fuentes (CRM, Ads, ecommerce, soporte)",
-      "KPIs accionables por equipo/rol",
-      "Modelos de atribución y cohortes",
+      "Integración con CRM, ecommerce, Ads y plataformas de soporte",
+      "KPIs y vistas personalizadas por equipo o área",
+      "Modelos de atribución y análisis por cohortes",
       "Alertas y reportes automáticos por canal",
-      "Capacitación para equipos"
+      "Capacitación y buenas prácticas para adopción interna"
     ],
     integrations: ["Google", "HubSpot", "Salesforce", "Shopify Plus", "Slack"],
     testimonial: "Pasamos de reportes manuales a decisiones en tiempo real.",
     faqs: [
-      { q: "¿Pueden crear métricas personalizadas?", a: "Sí, definimos KPIs por área." },
-      { q: "¿Cómo se asegura la calidad de datos?", a: "Reglas de validación y monitoreo continuo." }
+      { q: "¿Qué datos puedo conectar?", a: "CRM, ecommerce, plataformas publicitarias, soporte, finanzas y más." },
+      { q: "¿Pueden personalizar dashboards y KPIs?", a: "Sí, adaptamos métricas y vistas a los objetivos de cada área." },
+      { q: "¿Cómo aseguran calidad y consistencia de datos?", a: "Validaciones, reglas de sincronización y alertas de integridad." },
+      { q: "¿Necesito conocimientos técnicos para usarlo?", a: "No, los paneles son intuitivos y brindamos capacitación a tu equipo." }
     ],
-    metrics: { data_accuracy: "99.9%", report_speed: "<2seg", insights_generated: "50+/mes" }
+    metrics: { data_accuracy: "Visión 360°", report_speed: "Insights accionables", insights_generated: "Reportes en tiempo real" }
   }
 ];
 
 export default function ServiceOfferings() {
   const { ref } = useScrollBasedAnimation();
   const [activeService, setActiveService] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const hasMounted = useClientSideOnly();
   const [openFaqs, setOpenFaqs] = useState({}); // Estado para FAQ abiertos
-
-  // Detectar dispositivo móvil
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   // Detectar hash de servicio en URL y navegar automáticamente
   useEffect(() => {
@@ -264,10 +264,10 @@ export default function ServiceOfferings() {
 
   // Métricas generales de servicios
   const SERVICES_METRICS = [
-    { value: "300%", label: "ROI promedio" },
-    { value: "15h", label: "ahorro semanal" },
+    { value: "Alta", label: "rentabilidad" },
+    { value: "Significativo", label: "ahorro de tiempo" },
     { value: "24/7", label: "automatización" },
-    { value: "98%", label: "uptime garantizado" }
+    { value: "Máxima", label: "disponibilidad" }
   ];
 
   // Mapeo de métricas a iconos específicos
@@ -363,24 +363,22 @@ export default function ServiceOfferings() {
         </div>
 
         {/* CTAs - Solo visible en desktop */}
-        {hasMounted && !isMobile && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <DemoButton 
-              variant="default"
-              size="medium"
-              text="Ver Demo de 30 min"
-              subtitle="Caso de tu industria"
-              showSubtitle={true}
-            />
-            <WhatsAppButton 
-              variant="default"
-              size="medium"
-              text="Hablar por WhatsApp"
-              subtitle="Respuesta en <2 min"
-              showSubtitle={true}
-            />
-          </div>
-        )}
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <DemoButton 
+            variant="default"
+            size="medium"
+            text="Ver Demo de 30 min"
+            subtitle="Caso de tu industria"
+            showSubtitle={true}
+          />
+          <WhatsAppButton 
+            variant="default"
+            size="medium"
+            text="Hablar por WhatsApp"
+            subtitle="Respuesta en <2 min"
+            showSubtitle={true}
+          />
+        </div>
 
         {/* Resultados */}
         <div>
@@ -552,7 +550,7 @@ export default function ServiceOfferings() {
           activeIndex={activeService}
           onItemSelect={setActiveService}
           variant="pills"
-          size={hasMounted && isMobile ? "medium" : "large"}
+          size="large"
           showIcons={true}
           showNumbers={false}
           centerActiveItem={true}
@@ -567,7 +565,7 @@ export default function ServiceOfferings() {
           activeIndex={activeService}
           onIndexChange={setActiveService}
           renderCard={renderServiceCard}
-          enableSwipe={hasMounted && isMobile}
+          enableSwipe={true}
           showIndicators={false}
           showArrows={false}
           className="mb-8"

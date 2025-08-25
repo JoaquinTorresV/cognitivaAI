@@ -295,8 +295,7 @@ export default function WorkMethodology() {
         </div>
 
         {/* CTAs específicos del paso - Solo visible en desktop */}
-        {hasMounted && !isMobile && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-4">
             <DemoButton 
               variant="default"
               size="medium"
@@ -311,8 +310,7 @@ export default function WorkMethodology() {
               subtitle="Respuesta inmediata"
               showSubtitle={true}
             />
-          </div>
-        )}
+        </div>
 
         {/* Resultados esperados */}
         <div>
