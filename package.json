@@ -1,0 +1,46 @@
+{
+    "name": "cognitiva-ai",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
+    },
+    "dependencies": {
+        "clsx": "^2.1.1",
+        "critters": "^0.0.24",
+        "lucide-react": "^0.454.0",
+        "next": "^15.5.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.10",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "autoprefixer": "^10.4.20",
+        "eslint": "^8.57.0",
+        "eslint-config-next": "14.2.15",
+        "postcss": "^8.4.47",
+        "prettier": "^3.3.3",
+        "sharp": "^0.34.3",
+        "tailwindcss": "^3.4.13"
+    },
+    "engines": {
+        "node": ">=18.17.0",
+        "npm": ">=9.0.0"
+    },
+    "browserslist": [
+        "defaults and not IE 11",
+        "last 2 chrome versions",
+        "last 2 firefox versions",
+        "last 2 safari versions",
+        "last 2 edge versions",
+        "last 2 ios_saf versions",
+        "> 1%",
+        "not dead"
+    ]
+}
