@@ -30,7 +30,7 @@ export const metadata = {
     siteName: 'Cognitiva AI',
     images: [
       {
-        url: '/logo-cognitiva.png',
+        url: '/logo-cognitiva-rrss.png',
         width: 1200,
         height: 630,
         alt: 'Cognitiva AI - Inteligencia Artificial para Negocios',
@@ -43,7 +43,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Cognitiva AI - Agentes de IA para Empresas',
     description: 'Automatización inteligente que multiplica tus resultados',
-    images: ['/logo-cognitiva.png'],
+    images: ['/logo-cognitiva-rrss.png'],
     creator: '@cognitiva',
   },
   robots: {

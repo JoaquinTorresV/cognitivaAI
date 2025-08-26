@@ -53,10 +53,69 @@ export default function Navbar() {
       const scanInterval = setInterval(() => {
         setScanPosition(prev => (prev + 1) % 100);
       }, 30);
+
+      // Limpiar elementos inyectados por extensiones del navegador
+      const cleanupExtensionElements = () => {
+        try {
+          // Elementos específicos conocidos por causar problemas de hidratación
+          const problematicIds = ['extwaiokist', 'extensionDiv', 'wappalyzer-container'];
+          problematicIds.forEach(id => {
+            const element = document.getElementById(id);
+            if (element && element.parentNode) {
+              element.parentNode.removeChild(element);
+            }
+          });
+
+          // Limpiar elementos con patrones conocidos
+          const extensionElements = document.querySelectorAll('[id*="ext"], [id*="extension"], [id*="addon"], [id*="wappalyzer"]');
+          extensionElements.forEach(el => {
+            if (el.parentNode && el.style.display === 'none') {
+              el.parentNode.removeChild(el);
+            }
+          });
+        } catch (error) {
+          // Silenciosamente ignorar errores de limpieza
+          console.debug('Extension cleanup skipped:', error.message);
+        }
+      };
+
+      // Ejecutar limpieza múltiples veces para asegurar efectividad
+      const cleanupTimeout1 = setTimeout(cleanupExtensionElements, 50);
+      const cleanupTimeout2 = setTimeout(cleanupExtensionElements, 200);
+      const cleanupTimeout3 = setTimeout(cleanupExtensionElements, 500);
+
+      // Observer para detectar elementos inyectados dinámicamente
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === 1 && node.id && node.id.includes('ext')) {
+                try {
+                  if (node.parentNode) {
+                    node.parentNode.removeChild(node);
+                  }
+                } catch (e) {
+                  console.debug('Could not remove extension element:', e);
+                }
+              }
+            });
+          }
+        });
+      });
+
+      // Observar cambios en el documento
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
       
       return () => {
         window.removeEventListener("scroll", onScroll);
         clearInterval(scanInterval);
+        clearTimeout(cleanupTimeout1);
+        clearTimeout(cleanupTimeout2);
+        clearTimeout(cleanupTimeout3);
+        observer.disconnect();
       };
     }
   }, []);
@@ -99,7 +158,6 @@ export default function Navbar() {
     { label: "Salud", href: "#industrias-salud", icon: Heart },
     { label: "Inmobiliaria", href: "#industrias-inmobiliaria", icon: Settings },
     { label: "SaaS/Tech", href: "#industrias-saas", icon: Cloud },
-    { label: "Ver todas", href: "#industrias", icon: Globe }
   ];
 
   const handleMobileNavClick = (href) => {
@@ -336,18 +394,19 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`lg:hidden absolute top-full left-0 right-0 transition-all duration-500 ${
-          mobileMenuOpen 
-            ? 'opacity-100 translate-y-0 pointer-events-auto' 
-            : 'opacity-0 -translate-y-4 pointer-events-none'
-        }`}>
+        {/* Mobile Menu - Solo renderizar después del mount */}
+        {hasMounted && (
+          <div className={`lg:hidden absolute top-full left-0 right-0 transition-all duration-500 ${
+            mobileMenuOpen 
+              ? 'opacity-100 translate-y-0 pointer-events-auto' 
+              : 'opacity-0 -translate-y-4 pointer-events-none'
+          }`} suppressHydrationWarning>
           <div className="bg-dark-200 backdrop-blur-xl border-t border-white/20 shadow-[0_30px_60px_rgba(59,130,246,0.4)] border-l border-r border-white/15">
             <div className="absolute inset-0 bg-gradient-to-b from-dark/95 via-dark-100/90 to-dark-200/95 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-cyan-500/5 pointer-events-none" />
             
             <div className="container-padded px-3 sm:px-4 py-4 sm:py-6 relative">
-              <div className="space-y-2">
+              <div className="space-y-2" suppressHydrationWarning>
                 {NAV_LINKS.map((link, index) => {
                   const Icon = linkIcons[link.href];
                   const hasDropdown = link.label === "Servicios" || link.label === "Industrias";
@@ -442,7 +501,8 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        )}
       </nav>
     </>
   );
