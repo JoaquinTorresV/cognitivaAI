@@ -9,7 +9,7 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { useScrollBasedAnimation } from '@/hooks/hookExports';
 import { useClientSideOnly } from '@/hooks/useClientSideOnly';
 import { INTEGRATIONS } from '@/lib/utils/businessConstants';
-import { 
+import {
   ArrowRight, CheckCircle, ShoppingBag, GraduationCap, Stethoscope, Building,
   CreditCard, Shield, Terminal, Cpu, Plane, Truck, Scale, Briefcase,
   Timer, MessageCircle, ShieldCheck, Target, TrendingUp
@@ -37,7 +37,7 @@ const INDUSTRIES_DATA = [
     ctas: ["Ver casos de E-commerce", "Hablar con un experto"]
   },
   {
-    id: "education",
+    id: "educacion",
     title: "Educación",
     icon: GraduationCap,
     color: "from-blue-600 to-cyan-500",
@@ -54,7 +54,7 @@ const INDUSTRIES_DATA = [
     ctas: ["Ver casos de Educación", "Solicitar diagnóstico"]
   },
   {
-    id: "health",
+    id: "salud",
     title: "Salud",
     icon: Stethoscope,
     color: "from-green-600 to-emerald-500",
@@ -71,7 +71,7 @@ const INDUSTRIES_DATA = [
     ctas: ["Ver casos de Salud", "Hablar con un experto"]
   },
   {
-    id: "real-estate",
+    id: "inmobiliaria",
     title: "Inmobiliaria",
     icon: Building,
     color: "from-orange-600 to-red-500",
@@ -88,7 +88,7 @@ const INDUSTRIES_DATA = [
     ctas: ["Ver casos de Inmobiliaria", "Solicitar propuesta"]
   },
   {
-    id: "finance",
+    id: "finanzas",
     title: "Finanzas & Seguros",
     icon: CreditCard,
     color: "from-indigo-600 to-blue-500",
@@ -122,7 +122,7 @@ const INDUSTRIES_DATA = [
     ctas: ["Ver casos de SaaS", "Probar demo guiada"]
   },
   {
-    id: "tourism",
+    id: "turismo",
     title: "Turismo & Hospitalidad",
     icon: Plane,
     color: "from-amber-600 to-orange-500",
@@ -139,7 +139,7 @@ const INDUSTRIES_DATA = [
     ctas: ["Ver casos de Turismo", "Solicitar diagnóstico"]
   },
   {
-    id: "logistics",
+    id: "logistica",
     title: "Logística & Última milla",
     icon: Truck,
     color: "from-slate-600 to-gray-600",
@@ -194,7 +194,7 @@ export default function IndustryExpertise() {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -215,30 +215,30 @@ export default function IndustryExpertise() {
         '#industrias-logistica': 7,
         '#industrias-legal': 8
       };
-      
+
       if (industryMap.hasOwnProperty(hash)) {
         setActiveIndustry(industryMap[hash]);
-        
+
         // Scroll automático a la sección de industrias si no está visible
         setTimeout(() => {
           const industriasSection = document.getElementById('industrias');
           if (industriasSection) {
-            industriasSection.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start' 
+            industriasSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
             });
           }
         }, 100);
       } else if (hash === '#industrias') {
         setActiveIndustry(0);
-        
+
         // Scroll automático para hash genérico también
         setTimeout(() => {
           const industriasSection = document.getElementById('industrias');
           if (industriasSection) {
-            industriasSection.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start' 
+            industriasSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
             });
           }
         }, 100);
@@ -254,13 +254,13 @@ export default function IndustryExpertise() {
   const getIndustryIntegrations = (industryIntegrations) => {
     const matchedIntegrations = [];
     const seenImages = new Set();
-    
+
     // Buscar coincidencias exactas primero
     for (const name of industryIntegrations) {
-      const exactMatch = INTEGRATIONS.find(integration => 
+      const exactMatch = INTEGRATIONS.find(integration =>
         integration.name.toLowerCase() === name.toLowerCase()
       );
-      
+
       if (exactMatch && !seenImages.has(exactMatch.src)) {
         seenImages.add(exactMatch.src);
         matchedIntegrations.push(exactMatch);
@@ -268,24 +268,24 @@ export default function IndustryExpertise() {
         if (matchedIntegrations.length >= 3) break;
       }
     }
-    
+
     // Si no hay suficientes coincidencias exactas, buscar coincidencias parciales
     if (matchedIntegrations.length < 2) {
       for (const integration of INTEGRATIONS) {
         if (matchedIntegrations.length >= 3) break;
-        
-        const hasPartialMatch = industryIntegrations.some(name => 
+
+        const hasPartialMatch = industryIntegrations.some(name =>
           integration.name.toLowerCase().includes(name.toLowerCase()) ||
           name.toLowerCase().includes(integration.name.toLowerCase())
         );
-        
+
         if (hasPartialMatch && !seenImages.has(integration.src)) {
           seenImages.add(integration.src);
           matchedIntegrations.push(integration);
         }
       }
     }
-    
+
     return matchedIntegrations;
   };
 
@@ -304,7 +304,7 @@ export default function IndustryExpertise() {
                 <industry.icon className="h-7 w-7 text-white" />
               </div>
             </div>
-            
+
             {/* Contenido del header */}
             <div className="mb-6">
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-3">
@@ -323,14 +323,14 @@ export default function IndustryExpertise() {
         {/* CTAs - Solo visible en desktop */}
         {hasMounted && !isMobile && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <DemoButton 
+            <DemoButton
               variant="default"
               size="medium"
               text={industry.ctas[0]}
               subtitle="Casos verificados"
               showSubtitle={true}
             />
-            <WhatsAppButton 
+            <WhatsAppButton
               variant="default"
               size="medium"
               text={industry.ctas[1]}
@@ -374,8 +374,8 @@ export default function IndustryExpertise() {
           <div className="grid grid-cols-3 gap-3">
             {getIndustryIntegrations(industry.integrations).map((integration, idx) => (
               <div key={idx} className="flex items-center justify-center p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                <Image 
-                  src={integration.src} 
+                <Image
+                  src={integration.src}
                   alt={integration.name}
                   width={integration.width}
                   height={integration.height}
@@ -392,12 +392,16 @@ export default function IndustryExpertise() {
   );
 
   return (
-    <Section 
-      id="industrias" 
+    <Section
+      id="industrias"
       className="animate-in"
       ref={ref}
       aria-label="Industrias especializadas"
     >
+      {/* Anchor stubs for navbar dropdown direct navigation */}
+      {INDUSTRIES_DATA.map(ind => (
+        <span key={`anchor-${ind.id}`} id={`industrias-${ind.id}`} aria-hidden="true" className="block h-0" />
+      ))}
       {/* Header de sección */}
       <SectionTitle
         subtitle={<><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Agentes de IA</span>, <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">automatizaciones</span> e <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">integraciones</span> diseñadas para tu vertical. Operaciones más ágiles, costos controlados y <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">embudos que convierten de principio a fin</span>.</>}
@@ -447,18 +451,18 @@ export default function IndustryExpertise() {
             Indicadores y prácticas que <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">medimos en producción</span> por vertical.
           </p>
         </div>
-        
+
         <div className="mt-8 p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-white/[0.04] to-white/[0.02] backdrop-blur-xl border border-white/10 max-w-5xl mx-auto mb-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
             {INDUSTRY_METRICS.map((stat, i) => {
               const IconComponent = stat.icon;
               const colorClasses = [
                 "from-green-500 to-emerald-500",
-                "from-blue-500 to-cyan-500", 
+                "from-blue-500 to-cyan-500",
                 "from-orange-500 to-red-500",
                 "from-purple-500 to-indigo-500"
               ];
-              
+
               return (
                 <div key={i} className="py-4 lg:py-2">
                   <div className="flex items-center justify-center mb-4">
